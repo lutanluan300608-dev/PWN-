@@ -1,4 +1,5 @@
-Máy tính cơ bản gồm:
+## 1.Máy tính cơ bản gồm:
+```
              ┌──────────────┐
              │     CPU      │
              │              │
@@ -14,3 +15,5 @@ Máy tính cơ bản gồm:
       └───────┘          └─────────┘
 
 CPU (Central Processing Unit): Bộ xử lí trung tâm của máy tính, hiểu đơn giản CPU là thành phần thực thi các lệnh chương trình
+
+```
