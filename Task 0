@@ -1,0 +1,8 @@
+Nội dung cần học
+Kiến trúc máy tính: Nắm sơ về kiến trúc x86-64.
+Register, Memory Layout (nên coi video mik gửi), Calling Convention: Hiểu các register phổ biến, cách hàm được gọi và đặc biệt là memory layout của chương trình.
+Bit/Byte & Endianness: Hiểu bit, byte, LSB/MSB, little-endian và big-endian.
+Stack: Hiểu cách stack hoạt động, đặc biệt là push, pop và mối liên hệ giữa stack với memory/register.
+Hex/Binary: Biết đọc, chuyển đổi và thao tác dữ liệu ở dạng hex/binary.
+Linux: Biết sử dụng các command cơ bản.
+Assembly: Biết đọc và viết Assembly cơ bản, đủ để hiểu register, memory, stack, syscall và sau này có thể tự viết shellcode.
