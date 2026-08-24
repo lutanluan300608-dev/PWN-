@@ -13,7 +13,13 @@
       ┌───▼───┐          ┌────▼────┐
       │  RAM  │          │ I/O     │
       └───────┘          └─────────┘
+```
 
-CPU (Central Processing Unit): Bộ xử lí trung tâm của máy tính, hiểu đơn giản CPU là thành phần thực thi các lệnh chương trình
+### CPU (Central Processing Unit): 
+```
+Bộ xử lí trung tâm của máy tính, hiểu đơn giản CPU là thành phần thực thi các lệnh chương trình.
+```
+### Register (Thanh ghi)
+```
 
 ```
