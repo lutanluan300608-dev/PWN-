@@ -1,0 +1,16 @@
+Máy tính cơ bản gồm:
+             ┌──────────────┐
+             │     CPU      │
+             │              │
+             │  Registers   │
+             │     ALU      │
+             │  Control     │
+             └──────┬───────┘
+                    │
+          ┌─────────┴─────────┐
+          │                   │
+      ┌───▼───┐          ┌────▼────┐
+      │  RAM  │          │ I/O     │
+      └───────┘          └─────────┘
+
+CPU (Central Processing Unit): Bộ xử lí trung tâm của máy tính, hiểu đơn giản CPU là thành phần thực thi các lệnh trương 
