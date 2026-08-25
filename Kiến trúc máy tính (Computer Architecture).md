@@ -82,18 +82,67 @@ Registers     ALU       Memory
 
 Quá trình trên gọi là **Fetch**
 
-Instruction = công việc cần làm.
-Data = thứ được đem ra xử lý.
-CU = bộ phận điều khiển cách công việc được thực hiện.
-ALU = bộ phận thực hiện các phép toán số học/logic.
+Instruction = CPU được giao việc gì
+Fetch = đi lấy công việc
+Decode = đọc và hiểu công việc
+Control = điều phối ai phải làm
+Execute = thực hiện công việc
+Result = nhận kết quả
+
+==>Ví dụ một đội bóng:
+CU  = HLV
+ALU = cầu thủ thực hiện phép tính
+Registers = nơi giữ dữ liệu tạm thời
+Memory = kho chứa dữ liệu/instruction
+```
+
+
+### ALU (Arithmetic Logic Unit) = Bộ số học và logic.
+```
+Thành phần thực hiện các phép toán và phép logic trên dữ liệu.
+Phép toán số học: +, -, ×, ÷ .
+Phép toán logic: AND, OR, XOR, NOT.
+
+```
+
+### RAM(Random Access Memory)
+```
+Là bộ nhớ mà máy tính dùng để lưu trữ TẠM THỜI chương trình và dữ liệu đang được sử dụng.
+RAM là nơi máy tính đặt những thứ đang cần làm việc tại đó.
+
+
+          SSD
+           ↓
+đưa chương trình/dữ liệu vào RAM
+           ↓
+    CPU sử dụng chúng
+
+![](<img width="800" height="537" alt="image" src="https://github.com/user-attachments/assets/76ca079f-9251-485a-9c32-2b653fb34e73" />)
+
+
+
+
+
+
 ```
 
 ### Register (Thanh ghi)
 ```
 
-```
-###
+
+==>Lưu ý quan trọng: Register và RAM là hai loại bộ nhớ khác nhau.
+
+Register
+→ nằm trong CPU
+→ rất ít
+→ cực kỳ nhanh
+→ dùng để giữ dữ liệu/giá trị mà CPU đang sử dụng
+
+RAM
+→ nằm bên ngoài lõi CPU
+→ dung lượng lớn hơn rất nhiều
+→ chậm hơn Register
+→ chứa chương trình và dữ liệu đang được sử dụng
 ```
 
 
-```
