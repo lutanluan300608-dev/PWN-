@@ -4,7 +4,7 @@
              │     CPU      │
              │              │
              │  Registers   │
-             │     ALU      │
+             │     ALU      │                                              
              │  Control     │
              └──────┬───────┘
                     │
@@ -80,7 +80,12 @@ Có thể hình dung:
    ▼          ▼          ▼
 Registers     ALU       Memory
 
-Quá trình trên gọi là **FETCH**.
+Quá trình trên gọi là **Fetch**
+
+Instruction = công việc cần làm.
+Data = thứ được đem ra xử lý.
+CU = bộ phận điều khiển cách công việc được thực hiện.
+ALU = bộ phận thực hiện các phép toán số học/logic.
 ```
 
 ### Register (Thanh ghi)
