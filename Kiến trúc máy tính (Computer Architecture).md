@@ -51,13 +51,44 @@ CPU cũng gồm các thành phần nhỏ khác:
         │                   │
         └───────────────────┘
 ```
+
+### CU (Control Unit)
+```
+-Điều khiển máy tính theo chương trình đã định sẵn, phối hợp hành động với các thiết bị khác trong CPU.
+->Có thể hiểu đơn giản, CU là nơi ra lệnh cho các thành phần khác phải làm gì.
+Ví dụ: CU không trực tiếp tính 9 + 10 mà sẽ điều  ALU làm.
+ 
+Có thể hình dung:
+              CPU
+              │
+              │ 1. Fetch
+              ▼
+       lấy instruction
+              │
+              ▼
+         2. Decode
+              │
+      CPU giải mã instruction
+              │
+              ▼
+     CU / control logic
+       tạo tín hiệu điều khiển
+              │
+              ▼
+   3. Execute
+   ┌──────────┼──────────┐
+   ▼          ▼          ▼
+Registers     ALU       Memory
+
+Quá trình trên gọi là **FETCH**.
+```
+
 ### Register (Thanh ghi)
 ```
 
 ```
 ###
 ```
-<img width="586" height="321" alt="2" src="https://github.com/user-attachments/assets/7d7239b5-2a3c-4869-acd1-758623122229" />
-<img width="586" height="321" alt="2" src="https://github.com/user-attachments/assets/06b6837d-efdc-4614-9135-28b2030165c6" />
+
 
 ```
