@@ -117,7 +117,7 @@ RAM là nơi máy tính đặt những thứ đang cần làm việc tại đó.
            ↓
     CPU sử dụng chúng
 
-![](<img width="800" height="537" alt="image" src="https://github.com/user-attachments/assets/76ca079f-9251-485a-9c32-2b653fb34e73" />)
+
 
 
 
@@ -125,6 +125,7 @@ RAM là nơi máy tính đặt những thứ đang cần làm việc tại đó.
 
 
 ```
+![](<img width="800" height="537" alt="image" src="https://github.com/user-attachments/assets/76ca079f-9251-485a-9c32-2b653fb34e73" />)
 
 ### Register (Thanh ghi)
 ```
