@@ -15,8 +15,6 @@
       └───────┘          └─────────┘
 
 ```
-<img width="447" height="447" alt="image" src="https://github.com/user-attachments/assets/87c58a28-5c8e-451b-a915-9611ceab88b1" />
-
 
 ### CPU (Central Processing Unit): 
 ```
