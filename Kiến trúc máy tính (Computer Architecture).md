@@ -144,6 +144,21 @@ Mỗi Data hay Instruction trong bộ nhớ có một ĐỊA CHỈ.
 
 =>Tại địa chỉ 0x1000 đang chứa giá trị 42
 
+  RAM cũng giống một dãy hộp
+
+┌────────┬────────┬────────┬────────┐
+│ 1 byte │ 1 byte │ 1 byte │ 1 byte │
+├────────┼────────┼────────┼────────┤
+│  0x1000│  0x1001│  0x1002│  0x1003│
+└────────┴────────┴────────┴────────┘
+
+Mỗi ô có một địa chỉ, chứa 1 byte.
+
+NHƯNG LƯU Ý có dữ liệu sẽ chiếm nhiều hơn 1 byte, cũng tức là chiếm nhiều hơn 1 địa chỉ.
+Ví dụ là 0x123456789 sẽ chiếm 4 byte, hoặc đơn giản 1 số nguyên 32-bit sẽ chiếm 4 byte.
+Địa chỉ xác định 1 byte, dữ liệu có thể chiếm 1 hoặc nhiều hơn 1 địa chỉ, byte.
+
+
 
 ```
 ### Register (Thanh ghi)
