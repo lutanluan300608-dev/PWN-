@@ -1,4 +1,4 @@
-## BIT
+# BIT
 
 -Bit là đơn vị thông tin nhỏ nhất mà máy tính thường dùng để biểu diễn dữ liệu.
 
@@ -40,7 +40,7 @@ Vì vậy 1 byte (8 bit) có thể biểu diễn 256 giá trị khác nhau, từ
 
 
 
-## Hex(Hexadecimal): Hệ thập lục phân-> 16
+# Hex(Hexadecimal): Hệ thập lục phân-> 16
 -Gồm: 0 1 2 3 4 5 6 7 8 9 A B C D E 
 Trong Binary: 1010
 Trong Hex: A
@@ -73,3 +73,61 @@ RAM
 nhiều byte
  ↓
 mỗi byte gồm 8 bit
+
+# ENDIANNESS
+Ví dụ ta có số: 0x12345678
+Số này gồm 8 ký tự Hex.
+Mà:
+2 ký tự Hex = 1 byte
+nên:
+
+0x12  0x34  0x56  0x78
+  │     │     │     │
+  └─────┴─────┴─────┘
+       4 byte
+
+
+RAM chỉ lưu theo từng byte, tức nghĩa để lưu "0x12345678" cần 4 địa chỉ tương ứng 4 byte.
+NHƯNG nó sẽ được lưu theo thứ tự như thế nào
+## BIG-ENDIAN VÀ LITTLE-ENDIAN
+----**Big-endian** đặt **byte lớn nhất(MSB-Most Significant Byte)** ở địa chỉ nhỏ nhất.
+
+Với: 0x12345678
+ta có:
+
+0x12  0x34  0x56  0x78
+ ↑
+MSB
+
+Memory:
+   Địa chỉ       Dữ liệu
+
+   0x1000   →    12
+   0x1001   →    34
+   0x1002   →    56
+   0x1003   →    78
+
+----**Little-endian** đặt **byte nhỏ nhất(LSB-Least Significant Byte)** ở địa chỉ nhỏ nhất.
+
+Với: 0x12345678
+Byte cuối: 78 là LSB.
+
+Memory sẽ thành:
+   Địa chỉ       Dữ liệu
+
+   0x1000   →    78
+   0x1001   →    56
+   0x1002   →    34
+   0x1003   →    12
+
+Trong: 0x12345678
+ta có:
+
+12 34 56 78
+↑           ↑
+MSB         LSB
+
+12 = MSB (Most Significant Byte)
+78 = LSB (Least Significant Byte)
+=>Big-endian hay Little-endian chỉ **thay đổi thứ tự** các byte trong Memory, **Không thay đổi nội dung**
+
