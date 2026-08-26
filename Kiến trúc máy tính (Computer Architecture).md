@@ -16,6 +16,8 @@
 
 ```
 
+<img width="586" height="321" alt="image" src="https://github.com/user-attachments/assets/6a9d23a1-08d4-4da5-9dba-31b3408c24ab" />
+
 
 
 ### CPU (Central Processing Unit): 
