@@ -110,7 +110,6 @@ Phép toán logic: AND, OR, XOR, NOT.
 Là bộ nhớ mà máy tính dùng để lưu trữ TẠM THỜI chương trình và dữ liệu đang được sử dụng.
 RAM là nơi máy tính đặt những thứ đang cần làm việc tại đó.
 
-
           SSD
            ↓
 đưa chương trình/dữ liệu vào RAM
@@ -118,10 +117,32 @@ RAM là nơi máy tính đặt những thứ đang cần làm việc tại đó.
     CPU sử dụng chúng
 
 
+          RAM
+┌──────────────────────┐
+│ instruction          │
+│ instruction          │
+│ data                 │
+│ data                 │
+│ ...                  │
+└──────────────────────┘
 
+Mỗi Data hay Instruction trong bộ nhớ có một ĐỊA CHỈ.
 
+Địa chỉ      Nội dung
 
+0x401000 → instruction 1
+0x401005 → instruction 2
+0x401008 → instruction 3
 
+Địa chỉ       Dữ liệu        
+
+0x1000   →       42
+0x1001   →       17
+0x1002   →       99
+0x1003   →       25
+0x1004   →       ...
+
+=>Tại địa chỉ 0x1000 đang chứa giá trị 42
 
 
 ```
