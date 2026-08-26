@@ -15,7 +15,8 @@
       └───────┘          └─────────┘
 
 ```
-![Uploading image.png…]()
+
+
 
 ### CPU (Central Processing Unit): 
 ```
