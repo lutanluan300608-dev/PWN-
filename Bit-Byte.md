@@ -38,6 +38,8 @@ Vì vậy 1 byte (8 bit) có thể biểu diễn 256 giá trị khác nhau, từ
 
 0 → 255
 
+
+
 ## Hex(Hexadecimal): Hệ thập lục phân-> 16
 -Gồm: 0 1 2 3 4 5 6 7 8 9 A B C D E 
 Trong Binary: 1010
