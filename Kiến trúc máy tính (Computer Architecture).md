@@ -168,10 +168,10 @@ Ví dụ là 0x123456789 sẽ chiếm 4 byte, hoặc đơn giản 1 số nguyên
 ```
 ### Register (Thanh ghi)
 ```
+Register là những vùng lưu trữ rất NHỎ và rất NHANH nằm bên trong CPU dùng để giữ các giá trị mà CPU đang cần xử lí.
 
 
 ==>Lưu ý quan trọng: Register và RAM là hai loại bộ nhớ khác nhau.
-
 Register
 → nằm trong CPU
 → rất ít
