@@ -168,8 +168,13 @@ Ví dụ là 0x123456789 sẽ chiếm 4 byte, hoặc đơn giản 1 số nguyên
 ```
 ### Register (Thanh ghi)
 ```
-Register là những vùng lưu trữ rất NHỎ và rất NHANH nằm bên trong CPU dùng để giữ các giá trị mà CPU đang cần xử lí.
-
+-Register là những vùng lưu trữ rất NHỎ và rất NHANH nằm bên trong CPU dùng để giữ các giá trị mà CPU đang cần xử lí.
+-Register chỉ là nơi giữ bit, tức là Register không hiểu các con số hay chữ cái thông thường, nó giữ bit và CPU sẽ diễn giải các bit đó ra.
+-RAX, RBX,... là tên của Register. Một Register 64-bit chứa được 64 bit dữ liệu.
+-Register có nhiều chức năng khác chứ không chỉ riêng chứa dữ liệu.
+RSP → liên quan đến stack
+RBP → liên quan đến stack frame
+RIP → instruction pointer
 
 ==>Lưu ý quan trọng: Register và RAM là hai loại bộ nhớ khác nhau.
 Register
