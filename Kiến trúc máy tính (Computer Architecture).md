@@ -20,7 +20,7 @@
 
 
 
-### CPU (Central Processing Unit): 
+## CPU (Central Processing Unit): 
 ```
 Bộ xử lí trung tâm của máy tính, hiểu đơn giản CPU là thành phần thực thi các lệnh chương trình.
 Chức năng cơ bản thì là điều khiển hoạt động máy tính, xử lý dữ liệu.
@@ -57,7 +57,7 @@ CPU cũng gồm các thành phần nhỏ khác:
         └───────────────────┘
 ```
 
-### CU (Control Unit)
+## CU (Control Unit)
 ```
 -Điều khiển máy tính theo chương trình đã định sẵn, phối hợp hành động với các thiết bị khác trong CPU.
 ->Có thể hiểu đơn giản, CU là nơi ra lệnh cho các thành phần khác phải làm gì.
@@ -102,7 +102,7 @@ Memory = kho chứa dữ liệu/instruction
 ```
 
 
-### ALU (Arithmetic Logic Unit) = Bộ số học và logic.
+## ALU (Arithmetic Logic Unit) = Bộ số học và logic.
 ```
 Thành phần thực hiện các phép toán và phép logic trên dữ liệu.
 Phép toán số học: +, -, ×, ÷ .
@@ -110,7 +110,7 @@ Phép toán logic: AND, OR, XOR, NOT.
 
 ```
 
-### RAM(Random Access Memory)
+## RAM(Random Access Memory)
 ```
 Là bộ nhớ mà máy tính dùng để lưu trữ TẠM THỜI chương trình và dữ liệu đang được sử dụng.
 RAM là nơi máy tính đặt những thứ đang cần làm việc tại đó.
@@ -166,7 +166,7 @@ Ví dụ là 0x123456789 sẽ chiếm 4 byte, hoặc đơn giản 1 số nguyên
 
 
 ```
-### Register (Thanh ghi)
+## Register (Thanh ghi)
 ```
 -Register là những vùng lưu trữ rất NHỎ và rất NHANH nằm bên trong CPU dùng để giữ các giá trị mà CPU đang cần xử lí.
 -Register chỉ là nơi giữ bit, tức là Register không hiểu các con số hay chữ cái thông thường, nó giữ bit và CPU sẽ diễn giải các bit đó ra.
@@ -189,5 +189,26 @@ RAM
 → chậm hơn Register
 → chứa chương trình và dữ liệu đang được sử dụng
 ```
+
+### Các loại Register
+```
+RAX, RBX,... là thanh ghi 64-bit trong kiến trúc x86-64.
+RAX
+┌────────────────────────────────────────────────┐
+│                 64 bits                        │ = 8 byte
+└────────────────────────────────────────────────┘
+
+Chữ R ở đầu thường gắn với phiên bản 64-bit của nhóm register đó.
+Ví dụ:
+
+RAX → 64-bit
+EAX → 32-bit
+AX  → 16-bit
+AL  → 8-bit
+
+
+
+```
+
 
 
