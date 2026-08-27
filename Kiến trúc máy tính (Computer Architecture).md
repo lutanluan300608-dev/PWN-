@@ -207,8 +207,17 @@ AX  → 16-bit
 AL  → 8-bit
 
 
+RSP là một Register đặc biệt, R: Register, SP: Stack Pointer.
+Nó có nhiệm vụ giữ địa chỉ liên quan đến đỉnh (top) của stack.
 
 ```
 
+### Pointer
+```
+Là giá trị dùng để chỉ đến một vị trí trong Memory.
+Pointer chỉ chứa địa chỉ không chứa giá trị.
+
+
+```
 
 
