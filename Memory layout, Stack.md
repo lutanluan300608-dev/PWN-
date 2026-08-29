@@ -1,5 +1,6 @@
 # Stack
 <img width="1152" height="582" alt="image" src="https://github.com/user-attachments/assets/2970c39a-2df2-41c9-b0f5-97fdca4e12b0" />
+```
 Stack nó là một vùng bộ nhớ trong RAM, chương trình dùng để lưu giữ tạm thời dữ liệu trong quá trình chạy.
 Stack hoạt động theo nguyên tắc **LIFO(Last in, First out)**, dễ hiểu thì vào trước ra sau, vào cuối thì ra đầu.
 
@@ -10,7 +11,7 @@ Ta có:
              CPU
         ┌─────────────┐
         │ RSP         │
-        │ = 0x7FF8   │
+        │ = 0x7FF8    │
         └──────┬──────┘
                │
                │ địa chỉ
@@ -32,8 +33,9 @@ Nó thường được dùng để những thứ tạm thời liên quan đến 
     local variables trong một số trường hợp
     return address
     ...
-
+```
 ### Stack thực sự nằm ở đâu trong Memory?
+```
 -Stack không có địa chỉ cố định duy nhất.
 Khi một chương trình chạy, hđh dành cho nó 1 vùng địa chỉ bộ nhớ để làm stack.
 Ta có thể hình dung đơn giản:
@@ -60,8 +62,10 @@ Memory
 │   0x7FE8      │
 │      ...      │
 └───────────────┘
+```
 
 ### Stack lớn lên như thế nào?
+```
 -Stack sẽ thường phát triển về phía **địa chỉ thấp hơn**.
 Khi Stack cần thêm không gian, nó phát triển xuống:
 Địa chỉ cao
@@ -87,6 +91,7 @@ Stack sau khi mở rộng:
 0x7FE8
 
 Ngược lại, khi thu hẹp nó sẽ thu hẹp dần lên địa chỉ cao hơn.
+```
 
 # Push và Pop
 ### Push
