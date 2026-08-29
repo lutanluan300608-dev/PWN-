@@ -5,7 +5,7 @@
 Là một vùng memory dùng để chứa các instruction của chương trình đang chạy, hay dễ hiểu là nó chứa code mình viết.  
 Ví dụ chương trình có các instruction:
 <img width="1042" height="185" alt="Screenshot 2026-08-29 200024" src="https://github.com/user-attachments/assets/6086312e-7fa9-4514-9074-a336a551a659" />
-Sau khi chương trình được biên dịch thành Machine code, các instruction sẽ được chứa trong **Code Segment**
+Sau khi chương trình được biên dịch thành Machine code, các instruction sẽ được chứa trong **Code Segment**  
 Memory  
 
 0x401000 → instruction 1  
