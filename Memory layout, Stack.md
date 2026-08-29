@@ -112,4 +112,6 @@ Memory:
 0x7000 → ...
 0x6FF8 → 42   ← TOP
 0x6FF0 → ...
-
+**Sau khi Push thì RSP sẽ giảm, giá trị được ghi vào vị trí mới.**
+**Vì RAX là 64-bit = 8 byte nên RSPsau = RSPđầu - 8**
+VD: 0x7000 - 8 = 0x6FF8
