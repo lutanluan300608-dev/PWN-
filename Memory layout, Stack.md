@@ -115,3 +115,7 @@ Memory:
 **Sau khi Push thì RSP sẽ giảm, giá trị được ghi vào vị trí mới.**
 **Vì RAX là 64-bit = 8 byte nên RSPsau = RSPđầu - 8**
 VD: 0x7000 - 8 = 0x6FF8
+=>> Push đã làm Stack lớn thêm.
+-Giả sử mình có một RAX = 0x12345678ABCDEF00, nó tách giá trị ra từng byte.
+Khi tách ra được 8 byte: 12 34 56 78 AB CD EF 00. Nó sẽ được ghi vào 8 địa chỉ trong Memory sau khi Push.
+Lưu ý x86-64 dùng Little-Endian nên sẽ xếp ngược lại.
