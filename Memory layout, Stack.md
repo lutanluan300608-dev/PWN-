@@ -34,6 +34,7 @@ Nó thường được dùng để những thứ tạm thời liên quan đến 
     return address
     ...
 ```
+
 ### Stack thực sự nằm ở đâu trong Memory?
 ```
 -Stack không có địa chỉ cố định duy nhất.
