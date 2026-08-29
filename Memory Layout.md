@@ -14,3 +14,6 @@ Memory
 ...  
   
 CPU có thể fetch instruction dựa trên địa chỉ của nó.  
+
+
+# Initialised Data
