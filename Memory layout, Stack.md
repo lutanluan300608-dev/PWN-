@@ -87,3 +87,29 @@ Stack sau khi mở rộng:
 0x7FE8
 
 Ngược lại, khi thu hẹp nó sẽ thu hẹp dần lên địa chỉ cao hơn.
+
+## Push và Pop
+**:Push** là một **instruction** của x86-64 để **đưa một giá trị vào Stack**.
+<img width="1013" height="142" alt="Screenshot 2026-08-29 171053" src="https://github.com/user-attachments/assets/156f546b-f5db-42bf-ab67-9b7c69bfa058" />
+Lúc này sẽ lấy giá trị của RAX đặt lên Stack.
+**Quá trình Push:**
+**+Trước Push**
+RAX = 42
+RSP = 0x7000
+
+Memory:
+
+0x7000 → ...   <-Top of stack
+0x6FF8 → ...
+0x6FF0 → ...
+
+**+Sau Push**
+RAX = 42
+RSP = 0x6FF8
+
+Memory:
+
+0x7000 → ...
+0x6FF8 → 42   ← TOP
+0x6FF0 → ...
+
