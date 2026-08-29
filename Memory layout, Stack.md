@@ -5,19 +5,25 @@ Stack hoạt động theo nguyên tắc **LIFO(Last in, First out)**, dễ hiể
 
 **RSP** chứa một địa chỉ liên quan đến đỉnh của **Stack**
 Ví dụ đơn giản:
+Ta có:
 
-RSP = 0x7000
-
-Ta có thể hình dung:
-Memory
-
-0x6FF0
-0x6FF8
-0x7000  ← RSP
-0x7008
-...
-
-RSP giúp CPU biết vị trí hiện tại của **top of stack**.
+             CPU
+        ┌─────────────┐
+        │ RSP         │
+        │ = 0x7FF8   │
+        └──────┬──────┘
+               │
+               │ địa chỉ
+               ▼
+            Memory
+        ┌─────────────┐
+        │ Stack       │
+        │             │
+        │ 0x7FF8      │ ← vị trí hiện tại
+        │ 0x7FF0      │
+        │ 0x7FE8      │
+        └─────────────┘
+**RSP chứa địa chỉ để CPU biết vị trí hiện tại của đỉnh Stack.**
 
 Stack không chỉ dùng để chứa một loại dữ liệu.
 Nó thường được dùng để những thứ tạm thời liên quan đến việc thực thi chương trình.
@@ -27,3 +33,57 @@ Nó thường được dùng để những thứ tạm thời liên quan đến 
     return address
     ...
 
+### Stack thực sự nằm ở đâu trong Memory?
+-Stack không có địa chỉ cố định duy nhất.
+Khi một chương trình chạy, hđh dành cho nó 1 vùng địa chỉ bộ nhớ để làm stack.
+Ta có thể hình dung đơn giản:
+
+Memory
+
+0x8000
+0x7FF8
+0x7FF0
+0x7FE8
+0x7FE0
+...
+
+Một phần trong vùng này được sử dụng làm Stack.
+Ví dụ:
+
+Memory
+┌───────────────┐
+│               │
+│     Stack     │
+│               │
+│   0x7FF8      │
+│   0x7FF0      │
+│   0x7FE8      │
+│      ...      │
+└───────────────┘
+
+### Stack lớn lên như thế nào?
+-Stack sẽ thường phát triển về phía **địa chỉ thấp hơn**.
+Khi Stack cần thêm không gian, nó phát triển xuống:
+Địa chỉ cao
+    │
+    │
+ 0x8000  ← RSP
+    │
+    │
+ 0x7FF8
+    │
+ 0x7FF0
+    │
+    ▼
+Địa chỉ thấp
+
+Stack sau khi mở rộng:
+0x8000
+  ↓
+0x7FF8
+  ↓
+0x7FF0
+  ↓
+0x7FE8
+
+Ngược lại, khi thu hẹp nó sẽ thu hẹp dần lên địa chỉ cao hơn.
