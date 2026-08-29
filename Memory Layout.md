@@ -1,4 +1,4 @@
-<img width="1000" height="800" alt="image" src="https://github.com/user-attachments/assets/5de4696e-93d9-4409-9964-8baf93fa8616" />Memory Layout (bố cục bộ nhớ) là cách mà chương trình máy tính phân chia, sắp xếp các vùng nhớ RAM khi được nạp lên để chạy
+Memory Layout (bố cục bộ nhớ) là cách mà chương trình máy tính phân chia, sắp xếp các vùng nhớ RAM khi được nạp lên để chạy
 <img width="1000" height="800" alt="image" src="https://github.com/user-attachments/assets/8ce99e90-16da-407a-8ecc-6fefcb419f0a" />
 # Code Segment (Text)
 
