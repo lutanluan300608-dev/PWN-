@@ -1,4 +1,4 @@
-## Stack
+# Stack
 <img width="1152" height="582" alt="image" src="https://github.com/user-attachments/assets/2970c39a-2df2-41c9-b0f5-97fdca4e12b0" />
 Stack nó là một vùng bộ nhớ trong RAM, chương trình dùng để lưu giữ tạm thời dữ liệu trong quá trình chạy.
 Stack hoạt động theo nguyên tắc **LIFO(Last in, First out)**, dễ hiểu thì vào trước ra sau, vào cuối thì ra đầu.
@@ -88,8 +88,9 @@ Stack sau khi mở rộng:
 
 Ngược lại, khi thu hẹp nó sẽ thu hẹp dần lên địa chỉ cao hơn.
 
-## Push và Pop
-**:Push** là một **instruction** của x86-64 để **đưa một giá trị vào Stack**.
+# Push và Pop
+### Push
+**Push** là một **instruction** của x86-64 để **đưa một giá trị vào Stack**.
 <img width="1013" height="142" alt="Screenshot 2026-08-29 171053" src="https://github.com/user-attachments/assets/156f546b-f5db-42bf-ab67-9b7c69bfa058" />
 Lúc này sẽ lấy giá trị của RAX đặt lên Stack.
 **Quá trình Push:**
@@ -113,9 +114,14 @@ Memory:
 0x6FF8 → 42   ← TOP
 0x6FF0 → ...
 **Sau khi Push thì RSP sẽ giảm, giá trị được ghi vào vị trí mới.**
-**Vì RAX là 64-bit = 8 byte nên RSPsau = RSPđầu - 8**
+**Vì RAX là 64-bit = 8 byte nên RSPsau = RSPtrước - 8**
 VD: 0x7000 - 8 = 0x6FF8
 =>> Push đã làm Stack lớn thêm.
 -Giả sử mình có một RAX = 0x12345678ABCDEF00, nó tách giá trị ra từng byte.
 Khi tách ra được 8 byte: 12 34 56 78 AB CD EF 00. Nó sẽ được ghi vào 8 địa chỉ trong Memory sau khi Push.
 Lưu ý x86-64 dùng Little-Endian nên sẽ xếp ngược lại.
+
+### Pop
+**Pop** thì ngược lại với **Push** thôi, nó lấy giá trị đỉnh của Stack ra.
+Sau khi **Pop** thì RSP cũng sẽ thay đổi. Pop xong thì RSP sẽ tăng lên.
+  **RSPsau = RSPtrước + 8**
