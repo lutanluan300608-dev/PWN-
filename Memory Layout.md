@@ -24,3 +24,7 @@ CPU có thể fetch instruction dựa trên địa chỉ của nó.
 int a=10;   //.data
 int b;      //.bss
 ```
+
+# Heap
+Vùng memory dùng để **cấp phát bộ nhớ động** trong chương trình đang chạy.  
+Program chạy -> cần thêm memory-> Heap -> cấp phát memory.  
