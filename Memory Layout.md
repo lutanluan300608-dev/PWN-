@@ -28,6 +28,16 @@ int b;      //.bss
 # Heap
 Vùng memory dùng để **cấp phát bộ nhớ động** trong chương trình đang chạy.  
 Program chạy -> cần thêm memory-> Heap -> cấp phát memory.  
+Trong C sẽ có các lệnh như:  
+**malloc()** dùng để yêu cầu vùng nhớ trong Heap  
+**free()** trả vùng đó lại cho trìnhquanr lí bộ nhớ.  
+.....  
+  
+Heap sẽ phình lên(grow upward) sau mỗi lần yêu cầu. Khi dùng xong thì nên release(trả vùng đó về).
+**Memory Leak** là từ ám chỉ việc quên release memory mà khiến nó phình quá.  
+
+
+
 
 # Stack
 Phần Stack mình tìm hiểu khá dài nên mình đã để nó ở 1 file riêng cho dễ đọc. 
