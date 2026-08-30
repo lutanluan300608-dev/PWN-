@@ -30,5 +30,8 @@ arg5 → R8
 arg6 → R9  
 
 **Và nếu có từ Argument thứ 7 trở đi, chúng sẽ KHÔNG còn truyền qua Register và sẽ truyền qua STACK**  
-Khi arg7 được truyền vào stack, nó sẽ ở vị trí RSP + 8.
+Khi arg7 được truyền vào stack, nó sẽ ở vị trí RSP + 8.  
+arg8 thì RSP + 16, arg9 thì RSP + 24,......  
+
+**Return value**, giá trị sau cùng sẽ được trả về RAX.
 
