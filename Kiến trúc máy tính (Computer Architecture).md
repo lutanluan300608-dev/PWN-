@@ -213,17 +213,36 @@ AX  → 16-bit
 AL  → 8-bit  
   
   
-RSP là một Register đặc biệt, R: Register, SP: Stack Pointer.  
+**RSP là một Register đặc biệt, R: Register, SP: Stack Pointer.**  
 Nó có nhiệm vụ giữ địa chỉ liên quan đến đỉnh (top) của stack.  
   
-**1.General-Purpose Register**
+**General-Purpose Register**  
 -RAX, RBX, RCX, RDX: là các thanh ghi có thể được dùng cho nhiều mục đích khác nhau trong quá trình tính toán và xử lí dữ liệu.  
+  
+**RIP = Instruction Pointer**   
+RIP giữ địa chỉ instruction mà CPU sẽ thực hiện tiếp theo.  
 
-**2**
+**RBP = Base Pointer**  hoặc Frame Pointer
+RBP thường dùng để đánh dấu vị trí cố  trong stack frame của hàm.
+
 ### Pointer
 ```
 Là giá trị dùng để chỉ đến một vị trí trong Memory.
 Pointer chỉ chứa địa chỉ không chứa giá trị.
+Stack  
+┌──────────────┐  
+│ dữ liệu      │  
+├──────────────┤  
+│ ...          │    
+├──────────────┤  
+│              │ ← RBP  
+├──────────────┤  
+│              │  
+├──────────────┤  
+│              │ ← RSP  
+└──────────────┘  
+Trong lúc hàm chạy thì RSP có thể thay đổi khi stack được sử dụng nên RBP giúp việc tham chiếu dữ liệu thuận lợi hơn.
+LƯU Ý là RBP không nhất thiết phải làm Frame Pointer.
 
 
 ```
