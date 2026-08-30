@@ -197,27 +197,29 @@ RAM
 ```
 
 ### Các loại Register
-```
-RAX, RBX,... là thanh ghi 64-bit trong kiến trúc x86-64.
-RAX
-┌────────────────────────────────────────────────┐
-│                 64 bits                        │ = 8 byte
-└────────────────────────────────────────────────┘
 
-Chữ R ở đầu thường gắn với phiên bản 64-bit của nhóm register đó.
-Ví dụ:
+RAX, RBX,... là thanh ghi 64-bit trong kiến trúc x86-64.  
+RAX  
+┌────────────────────────────────────────────────┐  
+│                 64 bits                        │ = 8 byte  
+└────────────────────────────────────────────────┘  
+  
+Chữ R ở đầu thường gắn với phiên bản 64-bit của nhóm register đó.  
+Ví dụ:  
+  
+RAX → 64-bit  
+EAX → 32-bit  
+AX  → 16-bit  
+AL  → 8-bit  
+  
+  
+RSP là một Register đặc biệt, R: Register, SP: Stack Pointer.  
+Nó có nhiệm vụ giữ địa chỉ liên quan đến đỉnh (top) của stack.  
+  
+**1.General-Purpose Register**
+-RAX, RBX, RCX, RDX: là các thanh ghi có thể được dùng cho nhiều mục đích khác nhau trong quá trình tính toán và xử lí dữ liệu.  
 
-RAX → 64-bit
-EAX → 32-bit
-AX  → 16-bit
-AL  → 8-bit
-
-
-RSP là một Register đặc biệt, R: Register, SP: Stack Pointer.
-Nó có nhiệm vụ giữ địa chỉ liên quan đến đỉnh (top) của stack.
-
-```
-
+**2**
 ### Pointer
 ```
 Là giá trị dùng để chỉ đến một vị trí trong Memory.
