@@ -12,12 +12,23 @@ return a+b;
 }
 ```
 a và b là Parameter
-giá trị được truyền vào là Argument  
-**Argument đầu tiên của Function sẽ được truyền qua thanh ghi RDI**  
-  
-# Calling convention = quy tắc để các function giao tiếp với nhau.
+giá trị được truyền vào là Argument   
+
+# Calling Convention = quy tắc để các function giao tiếp với nhau.
 CPU cần biết một cách thống nhất:  
   
   dữ liệu đưa vào function ở đâu?  
   function trả kết quả ở đâu?  
   khi function kết thúc thì quay lại đâu?  
+
+**Thứ tự các Argument truyền vào Register theo Calling Convention:**  
+arg1 → RDI  
+arg2 → RSI  
+arg3 → RDX  
+arg4 → RCX  
+arg5 → R8  
+arg6 → R9  
+
+**Và nếu có từ Argument thứ 7 trở đi, chúng sẽ KHÔNG còn truyền qua Register và sẽ truyền qua STACK**  
+Khi arg7 được truyền vào stack, nó sẽ ở vị trí RSP + 8.
+
