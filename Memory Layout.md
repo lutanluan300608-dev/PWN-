@@ -17,4 +17,10 @@ CPU có thể fetch instruction dựa trên địa chỉ của nó.
 
 
 # Data Segment
--Gồm có Initialised Data (.data) và Uninitialised Data.
+-Gồm có **Initialised Data (.data)** và **Uninitialised Data (.bss)**.  
+**Initialised Data** chứa các biến global/static đã có giá trị khởi tạo.  
+**Uninitialised Data** chứa các biến global/static chưa được khởi tạo rõ ràng hoặc được khởi tạo = 0.  
+```
+int a=10;   //.data
+int b;      //.bss
+```
