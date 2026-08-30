@@ -28,3 +28,6 @@ int b;      //.bss
 # Heap
 Vùng memory dùng để **cấp phát bộ nhớ động** trong chương trình đang chạy.  
 Program chạy -> cần thêm memory-> Heap -> cấp phát memory.  
+
+# Stack
+Phần Stack mình tìm hiểu khá dài nên mình đã để nó ở 1 file riêng cho dễ đọc. 
