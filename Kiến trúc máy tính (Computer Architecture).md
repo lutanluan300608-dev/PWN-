@@ -1,4 +1,4 @@
-## 1.Máy tính cơ bản gồm:
+## Máy tính cơ bản gồm:
 ```
              ┌──────────────┐
              │     CPU      │
@@ -18,8 +18,14 @@
 
 <img width="586" height="321" alt="image" src="https://github.com/user-attachments/assets/6a9d23a1-08d4-4da5-9dba-31b3408c24ab" />
 
+## Kiến trúc x86-64
+```
+x86 là kiến trúc 32-bit truyền thống và x86-64 là phiên bản mở rộng hơn.
+x86-64 là một loại kiến trúc tập lệnh (ISA), tức là nó quy định CPU cso những instruction nào, register nào, cách xử lí dữ liệu ra sao, truy cập memory ntn,....
+Con số 64 chỉ thế hệ ISA mở rộng của ISA với khả năng xử lí dữ liệu và địa chỉ theo phạm vi 64-bit. (nó vẫn thao tác được với 8, 16, 32-bit tùy vào instruction)
 
 
+```
 ## CPU (Central Processing Unit): 
 ```
 Bộ xử lí trung tâm của máy tính, hiểu đơn giản CPU là thành phần thực thi các lệnh chương trình.
