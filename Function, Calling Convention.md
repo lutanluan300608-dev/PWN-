@@ -58,3 +58,5 @@ thì 0x401105 chính là return address.
 
 ## Lệnh RET
 Ret dùng để lấy **return address** từ Stack và đưa nó vào RIP để CPU quay lại chỗ đã gọi Function.  
+call → lưu nơi quay về + chuyển sang function  
+ret  → lấy nơi quay về + quay lại  
