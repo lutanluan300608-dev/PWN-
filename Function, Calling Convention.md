@@ -35,3 +35,26 @@ arg8 thì RSP + 16, arg9 thì RSP + 24,......
 
 **Return value**, giá trị sau cùng sẽ được trả về RAX.
 
+## Lệnh CALL
+Call dùng để gọi Function và ghi nhớ nơi CPU cần quay lại sau khi Function kết thúc.  
+Để mà CPU biết được sau khi call function cần quay lại instruction nào thì: **call** sẽ lưu **return address** lên Stack.  
+Giả sử:  
+  
+RIP = 0x401100  
+RSP = 0x8000  
+  
+Tại 0x401100 có instruction:  
+  
+call foo  
+
+Sau khi call được thực hiện, CPU cần nhớ địa chỉ của instruction ngay sau call.  
+
+Giả sử instruction tiếp theo ở:  
+  
+0x401105
+
+thì 0x401105 chính là return address.  
+**=>call đã thay đổi RIP để chạy function được gọi.**  
+
+## Lệnh RET
+Ret dùng để lấy **return address** từ Stack và đưa nó vào RIP để CPU quay lại chỗ đã gọi Function.  
