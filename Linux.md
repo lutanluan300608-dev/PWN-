@@ -15,3 +15,4 @@ rm -> remove, delete file
 rm -i -> confirm   
 rmdir -> remove empty directory  
 rm -r -> remove directory and everything inside  
+cat -> read the file and output it to the terminal
