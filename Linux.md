@@ -9,7 +9,7 @@
 **cd --** ->last accessed dir  
 **cd ..** ->previous dir  
 **cd /** -> root dir   
-**TAB** -> automatically complete the command
+**TAB** -> automatically complete the command  
 **touch** -> create empty file    
 **echo "Hello"**-> print  Hello  
 **echo "Hello" > file.txt** -> chuyển output vào file.txt, nếu chưa có nó sẽ tạo file    
