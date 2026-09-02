@@ -24,6 +24,8 @@
 **mkdir dad/son** -> create subdir named son of dir dad if dir dad exists
 # COPY
 **cp** -> create a copy a file  
+**cp -r** -> copy directories recursively  
+**cp -a** 
 # REMOVE
 **mv** -> move files to directory or rename files  
 **rm** -> remove, delete file   
