@@ -4,6 +4,7 @@
 **ls -R** -> list all of files and subdirectories of current dir  
 **ls -a** -> list all file  
 **ls -l** -> see the information of files: file permissions, owner, size, modification date  
+**ls -al** -> same to the ls -l but list all of files
 **cd** -> change directory, change to home  
 **cd --** ->last accessed dir  
 **cd ..** ->previous dir  
