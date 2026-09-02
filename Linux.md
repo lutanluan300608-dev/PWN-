@@ -15,7 +15,8 @@
 **echo "Hello"**-> print  Hello  
 **echo "Hello" > file.txt** -> chuyển output vào file.txt, nếu chưa có nó sẽ tạo file    
 **echo "Hello" > .hiddenfile** -> any file or directory name starts with dot(.) is considered hidden    
-**mkdir <dirname>** -> make directory  
+**mkdir** -> make directory  
+**mkdir dad/son** -> create subdir named son of dir dad if dir dad exists
 **cp** -> create a copy a file  
 **mv** -> move files to directory or rename files  
 **rm** -> remove, delete file   
