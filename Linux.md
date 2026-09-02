@@ -3,7 +3,10 @@ id root -> id admin
 ls -> list  
 ls -a -> list all  
 ls -l -> see the file permissions, owner, size, modification date  
-cd -> change directory  
+cd -> change directory, change to home
+cd -- ->last accessed dir
+cd .. ->previous dir
+cd / -> root dir
 touch -> create empty file  
 echo "Hello"-> print  Hello
 echo "Hello" > file.txt -> chuyển output vào file.txt, nếu chưa có nó sẽ tạo file  
