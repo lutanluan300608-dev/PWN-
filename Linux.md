@@ -1,6 +1,7 @@
 id -> id người tham gia  
 id root -> id admin  
-ls -> list  
+ls -> list, show the contents of current dir
+ls -R -> list all of files and subdirectories of current dir
 ls -a -> list all  
 ls -l -> see the file permissions, owner, size, modification date  
 cd -> change directory, change to home
