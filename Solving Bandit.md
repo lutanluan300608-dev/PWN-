@@ -11,7 +11,7 @@ cat ./-
 ```
 password: PK8fYLZg2hnHSz83plBL1iEPKdD3QToB
 # Lv3
-Because there are spaces in the file named "--spaces in this filename--", so i have to use a "\ " to replace the spaces, this will make Linux understand that those space are in the filename, not the regular spaces. 
+Because there are spaces in the file named "--spaces in this filename--", so i have to use a "\ " to replace the spaces, this will make Linux understand that those spaces are in the filename, not the regular spaces. 
 ```
 cat -- --spaces\ in\ this\ filename--
 ```
