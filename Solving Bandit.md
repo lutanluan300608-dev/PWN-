@@ -36,3 +36,13 @@ file ./*
 cat ./-file07
 ```
 password: 6C7h9GD8M6ai5nr7wo1RonrzFjj9yIrG
+
+# Lv5 ->6
+There are too many dirs and files, so acording to the information i have been gave, i use "find" to find the exact file to read.
+```
+find . -type f ! -executable -size 1033c 
+```
+. means find all kind of files or dirs in current path  
+-type f means the thing i am finding is file  
+! means not  
+-size means size of file
