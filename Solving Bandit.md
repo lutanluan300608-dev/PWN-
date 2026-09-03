@@ -6,6 +6,7 @@ cat readme
 ```
 password: 6y2kwnwK6grgvwvpvLaa2T1cpFEKOhNR  
 # Lv2
+because the filename is "-" so i have to write "./" at the first.
 ```
 cat ./-
 ```
@@ -27,4 +28,11 @@ cat ...Hiding-From-You
 ```
 password: xzTXq1rDJQVVAzdv5cHq1TQytTWufAMq  
 # Lv4 -> 5
+there are many files in inhere dir, i use "file ./*" to check the file format. and the password is in -file07
+```
+cd inhere
+ls -la
+file ./*
+cat ./-file07
+```
 password: 6C7h9GD8M6ai5nr7wo1RonrzFjj9yIrG
