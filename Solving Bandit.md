@@ -45,4 +45,5 @@ find . -type f ! -executable -size 1033c
 . means find all kind of files or dirs in current path  
 -type f means the thing i am finding is file  
 ! means not  
--size means size of file
+-size means size of file  
+password: pXa26xhMWaC2SvDotA4r9EgZkulOeSBW
