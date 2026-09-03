@@ -18,7 +18,7 @@
 # CREATE FILE AND DIR
 **touch** -> create empty file    
 **echo "Hello"**-> print  Hello  
-**echo "Hello" > file.txt** -> chuyển output vào file.txt, nếu chưa có nó sẽ tạo file    
+**echo "Hello" > file.txt** -> chuyển output vào file.txt, nếu chưa có nó sẽ tạo file. Nên dùng >> để ko bị ghi đè nd      
 **echo "Hello" > .hiddenfile** -> any file or directory name starts with dot(.) is considered hidden    
 **mkdir** -> make directory  
 **mkdir dad/son** -> create subdir named son of dir dad if dir dad exists
@@ -32,4 +32,10 @@
 **rm -i** -> confirm   
 **rmdir** -> remove empty directory  
 **rm -r** -> remove directory and everything inside  
-**cat** -> read the file and output it to the terminal
+# READ FILE
+**cat** -> read the file and output ALL the contents to the terminal  
+**less** -> read the file, can move up and down and can quit by pressing q
+**head** -> read 10 first lines of the file  
+**head -n x** -> read x first lines  
+**tail** -> same to the **head command** but read up to from the end  
+**tail -f** -> can use to read the file log   
