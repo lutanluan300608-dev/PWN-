@@ -17,11 +17,13 @@
 **Double TAB** -> show list of all matching commands
 # CREATE FILE AND DIR
 **touch** -> create empty file    
+**mkdir** -> make directory  
+**mkdir dad/son** -> create subdir named son of dir dad if dir dad exists  
+# ADD CONTENT TO FILE
 **echo "Hello"**-> print  Hello  
 **echo "Hello" > file.txt** -> chuyển output vào file.txt, nếu chưa có nó sẽ tạo file. Nên dùng >> để ko bị ghi đè nd      
 **echo "Hello" > .hiddenfile** -> any file or directory name starts with dot(.) is considered hidden    
-**mkdir** -> make directory  
-**mkdir dad/son** -> create subdir named son of dir dad if dir dad exists
+**nano [filename]** -> Ctrl + O and Enter to Save, Ctrl + X to exit.  
 # COPY
 **cp** -> create a copy a file  
 **cp -r** -> copy directories recursively  
