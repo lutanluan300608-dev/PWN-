@@ -35,9 +35,12 @@
 **rmdir** -> remove empty directory  
 **rm -r** -> remove directory and everything inside  
 # READ FILE
+**file** -> see the file format
+**file ./* ** -> see the format of all files in current dir  
 **cat** -> read the file and output ALL the contents to the terminal  
 **less** -> read the file, can move up and down and can quit by pressing q
 **head** -> read 10 first lines of the file  
 **head -n x** -> read x first lines  
 **tail** -> same to the **head command** but read up to from the end  
 **tail -f** -> can use to read the file log   
+
