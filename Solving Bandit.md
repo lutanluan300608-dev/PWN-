@@ -1,17 +1,17 @@
 ssh bandit0@bandit.labs.overthewire.org -p 2220
-# Lv1
+# Lv0 -> 1
 use cat to see the contents in the file  
 ```
 cat readme
 ```
 password: 6y2kwnwK6grgvwvpvLaa2T1cpFEKOhNR  
-# Lv2
+# Lv1 ->2
 because the filename is "-" so i have to write "./" at the first.
 ```
 cat ./-
 ```
 password: PK8fYLZg2hnHSz83plBL1iEPKdD3QToB
-# Lv3
+# Lv2 -> 3
 Because there are spaces in the file named "--spaces in this filename--", so i have to use a "\ " to replace the spaces, this will make Linux understand that those spaces are in the filename, not the regular spaces. 
 ```
 cat -- --spaces\ in\ this\ filename--
