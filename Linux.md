@@ -43,4 +43,10 @@
 **head -n x** -> read x first lines  
 **tail** -> same to the **head command** but read up to from the end  
 **tail -f** -> can use to read the file log   
-
+# FIND
+**find**
+-name   
+/dir  
+-size  
+-type    
+-ctime
