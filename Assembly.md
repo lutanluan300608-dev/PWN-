@@ -1,4 +1,4 @@
-<img width="1443" height="1006" alt="Screenshot 2026-09-04 182832" src="https://github.com/user-attachments/assets/58c00eda-e8a3-407b-89d9-4ca31b0fa138" />
+<img width="1020" height="650" alt="Screenshot 2026-09-04 185529" src="https://github.com/user-attachments/assets/0b2c3832-3c3a-472e-8791-0beece893a77" />
 Code được viết sẽ được biên dịch thông qua một ompiler, từ ngôn ngữ bậc cao thành các mã trung gian, sau đó được chuyển thành Machine Code và được đưa đến CPU      
 
 
