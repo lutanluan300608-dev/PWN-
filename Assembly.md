@@ -7,3 +7,11 @@ Code được viết sẽ được biên dịch thông qua một ompiler, từ n
 
 # ASSEMBLY
 **Assembly** là một ngôn ngữ lập trình bậc thấp, nó rất gần với ngôn ngữ máy tính, dùng các từ tiếng anh rút ngắn giúp con người dễ đọc và viết các lệnh mà CPU có thể thực thi. Và Assembly cũng có rất nhiều loại.  
+-Một instruction Assembly thường có dạng
+```
+instruction destination, source
+```
+Ví dụ
+```
+mov rax, 10
+```
