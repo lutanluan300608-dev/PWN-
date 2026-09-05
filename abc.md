@@ -1,5 +1,6 @@
+# TEST
 <img width="1917" height="1075" alt="Screenshot 2026-09-05 204227" src="https://github.com/user-attachments/assets/e0e2b3d6-b842-4128-b1f7-8135013fa4ed" />  
-#TEST
+
 mình dùng **set disassembly-flavor intel** để chuyển cú pháp hiển thị mã máy thành chuẩn Intel    
 break _start để mình đặt break point tại _start    
 lệnh disassemble _start là dunngf để dịch ngược mã máy tại lúc mà khởi chạy chương trình    
