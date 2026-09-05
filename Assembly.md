@@ -15,3 +15,5 @@ Ví dụ
 ```
 mov rax, 10
 ```
+**GDB** là một trình gỡ lỗi (debugger) cho phép tạm dừng chương trình và xem phía trong CPU đang làm gì  
+<img width="1040" height="720" alt="image" src="https://github.com/user-attachments/assets/c50893a1-1348-407a-bab1-86f9957cab98" />
