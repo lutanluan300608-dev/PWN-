@@ -60,10 +60,24 @@ jne label
 +nếu ZF = 0 -> nhảy
 
 # JG (Jump if Greater)
--Đối với JE thì chỉ cần quan tâm đến ZF, bằng hoặc khác.  
--Còn JG thì phải xét đến các FLAGS liên quan đến signed integer, như SF(Sign Flag).   
-
-
+-Đối với JE thì chỉ cần quan tâm đến ZF, bằng hoặc khác.    
+-Còn JG thì phải xét đến các FLAGS liên quan đến signed integer, như SF(Sign Flag) và OF (Singed Overflow).  
++SF = 0 khi dương, SF = 1 khi âm  
++OF = 0 khi ko xảy ra Singed Overflow, OF = 1 khi xảy ra  
+-Sau cmp, CPU không tự biết đâu là số dương hay âm, nó sẽ lưu bit. Ví dụ 00000101 là 5, 11111011 là -5, xét xem là signed hay unsigned.    
+-Giả sử  
+```
+mov rax, 10
+cmp rax, 5
+jg greater
+greater:
+mov rbx, 2
+```
+-Lúc này 
++10 > 5 -> ZF = 0
++5 là dương -> SF = 0
++ko có signed overflow -> OF = 0
+=> VẬY SF = OF -> nhảy 
 **GDB** là một trình gỡ lỗi (debugger) cho phép tạm dừng chương trình và xem phía trong CPU đang làm gì  
 <img width="1040" height="720" alt="image" src="https://github.com/user-attachments/assets/c50893a1-1348-407a-bab1-86f9957cab98" />
 <img width="1132" height="510" alt="Screenshot 2026-09-05 201621" src="https://github.com/user-attachments/assets/1766edca-2c17-4cab-8562-768c626aded4" />
