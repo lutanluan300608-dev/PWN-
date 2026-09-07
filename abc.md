@@ -38,7 +38,9 @@
 
 # JNE
 <img width="1917" height="1078" alt="Screenshot 2026-09-07 183711" src="https://github.com/user-attachments/assets/721258b7-5332-48ba-8801-673b4bc6ce7a" />
--Ngược lại với je thôi, mình vừa đổi thành cmp rax, 5. 
--Lúc này thì ZF khác 0 nên nó không nhảy nữa.
+-Ngược lại với je thôi, jne thì nó sẽ nhảy nếu ko bằng nhau.  
+-Mình vừa đổi thành cmp rax, 5. Lúc này thì ZF khác 0 nên nó không nhảy nữa.
 -Như đã thấy nó không nhảy mà thực hiện lệnh mov rbx, 1.  
 -Và nếu si thêm nháy nữa thì nó vẫn thực hiện mov rbx, 2. Tức lúc này nó ko bỏ qua mov rbx, 1 nữa mà chạy từ trên xuống như thường.
+
+# JG (Jump if Greater)
