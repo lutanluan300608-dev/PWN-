@@ -60,8 +60,8 @@ jne label
 +nếu ZF = 0 -> nhảy
 
 # JG (Jump if Greater)
--Đối với JE thì chỉ cần quan tâm đến FLAG ZF, bằng hoặc khác.  
--Còn JG thì phải xét đến các FLAGS liên quan đến signed integer.  
+-Đối với JE thì chỉ cần quan tâm đến ZF, bằng hoặc khác.  
+-Còn JG thì phải xét đến các FLAGS liên quan đến signed integer, như SF(Sign Flag).   
 
 
 **GDB** là một trình gỡ lỗi (debugger) cho phép tạm dừng chương trình và xem phía trong CPU đang làm gì  
