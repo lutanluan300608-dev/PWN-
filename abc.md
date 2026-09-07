@@ -12,7 +12,7 @@
 -Đầu tiên mình info registers rax rbx để kiểm tra và thấy rax và rbx đều bằng 0, lúc này là CPU chỉ mới chuẩn bị thực hiện lệnh.  
 -Sau khi mình si(step instruction), CPU sẽ thực hiện **một lệnh** mã máy, info registers rax rbx và mình thấy rax đã có giá trị 10. Địa chỉ cũng đã chuyển đến 0x401007. Lúc này RAX = 10
 -Si thêm lần nữa thì RBX = 20
-<img width="1917" height="130" alt="Screenshot 2026-09-07 120956" src="https://github.com/user-attachments/assets/b10108a0-e2e0-4310-ae2e-392e70988dca" />
+<img width="1306" height="183" alt="Screenshot 2026-09-07 122944" src="https://github.com/user-attachments/assets/6146f354-e312-434f-8027-575aad5d8271" />
 -Sau khi chạy xong 2 lệnh thì mình kiểm tra RIP và thấy nó đang ở 0x40100e, tại đó có 1 instruction  
 -Lệnh x/i $rip để mình xem cai instruction mà CPU đang trỏ tới. x: examine, xem nội dung. /i: instruction. $rip: giá trị của rip.  
--=>0x40100e 
+-Tại sao lại là =>0x40100e: add BYTE PTR [rax],al ? Sau khi chạy si qua 2 instruction, RIP chạy đến địa chỉ sau đó, nếu không có instruction hợp lệ tiếp theo ở đó, CPU/GDB sẽ diễn giải các  byte trong vùng nhớ thành machine instruction.
