@@ -14,7 +14,27 @@ instruction destination, source
 Ví dụ
 ```
 mov rax, 10
+mov rbx, 20
+mov rdi, rax
+mov rsi, [rbx]
+add rbx, 5
+....
 ```
+# Các lệnh Assembly cơ bản
+### MOV (MOVE)
+-Công dụng: gán giá trị   
+-Cú pháp:
+```
+instruction destination, source
+```
+
+### ADD
+-Công dụng: cộng 2 giá trị  
+-Cú pháp: 
+```
+add destination, source
+```
+
 **GDB** là một trình gỡ lỗi (debugger) cho phép tạm dừng chương trình và xem phía trong CPU đang làm gì  
 <img width="1040" height="720" alt="image" src="https://github.com/user-attachments/assets/c50893a1-1348-407a-bab1-86f9957cab98" />
 <img width="1132" height="510" alt="Screenshot 2026-09-05 201621" src="https://github.com/user-attachments/assets/1766edca-2c17-4cab-8562-768c626aded4" />
