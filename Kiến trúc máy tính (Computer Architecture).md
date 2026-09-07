@@ -1,4 +1,4 @@
-## Máy tính cơ bản gồm:
+# Máy tính cơ bản gồm:
 ```
              ┌──────────────┐
              │     CPU      │
@@ -18,7 +18,7 @@
 
 <img width="586" height="321" alt="image" src="https://github.com/user-attachments/assets/6a9d23a1-08d4-4da5-9dba-31b3408c24ab" />
 
-## Kiến trúc x86-64
+# Kiến trúc x86-64
 ```
 x86 là kiến trúc 32-bit truyền thống và x86-64 là phiên bản mở rộng hơn.
 x86-64 là một loại kiến trúc tập lệnh (ISA), tức là nó quy định CPU cso những instruction nào, register nào, cách xử lí dữ liệu ra sao, truy cập memory ntn,....
@@ -26,7 +26,7 @@ Con số 64 chỉ thế hệ ISA mở rộng của ISA với khả năng xử l�
 
 
 ```
-## CPU (Central Processing Unit): 
+# CPU (Central Processing Unit): 
 ```
 Bộ xử lí trung tâm của máy tính, hiểu đơn giản CPU là thành phần thực thi các lệnh chương trình.
 Chức năng cơ bản thì là điều khiển hoạt động máy tính, xử lý dữ liệu.
@@ -63,7 +63,7 @@ CPU cũng gồm các thành phần nhỏ khác:
         └───────────────────┘
 ```
 
-## CU (Control Unit)
+# CU (Control Unit)
 ```
 -Điều khiển máy tính theo chương trình đã định sẵn, phối hợp hành động với các thiết bị khác trong CPU.
 ->Có thể hiểu đơn giản, CU là nơi ra lệnh cho các thành phần khác phải làm gì.
@@ -108,7 +108,7 @@ Memory = kho chứa dữ liệu/instruction
 ```
 
 
-## ALU (Arithmetic Logic Unit) = Bộ số học và logic.
+# ALU (Arithmetic Logic Unit) = Bộ số học và logic.
 ```
 Thành phần thực hiện các phép toán và phép logic trên dữ liệu.
 Phép toán số học: +, -, ×, ÷ .
@@ -116,7 +116,7 @@ Phép toán logic: AND, OR, XOR, NOT.
 
 ```
 
-## RAM(Random Access Memory)
+# RAM(Random Access Memory)
 ```
 Là bộ nhớ mà máy tính dùng để lưu trữ TẠM THỜI chương trình và dữ liệu đang được sử dụng.
 RAM là nơi máy tính đặt những thứ đang cần làm việc tại đó.
@@ -172,7 +172,7 @@ Ví dụ là 0x123456789 sẽ chiếm 4 byte, hoặc đơn giản 1 số nguyên
 
 
 ```
-## Register (Thanh ghi)
+# Register (Thanh ghi)
 ```
 -Register là những vùng lưu trữ rất NHỎ và rất NHANH nằm bên trong CPU dùng để giữ các giá trị mà CPU đang cần xử lí.
 -Register chỉ là nơi giữ bit, tức là Register không hiểu các con số hay chữ cái thông thường, nó giữ bit và CPU sẽ diễn giải các bit đó ra.
@@ -244,7 +244,23 @@ LƯU Ý là RBP không nhất thiết phải làm Frame Pointer.
 **RDI** chứa giá trị Argument đầu tiên.  
 
 **RSI** chứa giá trị Argument thứ hai.
-### Pointer
+# EFLAG (Thanh ghi trạng thái)
+**1. Cờ trạng thái (Status Flags)Nhóm cờ này phản ánh kết quả của các lệnh tính toán (như cộng, trừ, so sánh). CPU dựa vào đây để thực hiện các lệnh rẽ nhánh điều kiện (như lệnh nhảy JZ, JNZ).**  
+-ZF (Zero Flag): Bật khi kết quả phép toán bằng 0.  
+-SF (Sign Flag): Bật khi kết quả là số âm (bit cao nhất của kết quả là 1).  
+-CF (Carry Flag): Bật khi có hiện tượng "nhớ" (carry) hoặc "mượn" (borrow) từ bit cao nhất (thường dùng cho số không dấu).  
+-OF (Overflow Flag): Bật khi kết quả vượt quá giới hạn lưu trữ của kiểu dữ liệu (tràn số có dấu).  
+-AF (Auxiliary Carry Flag): Bật khi có hiện tượng nhớ ở bit thứ 3 sang bit thứ 4 (dùng cho toán BCD).  
+-PF (Parity Flag): Bật nếu tổng số bit 1 trong byte thấp nhất của kết quả là một số chẵn.  
+  
+**2. Cờ điều khiển (Control Flags)**  
+-DF (Direction Flag): Điều khiển hướng xử lý của các chuỗi ký tự (String instructions). Nếu DF = 0, chuỗi được xử lý từ trái sang phải (tăng dần địa chỉ). Nếu DF = 1, chuỗi xử lý từ phải sang trái (giảm dần địa chỉ).  
+  
+**3. Cờ hệ thống (System Flags)Nhóm này điều hành các chức năng quản lý hệ thống của CPU và hệ điều hành (HĐH). Người dùng thông thường không nên tự ý thay đổi.**  
+-IF (Interrupt Enable Flag): Nếu IF = 1, CPU cho phép các ngắt ngoại vi (như nhấn phím, chuột) xen vào quá trình xử lý.  
+-TF (Trap Flag): Bật chế độ chạy từng bước (Single-step mode). Thường được các công cụ sửa lỗi (Debugger) dùng để kiểm tra từng dòng code.  
+-IOPL (I/O Privilege Level): Gồm 2 bit, xác định mức độ đặc quyền cần thiết để thực hiện các lệnh xuất/nhập (I/O).NT (Nested Task): Kiểm soát chuỗi các tác vụ được gọi nối tiếp nhau.  
+# Pointer
 ```
 Là giá trị dùng để chỉ đến một vị trí trong Memory.
 Pointer chỉ chứa địa chỉ không chứa giá trị.
