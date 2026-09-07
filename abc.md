@@ -10,4 +10,9 @@
 -Lưu ý là sau khi mov rax,0xa thì địa chỉ tăng lên từ 0x401000 lên 0x401007 khoảng cách 2 địa chỉ là 7 bytes. Tức là instruction mov rax,0xa chiếm 7 bytes trong machine code  
 <img width="1917" height="392" alt="Screenshot 2026-09-05 211419" src="https://github.com/user-attachments/assets/29a6c9a1-505b-406d-b7cc-6465296da31c" />
 -Đầu tiên mình info registers rax rbx để kiểm tra và thấy rax và rbx đều bằng 0, lúc này là CPU chỉ mới chuẩn bị thực hiện lệnh.  
--Sau khi mình si(step instruction), CPU sẽ thực hiện **một lệnh** mã máy, info registers rax rbx và mình thấy rax đã có giá trị 10. Địa chỉ cũng đã chuyển đến 0x401007.  
+-Sau khi mình si(step instruction), CPU sẽ thực hiện **một lệnh** mã máy, info registers rax rbx và mình thấy rax đã có giá trị 10. Địa chỉ cũng đã chuyển đến 0x401007. Lúc này RAX = 10
+-Si thêm lần nữa thì RBX = 20
+<img width="1917" height="130" alt="Screenshot 2026-09-07 120956" src="https://github.com/user-attachments/assets/b10108a0-e2e0-4310-ae2e-392e70988dca" />
+-Sau khi chạy xong 2 lệnh thì mình kiểm tra RIP và thấy nó đang ở 0x40100e, tại đó có 1 instruction  
+-Lệnh x/i $rip để mình xem cai instruction mà CPU đang trỏ tới. x: examine, xem nội dung. /i: instruction. $rip: giá trị của rip.  
+-=>0x40100e 
