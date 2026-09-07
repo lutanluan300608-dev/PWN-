@@ -36,3 +36,9 @@
 <img width="1917" height="1075" alt="Screenshot 2026-09-07 181053" src="https://github.com/user-attachments/assets/e99df4c5-d02a-457d-854b-b7448b7de847" />
 -Như đã thấy, rbx = 2 thay vì 1, chứng tỏ sau khi cmp, ZF = 1 và đã thực hiện nhảy đến equal, bỏ qua mov rbx,1 mà thực hiện mov rbx, 2.
 
+# JNE
+<img width="1917" height="1078" alt="Screenshot 2026-09-07 183711" src="https://github.com/user-attachments/assets/721258b7-5332-48ba-8801-673b4bc6ce7a" />
+-Ngược lại với je thôi, mình vừa đổi thành cmp rax, 5. 
+-Lúc này thì ZF khác 0 nên nó không nhảy nữa.
+-Như đã thấy nó không nhảy mà thực hiện lệnh mov rbx, 1.  
+-Và nếu si thêm nháy nữa thì nó vẫn thực hiện mov rbx, 2. Tức lúc này nó ko bỏ qua mov rbx, 1 nữa mà chạy từ trên xuống như thường.
