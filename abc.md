@@ -18,3 +18,13 @@
 -Tại sao lại là =>0x40100e: add BYTE PTR [rax],al ? Sau khi chạy si qua 2 instruction, RIP chạy đến địa chỉ sau đó, nếu không có instruction hợp lệ tiếp theo ở đó, CPU/GDB sẽ diễn giải các  byte trong vùng nhớ thành machine instruction.
 # ADD
 <img width="1917" height="1078" alt="Screenshot 2026-09-07 163750" src="https://github.com/user-attachments/assets/830f2f46-4002-4f96-a6b6-9294a6cb70fd" />
+# SUB
+<img width="1917" height="486" alt="Screenshot 2026-09-07 164921" src="https://github.com/user-attachments/assets/d1a4e215-cf9e-4794-b0ee-a8f3936495fe" />
+# CMP
+<img width="1917" height="1077" alt="Screenshot 2026-09-07 173545" src="https://github.com/user-attachments/assets/e7ea5641-8617-47cf-a5c0-5fe41fe04288" />
+-Khi lệnh cmp chạy thì nó sẽ so sánh giữa rax và 10, lấy 10 - 10 = 0 và ghi nhận qua ZF
+-Dòng eflags  0x246   [ PF ZF IF ] thông tin của eflags
++ZF(Zero Flag) = 1 và CPU bật. VÌ sau khi cmp, kết quẩ được trả ra là 0. **Nói đơn giản, ZF = 1 khi kết quả = 0, ZF = 0 khi kết quả khác 0**
+-Và đây cũng là bước đầu cho các lệnh giống if trong C
+<img width="1917" height="1078" alt="Screenshot 2026-09-07 175029" src="https://github.com/user-attachments/assets/9430b693-85ff-44a5-ad7c-3016ab0a3638" />
+-Sau khi sửa cmp rax, 5 thì kết quả ko có ZF.  
