@@ -16,3 +16,5 @@
 -Sau khi chạy xong 2 lệnh thì mình kiểm tra RIP và thấy nó đang ở 0x40100e, tại đó có 1 instruction  
 -Lệnh x/i $rip để mình xem cai instruction mà CPU đang trỏ tới. x: examine, xem nội dung. /i: instruction. $rip: giá trị của rip.  
 -Tại sao lại là =>0x40100e: add BYTE PTR [rax],al ? Sau khi chạy si qua 2 instruction, RIP chạy đến địa chỉ sau đó, nếu không có instruction hợp lệ tiếp theo ở đó, CPU/GDB sẽ diễn giải các  byte trong vùng nhớ thành machine instruction.
+# ADD
+<img width="1917" height="1078" alt="Screenshot 2026-09-07 163750" src="https://github.com/user-attachments/assets/830f2f46-4002-4f96-a6b6-9294a6cb70fd" />
