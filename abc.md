@@ -30,3 +30,9 @@
 -Và đây cũng là bước đầu cho các lệnh giống if trong C
 <img width="1917" height="1078" alt="Screenshot 2026-09-07 175029" src="https://github.com/user-attachments/assets/9430b693-85ff-44a5-ad7c-3016ab0a3638" />
 -Sau khi sửa cmp rax, 5 thì kết quả ko có ZF.  
+
+# JE
+<img width="1900" height="383" alt="Screenshot 2026-09-07 180410" src="https://github.com/user-attachments/assets/a92e833d-c620-49c0-a6e7-abd5ffebd52c" />
+<img width="1917" height="1075" alt="Screenshot 2026-09-07 181053" src="https://github.com/user-attachments/assets/e99df4c5-d02a-457d-854b-b7448b7de847" />
+-Như đã thấy, rbx = 2 thay vì 1, chứng tỏ sau khi cmp, ZF = 1 và đã thực hiện nhảy đến equal, bỏ qua mov rbx,1 mà thực hiện mov rbx, 2.
+
