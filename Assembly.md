@@ -59,7 +59,7 @@ jne label
 +nếu ZF = 1 -> nhảy   
 +nếu ZF = 0 -> nhảy
 
-# JG (Jump if Greater)
+### JG (Jump if Greater)
 -Đối với JE thì chỉ cần quan tâm đến ZF, bằng hoặc khác.    
 -Còn JG thì phải xét đến các FLAGS liên quan đến signed integer, như SF(Sign Flag) và OF (Singed Overflow).  
 +SF = 0 khi dương, SF = 1 khi âm  
@@ -73,11 +73,18 @@ jg greater
 greater:
 mov rbx, 2
 ```
--Lúc này 
-+10 > 5 -> ZF = 0
-+5 là dương -> SF = 0
-+ko có signed overflow -> OF = 0
-=> VẬY SF = OF -> nhảy 
+-Lúc này   
++10 > 5 -> ZF = 0  
++5 là dương -> SF = 0  
++ko có signed overflow -> OF = 0  
+=> VẬY **ZF = 0, SF = OF** -> nhảy   
+### JL (Jump if Less)  
+-Ngược lại với JG nhưng điều kiện là ZF =0, SF != OF 
+-Giữ nguyên cmp rax, 5 thì nó sẽ ko nhảy, còn đổi sang một số lớn hơn rax thì sẽ nhảy (đang đề cập đến code trên phần JG)
+
+### JMP
+-Khác với 4 lệnh JE, JNE, JG, JL. Gặp JMP là nhảy luôn, không xét điều kiện.
+=> **Conditional jump**: JE, JNE, JG, JL. **Unconditional jump**: JMP 
 **GDB** là một trình gỡ lỗi (debugger) cho phép tạm dừng chương trình và xem phía trong CPU đang làm gì  
 <img width="1040" height="720" alt="image" src="https://github.com/user-attachments/assets/c50893a1-1348-407a-bab1-86f9957cab98" />
 <img width="1132" height="510" alt="Screenshot 2026-09-05 201621" src="https://github.com/user-attachments/assets/1766edca-2c17-4cab-8562-768c626aded4" />
