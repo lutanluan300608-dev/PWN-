@@ -44,6 +44,20 @@ sub destination, source
 ->destination - source
 ### CMP (Compare)
 -Công dụng: thực hiện logic (==, >, <, ...)
+-Nó dùng phép trừ để cập nhật FLAGS  
+```
+mov rax, 10
+cmp rax, 10
+```
+10 - 10 = 0 => ZF = 1
+### JE (Jump if Equal) và JNE (Jump if Not Equal)
+```
+je label
+jne label
+```
+-Nó kiểm tra   
++nếu ZF = 1 -> nhảy   
++nếu ZF = 0 -> nhảy
 
 **GDB** là một trình gỡ lỗi (debugger) cho phép tạm dừng chương trình và xem phía trong CPU đang làm gì  
 <img width="1040" height="720" alt="image" src="https://github.com/user-attachments/assets/c50893a1-1348-407a-bab1-86f9957cab98" />
