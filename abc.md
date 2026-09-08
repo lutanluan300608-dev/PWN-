@@ -44,3 +44,18 @@
 -Và nếu si thêm nháy nữa thì nó vẫn thực hiện mov rbx, 2. Tức lúc này nó ko bỏ qua mov rbx, 1 nữa mà chạy từ trên xuống như thường.  
 
 # JG (Jump if Greater)
+<img width="1917" height="1078" alt="Screenshot 2026-09-07 203305" src="https://github.com/user-attachments/assets/472acd9f-5d26-43fb-a112-0ce65fce27e0" />
+  <img width="1917" height="1075" alt="Screenshot 2026-09-07 203810" src="https://github.com/user-attachments/assets/b2f3f65f-164a-4dcb-a735-de9f6a319ba6" />
+
+# CALL
+<img width="1920" height="1080" alt="Screenshot (49)" src="https://github.com/user-attachments/assets/e0200346-9d50-4948-87d0-2cd0832678e3" />  
+<img width="1917" height="1078" alt="Screenshot 2026-09-08 182504" src="https://github.com/user-attachments/assets/b6600fc2-9c59-4928-9bc0-d07054eb3021" />  
+-Sau khi call thì RSP đã thay đổi, nó giảm đi 8 byte, đồng nghĩa stack cũng đã được mở rộng, call đã lưu return address vào stack  
+
+<img width="1917" height="212" alt="Screenshot 2026-09-08 183153" src="https://github.com/user-attachments/assets/fce865aa-69ac-474c-8485-576ab85b7746" />
+```
+(gdb) x/gx $rsp
+0x7fffffffe0c8: 0x000000000040100c
+```
+-Dòng code trên có thể đọc 0x7fffffffe0c8 là địa chỉ stack, 0x000000000040100c là dữ liệu tại đó: mov rbx, 0x14 
+-Lệnh x/gx dùng để xem nội dung tại 1 địa chỉ bộ nhớ dưới dạng số nguyên hệ hex. x: examine, g:giant, x:hex 
