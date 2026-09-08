@@ -90,3 +90,12 @@ mov rbx, 2
 <img width="1132" height="510" alt="Screenshot 2026-09-05 201621" src="https://github.com/user-attachments/assets/1766edca-2c17-4cab-8562-768c626aded4" />
 
 ### CALL 
+-Ví dụ:
+```
+call foo
+```
+-Như đã học thì Call dùng để gọi hàm, đồng thời sẽ đánh dấu 1 địa chỉ là return address để trở về 
+```
+ret
+```
+-Sau khi chạy xong CPU sẽ dùng return address để quay lại chỗ vừa gọi foo  
