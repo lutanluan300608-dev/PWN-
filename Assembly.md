@@ -96,6 +96,7 @@ call foo
 ```
 -Như đã học thì Call dùng để gọi hàm, đồng thời sẽ đánh dấu 1 địa chỉ là return address để trở về 
 ```
+foo:
 ret
 ```
 -Sau khi chạy xong CPU sẽ dùng return address để quay lại chỗ vừa gọi foo  
