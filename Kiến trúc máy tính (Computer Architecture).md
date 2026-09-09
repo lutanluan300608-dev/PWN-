@@ -99,12 +99,6 @@ Decode = đọc và hiểu công việc
 Control = điều phối ai phải làm
 Execute = thực hiện công việc
 Result = nhận kết quả
-
-==>Ví dụ một đội bóng:
-CU  = HLV
-ALU = cầu thủ thực hiện phép tính
-Registers = nơi giữ dữ liệu tạm thời
-Memory = kho chứa dữ liệu/instruction
 ```
 
 
