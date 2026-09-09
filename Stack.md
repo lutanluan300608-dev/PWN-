@@ -146,3 +146,19 @@ Stack
 ├──────────────────┤  
 │ return address   │  
 └──────────────────┘  
+-Một function truyền thống thường có dạng  
+```
+push rbp
+mov  rbp, rsp
+
+; function body
+
+mov  rsp, rbp
+pop  rbp
+ret
+```
+Phần đầu gọi là function prologue  
+  
+Phần cuối gọi là function epilogue  
+  
+Lưu ý: không phải mọi function hiện đại đều bắt buộc có push rbp / mov rbp, rsp. Compiler có thể tối ưu và bỏ frame pointer  
