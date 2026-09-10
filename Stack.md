@@ -143,7 +143,7 @@ Stack
 │ local variables  │    
 │ saved registers  │    
 │ ...              │    
-├──────────────────┤    
+├──────────────────┤  
 │ return address   │    
 └──────────────────┘    
 -Một function truyền thống thường có dạng  
