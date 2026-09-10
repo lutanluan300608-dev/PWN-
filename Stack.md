@@ -138,14 +138,14 @@ Sau khi **Pop** thì RSP cũng sẽ thay đổi. Pop xong thì RSP sẽ tăng l�
 # Stack Frame 
 -Khi một function được gọi thì nó cần 1 vùng trên stack để chứa dữ liệu chính function đó. Vùng đó gọi là **Stack Frame**  
 Stack  
-┌──────────────────┐  
-│ dữ liệu của foo  │  
-│ local variables  │  
-│ saved registers  │  
-│ ...              │  
-├──────────────────┤  
-│ return address   │  
-└──────────────────┘  
+┌──────────────────┐    
+│ dữ liệu của foo  │    
+│ local variables  │    
+│ saved registers  │    
+│ ...              │    
+├──────────────────┤    
+│ return address   │    
+└──────────────────┘    
 -Một function truyền thống thường có dạng  
 ```
 push rbp
