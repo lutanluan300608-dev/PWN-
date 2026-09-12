@@ -100,3 +100,6 @@ foo:
 ret
 ```
 -Sau khi chạy xong CPU sẽ dùng return address để quay lại chỗ vừa gọi foo  
+
+### SYSCALL - SYSTEMCALL
+-Vì chương trình User-Space không được tự ý sử dụng đến phần cứng, nên lệnh syscall dùng để gọi kernel 
