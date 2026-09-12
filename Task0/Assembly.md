@@ -101,5 +101,14 @@ ret
 ```
 -Sau khi chạy xong CPU sẽ dùng return address để quay lại chỗ vừa gọi foo  
 
-### SYSCALL - SYSTEMCALL
--Vì chương trình User-Space không được tự ý sử dụng đến phần cứng, nên lệnh syscall dùng để gọi kernel 
+### SYSCALL - SYSTEM CALL
+-Vì chương trình User-Space không được tự ý làm mọi thứ với phần cứng, nên lệnh syscall dùng để gọi kernel. Ví dụ như các thao tác in ra màn hình, mở file, cấp phát bộ nhớ, thoát chương trình,...  
+Ví dụ:
+```
+mov rax, 60
+mov rdi, 0
+syscall
+```
++rax = 60 -> chọn system call exit  
++rdi = 0 -> mã thoát 0  
++syscall -> chuyển quyền điều khiển vào kernel  
