@@ -81,11 +81,7 @@ Mà:
 2 ký tự Hex = 1 byte
 nên:
 
-0x12  0x34  0x56  0x78   
-  │     │     │     │  
-  └─────┴─────┴─────┘  
-       4 byte  
-
+0x12  0x34  0x56  0x78: đều là 4 byte
 
 RAM chỉ lưu theo từng byte, tức nghĩa để lưu "0x12345678" cần 4 địa chỉ tương ứng 4 byte.
 NHƯNG nó sẽ được lưu theo thứ tự như thế nào
