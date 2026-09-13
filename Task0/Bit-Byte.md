@@ -96,33 +96,35 @@ ta có:
 MSB
 
 Memory:
+```
    Địa chỉ       Dữ liệu
 
    0x1000   →    12
    0x1001   →    34
    0x1002   →    56
    0x1003   →    78
-
+```
 ----**Little-endian** đặt **byte nhỏ nhất(LSB-Least Significant Byte)** ở địa chỉ nhỏ nhất.
 
 Với: 0x12345678
 Byte cuối: 78 là LSB.
 
 Memory sẽ thành:
+```
    Địa chỉ       Dữ liệu
 
    0x1000   →    78
    0x1001   →    56
    0x1002   →    34
    0x1003   →    12
-
+```
 Trong: 0x12345678
 ta có:
-
+```
 12 34 56 78
 ↑           ↑
 MSB         LSB
-
+```
 12 = MSB (Most Significant Byte)
 78 = LSB (Least Significant Byte)
 =>Big-endian hay Little-endian chỉ **thay đổi thứ tự** các byte trong Memory, **Không thay đổi nội dung**
