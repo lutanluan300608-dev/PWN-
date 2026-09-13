@@ -6,11 +6,12 @@ Là một vùng memory dùng để chứa các instruction của chương trình
 Ví dụ chương trình có các instruction:
 <img width="1042" height="185" alt="Screenshot 2026-08-29 200024" src="https://github.com/user-attachments/assets/6086312e-7fa9-4514-9074-a336a551a659" />
 Sau khi chương trình được biên dịch thành Machine code, các instruction sẽ được chứa trong **Code Segment**  
+Ví dụ ảnh trên
 Memory  
 
-0x401000 → instruction 1  
-0x401005 → instruction 2  
-0x401008 → instruction 3  
+0x401000 → mov rax, 10
+0x401007 → mov rbx, 20
+0x401012 → instruction 3  
 ...  
   
 CPU có thể fetch instruction dựa trên địa chỉ của nó.  
