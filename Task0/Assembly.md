@@ -5,6 +5,15 @@ Code được viết sẽ được biên dịch thông qua một ompiler, từ n
 
 # ASSEMBLY
 **Assembly** là một ngôn ngữ lập trình bậc thấp, nó rất gần với ngôn ngữ máy tính, dùng các từ tiếng anh rút ngắn giúp con người dễ đọc và viết các lệnh mà CPU có thể thực thi. Và Assembly cũng có rất nhiều loại.  
+-Để CPU hiểu được code thông qua assembly program cần đổi code file thành object file. Sau đó cần link các object file lại thành 1 file hoàn chỉnh(executeable) 
+```
+as -o file.o file.s
+ld -o file file.o
+```
+-Hoặc có thể làm tắt 2 lệnh trên
+```
+gcc -o file file.s
+```
 -Một instruction Assembly thường có dạng
 ```
 instruction destination, source
