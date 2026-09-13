@@ -157,4 +157,4 @@ Hoặc dùng cơ số 2 để đọc
 
 # Biễu diễn dấu (Signed)
 -Khi biểu diễn dấu trong hệ nhị phân sẽ dựa vào số đầu tiên: 1 là âm (signed), 0 là dương(unsigned). Và ít nhất là 2-bit để biểu diễn signed number   
-- Ví dụ trong 32-bit, bit đầu tiên sẽ biểu diễn dấu, 31-bit còn lại sẽ biểu diễn số 
+-Ví dụ trong 32-bit, bit đầu tiên sẽ biểu diễn dấu, 31-bit còn lại sẽ biểu diễn số 
