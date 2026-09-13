@@ -129,3 +129,10 @@ MSB         LSB
 78 = LSB (Least Significant Byte)
 =>Big-endian hay Little-endian chỉ **thay đổi thứ tự** các byte trong Memory, **Không thay đổi nội dung**
 
+# Cách đọc hệ thập phân
+-Gồm các số từ 0-9  
+-Ví dụ số 369, chia ra:
+```
+Hệ số nhân      100     10    1
+Số               3       6    9
+```
