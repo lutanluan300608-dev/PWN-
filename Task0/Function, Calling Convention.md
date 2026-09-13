@@ -110,9 +110,10 @@ foo:
   mov rbp, rsp
   sub rsp, 16
 
+  add rsp, 16
   pop rbp
+//có thể dùng 'leave' để thay thế việc dọn stack thủ công
 
-  leave 
   ret
 ```
 
