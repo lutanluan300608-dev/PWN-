@@ -82,10 +82,15 @@ mov rbx, 2
 -Ngược lại với JG nhưng điều kiện là ZF =0, SF != OF 
 -Giữ nguyên cmp rax, 5 thì nó sẽ ko nhảy, còn đổi sang một số lớn hơn rax thì sẽ nhảy (đang đề cập đến code trên phần JG)
 
-### JMP
--Khác với 4 lệnh JE, JNE, JG, JL. Gặp JMP là nhảy luôn, không xét điều kiện.
-=> **Conditional jump**: JE, JNE, JG, JL. **Unconditional jump**: JMP 
-**GDB** là một trình gỡ lỗi (debugger) cho phép tạm dừng chương trình và xem phía trong CPU đang làm gì  
+### JMP  
+-Khác với 4 lệnh JE, JNE, JG, JL. Gặp JMP là nhảy luôn, không xét điều kiện.  
+=> **Conditional jump**: JE, JNE, JG, JL. **Unconditional jump**: JMP   
+# GDB
+ là một trình gỡ lỗi (debugger) cho phép tạm dừng chương trình và xem phía trong CPU đang làm gì  
+ -break: dùng để tạo break point  
+ -run: chạy chương trình cho tới khi gặp điểm break  
+ -x: examine  
+ -info registers ... ...: xem thông tin registers  
 <img width="1040" height="720" alt="image" src="https://github.com/user-attachments/assets/c50893a1-1348-407a-bab1-86f9957cab98" />
 <img width="1132" height="510" alt="Screenshot 2026-09-05 201621" src="https://github.com/user-attachments/assets/1766edca-2c17-4cab-8562-768c626aded4" />
 
