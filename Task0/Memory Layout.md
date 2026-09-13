@@ -9,9 +9,9 @@ Sau khi chương trình được biên dịch thành Machine code, các instruct
 Ví dụ ảnh trên
 Memory  
 
-0x401000 → mov rax, 10
-0x401007 → mov rbx, 20
-0x401012 → instruction 3  
+0x401000 → mov rax, 10  
+0x401007 → mov rbx, 20  
+0x401012 → instruction 3    
 ...  
   
 CPU có thể fetch instruction dựa trên địa chỉ của nó.  
