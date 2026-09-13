@@ -14,6 +14,8 @@ ld -o file file.o
 ```
 gcc -o file file.s
 ```
+-> gcc sẽ tự gọi as và ld
+Note: GCC là 1 bộ trình biên dịch
 -Một instruction Assembly thường có dạng
 ```
 instruction destination, source
