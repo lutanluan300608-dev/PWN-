@@ -60,3 +60,59 @@ thì 0x401105 chính là return address.
 Ret dùng để lấy **return address** từ Stack và đưa nó vào RIP để CPU quay lại chỗ đã gọi Function.  
 call → lưu nơi quay về + chuyển sang function  
 ret  → lấy nơi quay về + quay lại  
+
+# CALLER VÀ CALLEE
+-Caller là hàm gọi, Callee là hàm được gọi
+Ví dụ
+```
+main:
+    mov rax, 19
+    call foo
+```
++main là hàm gọi  
++foo là hàm được gọi  
+**Caller và Callee đều phải tuân theo Calling Convention**
+### CALLER-SAVED
+-Caller phải tự chịu trách nhiệm nếu muốn giữ giá trị  
+Các thanh ghi:
+```
+RAX   -> lưu giá trị trả về của hàm 
+RCX
+RDX
+RSI
+R8 - R11
+```
+*R10 và R11 là thanh ghi tạm thời  
+Ví dụ
+```
+main:
+    mov rax, 7
+    call foo
+```
+->Thì foo có quyền thay đổi RAX  
+-Caller phải tự push vào Stack trước khi gọi hàm khác nếu còn muốn dùng tiếp.
+### CALLEE-SAVED
+Các thanh ghi:
+```
+RBX
+RBP
+RSP
+R12
+R13
+R14
+R15
+```
+Nếu callee muốn thay đổi những thanh ghi này, callee phải khôi phục giá trị cũ trước khi ret, ngắn gọn là push để sao lưu và pop để khôi phục trước khi ret  
+Ví dụ:
+```
+foo:
+  push rbp
+  mov rbp, rsp
+  sub rsp, 16
+
+  pop rbp
+
+  leave 
+  ret
+```
+
