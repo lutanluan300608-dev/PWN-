@@ -136,3 +136,25 @@ MSB         LSB
 Hệ số nhân      100     10    1
 Số               3       6    9
 ```
+->3x100 + 6x10 + 9x1 
+->3×10² + 6×10¹ + 9×10⁰
+=>Cứ mỗi số phía trước sẽ có hệ số nhân lớn hơn gấp 10 
+
+# Cách đọc hệ nhị phân
+-Cũng gần giống với hệ thập phân, nhưng hệ số nhân sẽ chỉ còn gấp 2 lần 
+-Ví dụ: có số 1011, đọc theo kiểu
+```
+Hệ số nhân      8    4    2    1
+Số              1    0    1    1
+```
+->8x1 + 4x0 + 2x1 + 1x1 = 11, ta có được số 11 trong hệ thập phân
+Hoặc dùng cơ số 2 để đọc
+```
+1    0    1    1
+2³   2²   2¹   2⁰
+```
+->2³x1 + 2²x0 + 2¹x1 + 2⁰x1 = 11 
+
+# Biễu diễn dấu (Signed)
+-Khi biểu diễn dấu trong hệ nhị phân sẽ dựa vào số đầu tiên: 1 là âm (signed), 0 là dương(unsigned)  
+-
