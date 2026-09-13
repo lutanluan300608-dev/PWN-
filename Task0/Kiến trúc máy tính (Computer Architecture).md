@@ -207,6 +207,7 @@ AX  → 16-bit
 AL  → 8-bit  
   
   
+<img width="1547" height="776" alt="Screenshot 2026-09-12 125605" src="https://github.com/user-attachments/assets/84c59ec1-9df5-474b-bb3f-eb950ad4071a" />
 
   
 **General-Purpose Register**  
@@ -234,10 +235,6 @@ Stack
 └──────────────┘  
 Trong lúc hàm chạy thì RSP có thể thay đổi khi stack được sử dụng nên RBP giúp việc tham chiếu dữ liệu thuận lợi hơn.  
 LƯU Ý là RBP không nhất thiết phải làm Frame Pointer.  
-  
-**RDI** chứa giá trị Argument đầu tiên.  
-
-**RSI** chứa giá trị Argument thứ hai.
 # EFLAG (Thanh ghi trạng thái)
 **1. Cờ trạng thái (Status Flags)Nhóm cờ này phản ánh kết quả của các lệnh tính toán (như cộng, trừ, so sánh). CPU dựa vào đây để thực hiện các lệnh rẽ nhánh điều kiện (như lệnh nhảy JZ, JNZ).**  
 -ZF (Zero Flag): Bật khi kết quả phép toán bằng 0.  
