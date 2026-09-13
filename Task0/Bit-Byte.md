@@ -156,5 +156,5 @@ Hoặc dùng cơ số 2 để đọc
 ->2³x1 + 2²x0 + 2¹x1 + 2⁰x1 = 11 
 
 # Biễu diễn dấu (Signed)
--Khi biểu diễn dấu trong hệ nhị phân sẽ dựa vào số đầu tiên: 1 là âm (signed), 0 là dương(unsigned)  
--
+-Khi biểu diễn dấu trong hệ nhị phân sẽ dựa vào số đầu tiên: 1 là âm (signed), 0 là dương(unsigned). Và ít nhất là 2-bit để biểu diễn signed number  
+- Ví dụ trong 32-bit, bit đầu tiên sẽ biểu diễn dấu, 31-bit còn lại sẽ biểu diễn số 
