@@ -2,8 +2,6 @@
 Code được viết sẽ được biên dịch thông qua một ompiler, từ ngôn ngữ bậc cao thành các mã trung gian, sau đó được chuyển thành Machine Code và được đưa đến CPU      
 
 
-# LOGIC GATE
-<img width="1251" height="741" alt="Screenshot 2026-09-04 183607" src="https://github.com/user-attachments/assets/fa193ffa-3af4-4701-a450-ee777e8639cd" />
 
 # ASSEMBLY
 **Assembly** là một ngôn ngữ lập trình bậc thấp, nó rất gần với ngôn ngữ máy tính, dùng các từ tiếng anh rút ngắn giúp con người dễ đọc và viết các lệnh mà CPU có thể thực thi. Và Assembly cũng có rất nhiều loại.  
