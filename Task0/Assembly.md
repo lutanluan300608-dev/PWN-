@@ -27,7 +27,18 @@ add rbx, 5
 ```
 instruction destination, source
 ```
-
+Ví dụ
+```
+mov rax, 10 //ghi giá trị 10 vào rax
+mov rax, rbx //sao chép giá trị rbx vào rax
+mov rdi, rsp //sao chép địa chỉ rsp đang trỏ tới (top of stack) vào rdi
+```
+-Ngoài ra, lệnh mov còn có thể đọc dữ liệu từ bộ nhớ mà thanh ghi khác đang trỏ tới và lưu nó vào thanh ghi hiện tại  
+Ví dụ
+```
+mov rdi, [rsp] //sao chép dữ liệu top of stack mà rsp trỏ tới vào rdi
+mov rdi, [rax] //sao chép dữ liệu mà địa chỉ của thanh rax đang trỏ tới vào rdi
+```
 ### ADD
 -Công dụng: cộng 2 giá trị  
 -Cú pháp: 
