@@ -67,13 +67,13 @@ Tức là:
 
 Mỗi ô ở đây có thể hình dung là 1 byte = 8 bit.
 Như vậy:
-
+```
 RAM
  ↓
 nhiều byte
  ↓
 mỗi byte gồm 8 bit
-
+```
 # ENDIANNESS
 Ví dụ ta có số: 0x12345678
 Số này gồm 8 ký tự Hex.
