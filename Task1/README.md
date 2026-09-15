@@ -4,8 +4,8 @@
 1. Trên Stack (Stack Overflow - Tràn ngăn xếp)   
    +Thường xảy ra khi một hàm tự gọi chính nó liên tục mà không có điểm dừng, mỗi lần gọi sẽ thêm một vùng stack frame mới vào      
    +Hoặc hàm gọi chồng nhau quá sâu(Hàm A gọi B, B gọi C, C gọi D,...) vượt quá giới hạn độ sâu của Stack      
-   +Hoặc khai báo biến cục bộ hay mảng có kích thước quá lớn vượt quá giới hạn ngăn xếp của luồng
-   =>Phần lớn khi tràn dữ liệu sẽ khiến chương trình crash ngay lập tức.
+   +Hoặc khai báo biến cục bộ hay mảng có kích thước quá lớn vượt quá giới hạn ngăn xếp của luồng   
+   =>Phần lớn khi tràn dữ liệu sẽ khiến chương trình crash ngay lập tức.   
          Địa chỉ bộ nhớ không hợp lệ: Máy tính cố đọc dữ liệu bị đè nhưng nhận ra đó không phải là một địa chỉ phân vùng được phép truy cập. Hệ điều hành sẽ can             thiệp và đưa ra lỗi Segmentation Fault (Core Dumped) để bảo vệ hệ thống.
          Địa chỉ trả về của hàm (Return Address): Khi hàm chạy xong, nó lấy dữ liệu rác (ví dụ chuỗi AAAA) làm địa chỉ để nhảy tiếp. Vì AAAA không phải là địa chỉ            của lệnh nào cả, chương trình sẽ "chết đứng" (Crash).
    +Việc nhập ký tự vượt quá kích thước mảng cũng có thể gây ra Stack-based Overflow(Tràn bộ đệm ngăn xếp)   
