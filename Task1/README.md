@@ -10,8 +10,8 @@
          Địa chỉ trả về của hàm (Return Address): Khi hàm chạy xong, nó lấy dữ liệu rác (ví dụ chuỗi AAAA) làm địa chỉ để nhảy tiếp. Vì AAAA không phải là địa chỉ            của lệnh nào cả, chương trình sẽ "chết đứng" (Crash).   
    +Việc nhập ký tự vượt quá kích thước mảng cũng có thể gây ra Stack-based Overflow(Tràn bộ đệm ngăn xếp)   
 **2. Trên Heap**
-   Vùng nhớ Heap là nơi chứa các dữ liệu được cấp phát động
-   Nếu làm tràn một đối tượng hoặc một mảng trên Heap, dữ liệu sẽ đè lên:
-   Siêu dữ liệu của bộ quản lý (Chunk Metadata): Hệ điều hành dùng các ô nhớ nhỏ nằm ngay trước hoặc sau mỗi vùng cấp phát để lưu thông tin như: **Kích thước vùng nhớ này là bao nhiêu? Nó đang trống hay đã dùng?** Đè lên phần này sẽ làm hỏng trình quản lý bộ nhớ (malloc chunks), gây sập chương trình khi gọi lệnh giải phóng bộ nhớ (free()).
-   Các đối tượng/biến động khác: Các biến được tạo ra ngay sau đó. Nếu vùng nhớ liền kề chứa một "con trỏ hàm" (function pointer), việc ghi đè có thể thay đổi hàm mà chương trình sẽ gọi tiếp theo, dẫn đến chiếm quyền điều khiển.
+   Vùng nhớ Heap là nơi chứa các dữ liệu được cấp phát động   
+   Nếu làm tràn một đối tượng hoặc một mảng trên Heap, dữ liệu sẽ đè lên:   
+   Siêu dữ liệu của bộ quản lý (Chunk Metadata): Hệ điều hành dùng các ô nhớ nhỏ nằm ngay trước hoặc sau mỗi vùng cấp phát để lưu thông tin như: **Kích thước vùng nhớ này là bao nhiêu? Nó đang trống hay đã dùng?** Đè lên phần này sẽ làm hỏng trình quản lý bộ nhớ (malloc chunks), gây sập chương trình khi gọi lệnh giải phóng bộ nhớ (free()).   
+   Các đối tượng/biến động khác: Các biến được tạo ra ngay sau đó. Nếu vùng nhớ liền kề chứa một "con trỏ hàm" (function pointer), việc ghi đè có thể thay đổi hàm mà chương trình sẽ gọi tiếp theo, dẫn đến chiếm quyền điều khiển.   
    
