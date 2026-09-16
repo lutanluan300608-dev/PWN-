@@ -1,2 +1,2 @@
 # Công thức tính Offset (Khoảng cách đè)
-## Demo1
+-Mình đã cài Pwndbg trên ubuntu theo Chat GPT, 
