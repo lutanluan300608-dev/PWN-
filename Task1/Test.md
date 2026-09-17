@@ -10,3 +10,5 @@
 **NX**: NX enabled -> vùng Stack không được phép vừa ghi vừa thực thi code. Nên muốn chạy shellcode trên Stack, NX sẽ là vấn đề<br>
 **PIE**: No PIE (0x400000) -> binary ko dùng PIE. Các địa chỉ code như: **0x401136** hay **0x401163** có thể giữ cố định giữa các lần chạy của binary, trong môi trường không có yếu tố khác làm thay đổi chúng<br>
 **RELRO**: Partial RELRO -> GOT chưa được bảo vệ hoàn toàn.
+- Sau khi dịch ngược chương trình, <br>
+**push rbp**: lưu base pointer cũ
