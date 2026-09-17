@@ -18,3 +18,5 @@
    Nếu làm tràn một đối tượng hoặc một mảng trên Heap, dữ liệu sẽ đè lên:   
    Siêu dữ liệu của bộ quản lý (Chunk Metadata): Hệ điều hành dùng các ô nhớ nhỏ nằm ngay trước hoặc sau mỗi vùng cấp phát để lưu thông tin như: **Kích thước vùng nhớ này là bao nhiêu? Nó đang trống hay đã dùng?** Đè lên phần này sẽ làm hỏng trình quản lý bộ nhớ (malloc chunks), gây sập chương trình khi gọi lệnh giải phóng bộ nhớ (free()).   
    Các đối tượng/biến động khác: Các biến được tạo ra ngay sau đó. Nếu vùng nhớ liền kề chứa một "con trỏ hàm" (function pointer), việc ghi đè có thể thay đổi hàm mà chương trình sẽ gọi tiếp theo, dẫn đến chiếm quyền điều khiển.   
+
+## BOF1 
