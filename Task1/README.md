@@ -2,7 +2,7 @@
 ## Khái niệm
 -**Buffer overflow** (Tràn bộ đệm) là một lỗi lập trình, xảy ra khi một **chương trình cố gắng lưu trữ lượng dữ liệu vượt quá dung lượng** cho phép của **vùng nhớ đệm** (buffer, là vùng nhớ được cấp phát tạm thời để chứa dữ liệu)  
 -Nếu dữ liệu bị tràn, nó sẽ ghi đè lên lên các vùng nhớ liền kề, cụ thể là các ô nhớ địa chỉ byte tiếp theo    
--Việc kiểm soát được BOF có thể ghi đè địa chỉ trở về và dẫn đến 1 hàm mà mình muốn, hoặc ghi đè RIP để thực hiện instruction 
+-Việc kiểm soát được BOF có thể ghi đè địa chỉ trở về và dẫn đến 1 hàm mà mình muốn, hoặc ghi đè RIP để thực hiện instruction    
    +Thường xảy ra khi một hàm tự gọi chính nó liên tục mà không có điểm dừng, mỗi lần gọi sẽ thêm một vùng stack frame mới vào      
    +Hoặc hàm gọi chồng nhau quá sâu(Hàm A gọi B, B gọi C, C gọi D,...) vượt quá giới hạn độ sâu của Stack      
    +Hoặc khai báo biến cục bộ hay mảng có kích thước quá lớn vượt quá giới hạn ngăn xếp của luồng   
