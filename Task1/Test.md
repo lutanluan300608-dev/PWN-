@@ -5,7 +5,7 @@
 -Hàm vuln có vùng đệm được cung cấp **'char buf[32]'** chỉ có 32 bytes, nhưng lệnh **'fread(buf, 1, 200, stdin)'** lại đọc dữ tối đa 200 bytes  
 <img width="1917" height="1078" alt="Screenshot 2026-09-17 211100" src="https://github.com/user-attachments/assets/26c4e515-70cc-4e65-b434-0465e974f47b" />   
 1. Checksec    
-- Mình dùng **'checksec'** để kiểm tra cơ chế bảo mật (mitigations) bật hay tắt:   
+- Mình dùng **'checksec'** để kiểm tra cơ chế bảo mật (mitigations) bật hay tắt: <br> 
    - **Stack:** No canary found -> khi BOF, ko cần phải vượt qua lớp bảo vệ Canary    
    - **NX:** NX enabled -> vùng Stack không được phép vừa ghi vừa thực thi code. Nên muốn chạy shellcode trên Stack, NX sẽ là vấn đề    
    - **PIE:** No PIE (0x400000) -> binary ko dùng PIE.Các địa chỉ code như: **0x401136** hay **0x401163** có thể giữ cố định giữa các lần chạy của binary, trong môi trường không có yếu tố khác làm thay đổi chúng     
