@@ -6,7 +6,7 @@
 <img width="1917" height="1078" alt="Screenshot 2026-09-17 211100" src="https://github.com/user-attachments/assets/26c4e515-70cc-4e65-b434-0465e974f47b" />   
 
 - Mình dùng **checksec** để kiểm tra cơ chế bảo mật (mitigations) bật hay tắt:<br>
-+ **Stack**: No canary found -> khi BOF, ko cần phải vượt qua lớp bảo vệ Canary<br>
-+ **NX**: NX enabled -> vùng Stack không được phép vừa ghi vừa thực thi code. Nên muốn chạy shellcode trên Stack, NX sẽ là vấn đề<br>
-+ **PIE**: No PIE (0x400000) -> binary ko dùng PIE. Các địa chỉ code như: **0x401136** hay **0x401163** có thể giữ cố định giữa các lần chạy của binary, trong môi trường không có yếu tố khác làm thay đổi chúng<br>
-+ **RELRO**: Partial RELRO -> GOT chưa được bảo vệ hoàn toàn.
+**Stack**: No canary found -> khi BOF, ko cần phải vượt qua lớp bảo vệ Canary<br>
+**NX**: NX enabled -> vùng Stack không được phép vừa ghi vừa thực thi code. Nên muốn chạy shellcode trên Stack, NX sẽ là vấn đề<br>
+**PIE**: No PIE (0x400000) -> binary ko dùng PIE. Các địa chỉ code như: **0x401136** hay **0x401163** có thể giữ cố định giữa các lần chạy của binary, trong môi trường không có yếu tố khác làm thay đổi chúng<br>
+**RELRO**: Partial RELRO -> GOT chưa được bảo vệ hoàn toàn.
