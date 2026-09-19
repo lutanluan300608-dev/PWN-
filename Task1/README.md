@@ -25,4 +25,4 @@
 -Biến buf được khai báo chỉ có kích thước 16 bytes nhưng chương trình lại cho phép đọc buf đến tối đa 0x30 = 48 bytes, nếu nhập quá dữ liệu của buf thì dữ liệu sẽ bị tràn và lan đến các biến v5, v6, v7. Đồng thời chương trình cũng cho phép chúng mình nắm quyền điều khiển shellcode nếu các biến v5, v6, v7 đều khác 0. Mình có thể tận dụng việc tràn biến để có thể chiếm quyền điều khiển shell      
 <img width="1472" height="620" alt="Screenshot 2026-09-19 182507" src="https://github.com/user-attachments/assets/c60ade8a-1fd9-417e-9ff7-5b2986ab27ac" />   
 -Mình đã chạy file và sau khi nhập 40 chữ A, dữ liệu đã bị tràn và ghi đè lên v5, v6, v7 -> mình đã chiếm được shell 
-
+## BOF2
