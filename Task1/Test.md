@@ -11,4 +11,7 @@
 **PIE**: No PIE (0x400000) -> binary ko dùng PIE. Các địa chỉ code như: **0x401136** hay **0x401163** có thể giữ cố định giữa các lần chạy của binary, trong môi trường không có yếu tố khác làm thay đổi chúng<br>
 **RELRO**: Partial RELRO -> GOT chưa được bảo vệ hoàn toàn.
 - Sau khi dịch ngược chương trình, <br>
-**push rbp**: lưu base pointer cũ
+**push rbp**: lưu base pointer cũ <br>
+**mov rbp, rsp**: tạo base pointer mới của hàm vuln() <br>
+**sub rsp, 0x20**: chương trình dành 0x20 = 32 bytes trên stack cho buf <br>
+**lea **
