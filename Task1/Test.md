@@ -14,7 +14,7 @@
 **push rbp**: lưu base pointer cũ <br>
 **mov rbp, rsp**: tạo base pointer mới của hàm vuln() <br>
 **sub rsp, 0x20**: chương trình dành 0x20 = 32 bytes trên stack cho buf <br>
-**mov rdx,QWORD PTR [rip+0x2ed7]**: Lấy 8 bytes dữ liệu bắt đầu từ địa chỉ [rip+0x2ed7] truyền vào RDX
+**mov rdx,QWORD PTR [rip+0x2ed7]**: Lấy 8 bytes dữ liệu bắt đầu từ địa chỉ [rip+0x2ed7] truyền vào RDX  
 **lea rax,[rbp-0x20]**: lea không đọc dữ liệu từ [rbp-0x20], nó tính địa chỉ RAX = RBP - 0x20, là địa chỉ đầu tiên của buf
 ```
   Địa chỉ cao 
