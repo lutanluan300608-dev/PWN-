@@ -16,7 +16,7 @@
 **sub rsp, 0x20**: chương trình dành 0x20 = 32 bytes trên stack cho buf <br>
 **mov rdx,QWORD PTR [rip+0x2ed7]**:  
 **lea rax,[rbp-0x20]**: lea không đọc dữ liệu từ [rbp-0x20], nó tính địa chỉ RAX = RBP - 0x20, là địa chỉ đầu tiên của buf
-  ```
+```
   Địa chỉ cao 
 ┌─────────────────────┐
 │ Saved RIP           │ ← [rbp+8]
@@ -28,4 +28,4 @@
 │                     │
 └─────────────────────┘
 Địa chỉ thấp
-  ```
+```
