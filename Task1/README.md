@@ -50,5 +50,7 @@
 - Cách 1, tìm địa chỉ hàm win và ghi nối vào payload, nhưng cách này sẽ khá lâu
 <img width="1170" height="495" alt="Screenshot 2026-09-20 223109" src="https://github.com/user-attachments/assets/63faa0dd-c777-45a7-be80-b208bc64a63b" />
 
-- Cách 2, sử dụng lệnh `exe = ELF('ten_file')` để phân tích 1 file định dạng ELF. Từ đó mà mình có thể trích xuất địa chỉ hàm qua lệnh `exe.sym['ten_ham']` để lấy địa chỉ hàm mà không cần tìm chay
+- Cách 2, sử dụng lệnh `exe = ELF('ten_file')` để phân tích 1 file định dạng ELF. Từ đó mà mình có thể trích xuất địa chỉ hàm qua lệnh `exe.sym['ten_ham']` để lấy địa chỉ hàm mà không cần tìm chay <br>
+<br>
+-Nhưng có 1 lỗi xảy ra, 
 
