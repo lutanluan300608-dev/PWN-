@@ -29,4 +29,9 @@
 ## BOF2
 <img width="955" height="695" alt="Thiết kế chưa có tên (2)" src="https://github.com/user-attachments/assets/9d164a4e-07d0-4c96-8350-82999c7d88f8" />   
 
-- Cũng giống như BOF1, mình cần ghi đè vào 3 biến a, b, c để chiếm shell. Nhưng chương trình yêu cầu giá trị được ghi đè phải khớp với điều kiện if, và các giá trị trên không thể nhập được từ bàn phím. Ví dụ 0xCAFEBABE gồm các byte 0xBE/0xBA/0xFE/0xCA, các byte này thuộc nhóm **ký tự không in được (non-printable ASCII)**
+-Cũng giống như BOF1, mình cần ghi đè vào 3 biến a, b, c để chiếm shell. Nhưng chương trình yêu cầu giá trị được ghi đè phải khớp với điều kiện if, và các giá trị trên không thể nhập được từ bàn phím. Ví dụ 0xCAFEBABE gồm các byte 0xBE/0xBA/0xFE/0xCA, các byte này thuộc nhóm **ký tự không in được (non-printable ASCII)** <br>
+
+<img width="1917" height="1068" alt="Screenshot 2026-09-20 140326" src="https://github.com/user-attachments/assets/a045a04a-bd9e-4303-8ede-11cc0fd50538" />
+
+-Mình đã cài Sublime Text qua Snap và tạo 1 file  
+
