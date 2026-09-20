@@ -35,3 +35,5 @@
 
 -Mình đã cài Sublime Text qua Snap và tạo 1 file  
 <img width="955" height="695" alt="Thiết kế chưa có tên (3)" src="https://github.com/user-attachments/assets/05171524-ecd3-4bc6-afc3-1b0eb4ef3e26" />
+
+-Đây là script python sử dụng pwntools, nhờ đó mình có thể nhập trực tiếp các byte vào chương trình. p64() để định dạng đúng kích thước 8 byte, ví dụ payload += p64(0xCAFEBABE) thì dữ liệu được nhập vào là **0x00000000CAFEBABE**. Còn nếu chỉ nhập payload += p32(CAFEBABE), dữ liệu nhập vào sẽ sai yêu cầu, lúc này biến c sẽ lưu giá trị là 0xCAFEBABE00000000 -> sai với chương trình yêu cầu, các giá trị sau sẽ bị ghi sai vị trí. 
