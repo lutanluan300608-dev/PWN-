@@ -39,7 +39,11 @@
 -Đây là script python sử dụng pwntools, nhờ đó mình có thể nhập trực tiếp các byte vào chương trình. p64() để định dạng đúng kích thước 8 byte, ví dụ `payload += p64(0xCAFEBABE)` thì dữ liệu được nhập vào là **0x00000000CAFEBABE**. Còn nếu chỉ nhập `payload += p32(0xCAFEBABE)`, dữ liệu nhập vào sẽ sai yêu cầu, lúc này biến c sẽ lưu giá trị là 0xCAFEBABE00000000 -> sai với chương trình yêu cầu, các giá trị sau sẽ bị ghi sai vị trí. 
 
 ## BOF3 - RET2WIN
-<img width="955" height="695" alt="Thiết kế chưa có tên (4)" src="https://github.com/user-attachments/assets/912cc18a-ab84-424a-b3c7-545a68c1a64a" />
+
+<img width="955" height="695" alt="Thiết kế chưa có tên (5)" src="https://github.com/user-attachments/assets/df1b0881-ef0b-401c-95c0-f769b34b6192" />
+
 -Lần này lệnh lấy shell được đặt trong hàm win(), nhưng ở hàm main() không có lệnh nào để gọi hàm win(). Mình có thể truy cập được hàm win bằng cách overwrite địa chỉ hàm win() vào địa chỉ quay về (RIP) sau khi thực hiện xong hàm main()   
 
+<img width="955" height="695" alt="Thiết kế chưa có tên (6)" src="https://github.com/user-attachments/assets/e2a782ce-b4f8-42db-8a78-b186c271ab3e" />
 
+-Chương trình sẽ return về __libc_start_main sau khi xong hàm main(), lúc này mình muốn địa chỉ return mà nó nhảy đến là của hàm win(), nên mình sẽ phải ghi đè saved rip của main() 
