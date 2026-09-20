@@ -37,3 +37,9 @@
 <img width="955" height="695" alt="Thiết kế chưa có tên (3)" src="https://github.com/user-attachments/assets/05171524-ecd3-4bc6-afc3-1b0eb4ef3e26" />
 
 -Đây là script python sử dụng pwntools, nhờ đó mình có thể nhập trực tiếp các byte vào chương trình. p64() để định dạng đúng kích thước 8 byte, ví dụ `payload += p64(0xCAFEBABE)` thì dữ liệu được nhập vào là **0x00000000CAFEBABE**. Còn nếu chỉ nhập `payload += p32(0xCAFEBABE)`, dữ liệu nhập vào sẽ sai yêu cầu, lúc này biến c sẽ lưu giá trị là 0xCAFEBABE00000000 -> sai với chương trình yêu cầu, các giá trị sau sẽ bị ghi sai vị trí. 
+
+## BOF3 - RET2WIN
+<img width="955" height="695" alt="Thiết kế chưa có tên (4)" src="https://github.com/user-attachments/assets/912cc18a-ab84-424a-b3c7-545a68c1a64a" />
+-Lần này lệnh lấy shell được đặt trong hàm win(), nhưng ở hàm main() không có lệnh nào để gọi hàm win(). Mình có thể truy cập được hàm win bằng cách overwrite địa chỉ hàm win() vào địa chỉ quay về (RIP) sau khi thực hiện xong hàm main()   
+
+
