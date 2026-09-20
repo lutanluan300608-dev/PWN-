@@ -23,8 +23,10 @@
 <img width="956" height="741" alt="Thiết kế chưa có tên (1)" src="https://github.com/user-attachments/assets/d8e89809-64e6-4fd4-9cc3-32fda6423b98" />
 
 -Biến buf được khai báo chỉ có kích thước 16 bytes nhưng chương trình lại cho phép đọc buf đến tối đa 0x30 = 48 bytes, nếu nhập quá dữ liệu của buf thì dữ liệu sẽ bị tràn và lan đến các biến v5, v6, v7. Đồng thời chương trình cũng cho phép chúng mình nắm quyền điều khiển shellcode nếu các biến v5, v6, v7 đều khác 0. Mình có thể tận dụng việc tràn biến để có thể chiếm quyền điều khiển shell      
-<img width="1472" height="620" alt="Screenshot 2026-09-19 182507" src="https://github.com/user-attachments/assets/c60ade8a-1fd9-417e-9ff7-5b2986ab27ac" />   
+<img width="1472" height="620" alt="Screenshot 2026-09-19 182507" src="https://github.com/user-attachments/assets/c60ade8a-1fd9-417e-9ff7-5b2986ab27ac" />  
+
 -Mình đã chạy file và sau khi nhập 40 chữ A, dữ liệu đã bị tràn và ghi đè lên v5, v6, v7 -> mình đã chiếm được shell 
 ## BOF2
 <img width="955" height="695" alt="Thiết kế chưa có tên (2)" src="https://github.com/user-attachments/assets/9d164a4e-07d0-4c96-8350-82999c7d88f8" />   
+
 - Cũng giống như BOF1, mình cần ghi đè vào 3 biến a, b, c để chiếm shell. Nhưng chương trình yêu cầu giá trị được ghi đè phải khớp với điều kiện if, và các giá trị trên không thể nhập được từ bàn phím. Ví dụ 0xCAFEBABE gồm các byte 0xBE/0xBA/0xFE/0xCA, các byte này thuộc nhóm **ký tự không in được (non-printable ASCII)**
