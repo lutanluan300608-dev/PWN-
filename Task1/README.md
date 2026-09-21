@@ -74,3 +74,4 @@
 -Lúc này ret đã nhảy đến win+0005, địa chỉ stack đã thỏa điều kiện và mình đã chiếm được shell
 
 ## BOF4 - ROPchain
+-Return-Oriented Program chain là 1 **chuỗi các đoạn mã máy ngắn hợp lệ (gadget)** có sẵn trong bộ nhớ chương trình, được liên kết với nhau thông qua Stack 
