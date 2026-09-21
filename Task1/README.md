@@ -72,3 +72,5 @@
 <img width="723" height="435" alt="Screenshot 2026-09-21 112152" src="https://github.com/user-attachments/assets/5da65ef5-0b15-47ed-8818-abfb10efaf73" />
 <img width="1461" height="505" alt="Screenshot 2026-09-21 112011" src="https://github.com/user-attachments/assets/8a598529-981c-4c7d-894a-9112e6da83a2" />
 -Lúc này ret đã nhảy đến win+0005, địa chỉ stack đã thỏa điều kiện và mình đã chiếm được shell
+
+## BOF4 - ROPchain
