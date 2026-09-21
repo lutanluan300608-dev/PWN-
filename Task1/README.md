@@ -52,5 +52,15 @@
 
 - Cách 2, sử dụng lệnh `exe = ELF('ten_file')` để phân tích 1 file định dạng ELF. Từ đó mà mình có thể trích xuất địa chỉ hàm qua lệnh `exe.sym['ten_ham']` để lấy địa chỉ hàm mà không cần tìm chay <br>
 <br>
--Nhưng có 1 lỗi xảy ra, 
+-Nhưng có 1 lỗi xảy ra,
 
+<img width="963" height="428" alt="Screenshot 2026-09-21 103020" src="https://github.com/user-attachments/assets/ac9211c9-a0d5-4f06-9477-aa72e679541d" />
+
+
+<img width="1432" height="651" alt="Tạm dừng chương trình để lấy PID" src="https://github.com/user-attachments/assets/70b84e34-d084-423d-ac38-36beb5768aba" />   
+
+<img width="1470" height="622" alt="Screenshot 2026-09-21 104723" src="https://github.com/user-attachments/assets/0b7b9b5c-ab65-46cd-94d0-742bec93070e" />
+
+-Mình disassemble main và đặt break point tại ret để xem thay đổi, lỗi gặp phải ở đây là Stack Alignment khi gọi hàm system().   
+-Lệnh gây lỗi chương trình là `movaps XMMWORD PTR [rsp], xmm1`, lệnh movaps trên kiến trúc 64-bit buộc địa chỉ trong thanh ghi rsp phải chia hết cho 16(kết thúc bằng số 0 ở dạng hex)   
+-Nhưng $rsp lại = 0x00007ffc70d5c458 điều này dẫn đến lỗi SIGSEGV
