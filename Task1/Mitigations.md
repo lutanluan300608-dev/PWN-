@@ -7,5 +7,5 @@
 # PIE (Position Independent Executable)
 -PIE là cơ chế biên dịch tập tin thực thi dưới dạng **Mã độc lập vị trí (PIC)**. Khi chương trình khởi chạy, toàn bộ phân đoạn của tệp thực thi chính (`.text`, `.data`, `.got`) sẽ được nạp vào một địa chỉ gốc (Base Address) **Ngẫu nhiên** trong bộ nhớ  
 -Có 1 kỹ thuật bảo mật khác gọi là ASLR (Address Space Layout Randomization), dùng để chặn việc khai thác bộ nhớ bằng cách sắp xếp **ngẫu nhiên vị trí** các vùng dữ liệu chính trong bộ nhớ ảo. Nhưng chỉ có Stack, Heap, Shared Libs được ngẫu nhiên vị trí, còn file thực thi chính (`main binary`) vẫn nằm ở vị trí cố định  
--Do địa chỉ bị xáo trộn mỗi lần chạy, mình ko thể biết chính xác ROP Gadget hay hàm nào đang ở đâu 
+-Do địa chỉ bị xáo trộn mỗi lần chạy, mình ko thể biết chính xác ROP Gadget hay hàm nào đang ở đâu   
 ->**Information Leak (Rò rỉ bộ nhớ):** Khai thác một lỗ hổng khác (như Format String hoặc Out-of-bounds Read) để đọc một địa chỉ bộ nhớ đang chạy 
