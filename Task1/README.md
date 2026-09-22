@@ -76,3 +76,13 @@
 ## BOF4 - ROPchain
 -Return-Oriented Program chain là 1 **chuỗi các đoạn mã máy ngắn hợp lệ (gadget)** có sẵn trong bộ nhớ chương trình, được liên kết với nhau thông qua Stack 
 -Gadget là 1 dãy lệnh ngắn, gồm vài lệnh thao tác dữ liệu và luôn kết thúc bằng `ret` 
+<img width="662" height="217" alt="Screenshot 2026-09-22 205129" src="https://github.com/user-attachments/assets/28c48443-35b5-4b9e-b7b7-8f848425833e" />
+
+-Ở BOF4, hàm main() và các hàm khác đều ko có lệnh `system("/bin/sh")` để lấy shell, NX cũng đã được bật để tránh việc execute shellcode được chèn vào trên Stack. Nhưng chương trình vẫn chạy lệnh trên vùng `.text`(thường mặc định là có quyền RX), mình có thể tận dụng các lệnh có sẵn để gọi hệ thống và tạo shell.   
+<img width="1485" height="590" alt="Screenshot 2026-09-22 203906" src="https://github.com/user-attachments/assets/031c46fc-acb6-40e6-b090-9e106c7f7349" />
+-ROPgadget --binary bof4 | grep "instruction" giúp mình tìm 1 instruction cụ thể   
++ rdi chứa arg1
++ rsi chứa arg2
++ rdx chứa arg3
++ rax lưu số syscall
++ syscall để gọi hệ thống 
