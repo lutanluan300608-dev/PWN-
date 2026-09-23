@@ -88,8 +88,10 @@
 + rdx chứa arg3
 + rax lưu số syscall
 + syscall để gọi hệ thống
--Mục tiêu là <img width="605" height="525" alt="Screenshot 2026-09-23 215219" src="https://github.com/user-attachments/assets/cefd2bd6-6cd4-4cd2-b8f8-00d7355f05be" />
-thực thi hàm `system("/bin/sh") để lấy shell, nhưng vì gadget là 1 chuỗi assembly, đồng nghĩa là mình phải tạo shell bằng assembly. Mà assembly ko có hàm system(), file cũng đang là static linking nên cx ko có libc để dùng system. Nên mình có thể sử dụng `execve` với các parameter `execve("/bin/sh", args, env)`, và mình cần phải thiết lập RDI thành 1 con trỏ chuỗi để trỏ đến chuỗi "/bin/sh"
+-Mục tiêu là thực thi hàm `system("/bin/sh") để lấy shell, nhưng vì gadget là 1 chuỗi assembly, đồng nghĩa là mình phải tạo shell bằng assembly. Mà assembly ko có hàm system(), file cũng đang là static linking nên cx ko có libc để dùng system. Nên mình có thể sử dụng `execve` với các parameter `execve("/bin/sh", args, env)`, và mình cần phải thiết lập RDI thành 1 con trỏ chuỗi để trỏ đến chuỗi "/bin/sh"
 <img width="512" height="55" alt="Screenshot 2026-09-23 213123" src="https://github.com/user-attachments/assets/f18f95d0-4488-4cbc-9e9a-2c9e35b7f746" />
+
 -Chuỗi /bin/sh vẫn chưa có sẵn để sử dụng nên bắt buộc mình phải tạo bằng cách ghi chuỗi đó vào 1 địa chỉ 
 
+ <img width="605" height="525" alt="Screenshot 2026-09-23 215219" src="https://github.com/user-attachments/assets/cefd2bd6-6cd4-4cd2-b8f8-00d7355f05be" />
+-Payload đầu tiên `p64(pop_rdi)` phải nối sau thêm 1 địa chỉ vì `pop rdi` sẽ lấy 8 byte tiếp theo trên đỉnh Stack nạp vào thanh ghi, còn `ret` sẽ lấy 8 byte kế tiếp trên Stack làm địa chỉ nhảy đến tiếp theo. Và mình cần 1 địa chỉ **tĩnh** để nối vào 
