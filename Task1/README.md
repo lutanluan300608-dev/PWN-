@@ -78,11 +78,18 @@
 -Gadget là 1 dãy lệnh ngắn, gồm vài lệnh thao tác dữ liệu và luôn kết thúc bằng `ret` 
 <img width="662" height="217" alt="Screenshot 2026-09-22 205129" src="https://github.com/user-attachments/assets/28c48443-35b5-4b9e-b7b7-8f848425833e" />
 
--Ở BOF4, hàm main() và các hàm khác đều ko có lệnh `system("/bin/sh")` để lấy shell, NX cũng đã được bật để tránh việc execute shellcode được chèn vào trên Stack. Nhưng chương trình vẫn chạy lệnh trên vùng `.text`(thường mặc định là có quyền RX), mình có thể tận dụng các lệnh có sẵn để gọi hệ thống và tạo shell.   
+-Ở BOF4, hàm main() và các hàm khác đều ko có hàm `system("/bin/sh")` để lấy shell, NX cũng đã được bật để tránh việc execute shellcode được chèn vào trên Stack. Nhưng chương trình vẫn chạy lệnh trên vùng `.text`(thường mặc định là có quyền RX), mình có thể tận dụng các lệnh có sẵn để gọi hệ thống và tạo shell.   
 <img width="1485" height="590" alt="Screenshot 2026-09-22 203906" src="https://github.com/user-attachments/assets/031c46fc-acb6-40e6-b090-9e106c7f7349" />
+<img width="947" height="480" alt="Screenshot 2026-09-23 205413" src="https://github.com/user-attachments/assets/99196ce3-2761-41ef-8b43-9368ec6e12d3" />
+
 -ROPgadget --binary bof4 | grep "instruction" giúp mình tìm 1 instruction cụ thể   
 + rdi chứa arg1
 + rsi chứa arg2
 + rdx chứa arg3
 + rax lưu số syscall
-+ syscall để gọi hệ thống 
++ syscall để gọi hệ thống
+-Mục tiêu là <img width="605" height="525" alt="Screenshot 2026-09-23 215219" src="https://github.com/user-attachments/assets/cefd2bd6-6cd4-4cd2-b8f8-00d7355f05be" />
+thực thi hàm `system("/bin/sh") để lấy shell, nhưng vì gadget là 1 chuỗi assembly, đồng nghĩa là mình phải tạo shell bằng assembly. Mà assembly ko có hàm system(), file cũng đang là static linking nên cx ko có libc để dùng system. Nên mình có thể sử dụng `execve` với các parameter `execve("/bin/sh", args, env)`, và mình cần phải thiết lập RDI thành 1 con trỏ chuỗi để trỏ đến chuỗi "/bin/sh"
+<img width="512" height="55" alt="Screenshot 2026-09-23 213123" src="https://github.com/user-attachments/assets/f18f95d0-4488-4cbc-9e9a-2c9e35b7f746" />
+-Chuỗi /bin/sh vẫn chưa có sẵn để sử dụng nên bắt buộc mình phải tạo bằng cách ghi chuỗi đó vào 1 địa chỉ 
+
