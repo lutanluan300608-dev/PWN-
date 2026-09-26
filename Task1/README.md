@@ -126,3 +126,23 @@ Sau khi ghi đè
 ## BOF5 - Ret2shellcode no leak 
 -Ret2shellcode là kỹ thuật chèn các đoạn mã máy (shellcode) vào chương trình, sau đó ghi đè địa chỉ trở về trên Stack, ép CPU nhảy đến và thực thi các đoạn shellcode đó (thường là mở /bin/sh hoặc lệnh hệ thống) 
 -Nhưng kỹ thuật này cũng có thể bị hạn chế nếu cơ chế NX được bật 
+
+<img width="850" height="316" alt="Screenshot 2026-09-26 121005" src="https://github.com/user-attachments/assets/9ab02000-66e5-46db-87af-aa4e42b98214" />
+
+
+<img width="772" height="456" alt="Screenshot 2026-09-26 121037" src="https://github.com/user-attachments/assets/f2274d7a-54e8-4954-a476-9ffbe29e0eea" />
+
+-Lỗi bof lần này xuất hiện trong hàm run(), biến v2 được khai báo 524 byte nhưng cho phép đọc đến 544 byte    
+-Để thực thi được shellcode trong chương trình, mình phải cho ret nhảy đến 1 con trỏ đang trỏ vào shellcode    
+
+<img width="1613" height="548" alt="Screenshot 2026-09-26 173656" src="https://github.com/user-attachments/assets/140ea414-525a-4ea1-8047-3affa1b1ec88" />
+
+-Dùng objdump -d file để xem
+-Mỗi câu lệnh assembly sẽ tương ứng với những byte cố định, và dãy byte đó là shellcode   
+
+<img width="1272" height="735" alt="Screenshot 2026-09-26 174952" src="https://github.com/user-attachments/assets/acada632-b7cf-4d4b-890e-9d7b74055df4" />
+
+-Mình cũng có thể dùng cách này để in ra trực tiếp shellcode lúc chạy file   
+-Ở đây mình sẽ set RAX sẽ là thanh ghi trỏ tới shellcode, và mình tìm 1 gadget, mình sử dụng 'call_rax' 
+
+<img width="1005" height="662" alt="Screenshot 2026-09-26 183944" src="https://github.com/user-attachments/assets/427d65b2-47a5-4dc9-881a-a339d0b22b50" />
