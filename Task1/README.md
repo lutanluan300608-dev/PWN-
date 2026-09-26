@@ -115,7 +115,7 @@
 - Mở shell   
 `p.sendafter(b'something', payload)` chờ chuỗi "Say thomething: " rồi gửi payload   
 `p.sendline('/bin/sh') gửi chuỗi `/bin/sh` để hàm `gets(rw_section)` lấy và ghi vào bộ nhớ   
- **LUỒNG THỰC THI**
+ **LUỒNG THỰC THI**   
 Trước khi ghi đè
 
 <img width="1550" height="577" alt="Screenshot 2026-09-24 190651" src="https://github.com/user-attachments/assets/7dfdd94d-49bb-4496-85cb-8fda6002ce46" />
