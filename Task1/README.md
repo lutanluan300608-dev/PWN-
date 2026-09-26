@@ -137,7 +137,7 @@ Sau khi ghi đè
 
 <img width="1613" height="548" alt="Screenshot 2026-09-26 173656" src="https://github.com/user-attachments/assets/140ea414-525a-4ea1-8047-3affa1b1ec88" />
 
--Dùng objdump -d file để xem
+-Dùng objdump -d file để xem   
 -Mỗi câu lệnh assembly sẽ tương ứng với những byte cố định, và dãy byte đó là shellcode   
 
 <img width="1272" height="735" alt="Screenshot 2026-09-26 174952" src="https://github.com/user-attachments/assets/acada632-b7cf-4d4b-890e-9d7b74055df4" />
