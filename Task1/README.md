@@ -95,7 +95,8 @@
 -Mình gọi hàm `get` để nhập chuỗi "/bin/sh" vào địa chỉ rw_section = 0x406e0 
 
 
- <img width="605" height="525" alt="Screenshot 2026-09-23 215219" src="https://github.com/user-attachments/assets/cefd2bd6-6cd4-4cd2-b8f8-00d7355f05be" />
+ <img width="605" height="525" alt="Screenshot 2026-09-23 215219" src="https://github.com/user-attachments/assets/cefd2bd6-6cd4-4cd2-b8f8-00d7355f05be" />   
+ 
 -Payload đầu tiên `p64(pop_rdi)` phải nối sau thêm 1 địa chỉ vì `pop rdi` sẽ lấy 8 byte tiếp theo trên đỉnh Stack nạp vào thanh ghi, còn `ret` sẽ lấy 8 byte kế tiếp trên Stack làm địa chỉ nhảy đến tiếp theo. Và mình cần 1 địa chỉ **tĩnh** để nối vào 
 
 <img width="1173" height="706" alt="Screenshot 2026-09-24 170743" src="https://github.com/user-attachments/assets/927025d3-f0be-4e31-9e8f-c7ccedf71909" />
