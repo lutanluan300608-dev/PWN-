@@ -71,11 +71,12 @@
 -Hướng giải quyết là ta có thể bỏ qua bước push rbp, và nhảy vào địa chỉ của lệnh phía sau đó là 0x40124e <win+0005> ->ko nhất thiết phải nhảy vào đầu hàm mà mình có thể nhảy vào vị trí khác để truy cập   
 <img width="723" height="435" alt="Screenshot 2026-09-21 112152" src="https://github.com/user-attachments/assets/5da65ef5-0b15-47ed-8818-abfb10efaf73" />
 <img width="1461" height="505" alt="Screenshot 2026-09-21 112011" src="https://github.com/user-attachments/assets/8a598529-981c-4c7d-894a-9112e6da83a2" />
--Lúc này ret đã nhảy đến win+0005, địa chỉ stack đã thỏa điều kiện và mình đã chiếm được shell
+-Lúc này ret đã nhảy đến <win+0005>, địa chỉ stack đã thỏa điều kiện và mình đã chiếm được shell
 
 ## BOF4 - ROPchain
--Return-Oriented Program chain là 1 **chuỗi các đoạn mã máy ngắn hợp lệ (gadget)** có sẵn trong bộ nhớ chương trình, được liên kết với nhau thông qua Stack 
--Gadget là 1 dãy lệnh ngắn, gồm vài lệnh thao tác dữ liệu và luôn kết thúc bằng `ret` 
+-Return-Oriented Program chain là 1 **chuỗi các đoạn mã máy ngắn hợp lệ (gadget)** có sẵn trong bộ nhớ chương trình, được liên kết với nhau thông qua Stack    
+-Gadget là 1 dãy lệnh ngắn, gồm vài lệnh thao tác dữ liệu và luôn kết thúc bằng `ret`    
+<br>
 <img width="662" height="217" alt="Screenshot 2026-09-22 205129" src="https://github.com/user-attachments/assets/28c48443-35b5-4b9e-b7b7-8f848425833e" />
 
 -Ở BOF4, hàm main() và các hàm khác đều ko có hàm `system("/bin/sh")` để lấy shell, NX cũng đã được bật để tránh việc execute shellcode được chèn vào trên Stack. Nhưng chương trình vẫn chạy lệnh trên vùng `.text`(thường mặc định là có quyền RX), mình có thể tận dụng các lệnh có sẵn để gọi hệ thống và tạo shell.   
@@ -146,4 +147,7 @@ Sau khi ghi đè
 -Mình cũng có thể dùng cách này để in ra trực tiếp shellcode lúc chạy file   
 -Ở đây mình sẽ set RAX sẽ là thanh ghi trỏ tới shellcode, và mình tìm 1 gadget, mình sử dụng 'call_rax' 
 
-<img width="1005" height="662" alt="Screenshot 2026-09-26 183944" src="https://github.com/user-attachments/assets/427d65b2-47a5-4dc9-881a-a339d0b22b50" />
+<img width="1005" height="662" alt="Screenshot 2026-09-26 183944" src="https://github.com/user-attachments/assets/427d65b2-47a5-4dc9-881a-a339d0b22b50" />   
+
+## BOF5 - Ret2shellcode có Leak   
+-
