@@ -7,7 +7,7 @@ Stack hoạt động theo nguyên tắc **LIFO(Last in, First out)**, dễ hiể
 **RSP** chứa một địa chỉ liên quan đến đỉnh của **Stack**    
 Ví dụ đơn giản:  
 Ta có:  
-  
+  ```
              CPU  
         ┌─────────────┐  
         │ RSP         │  
@@ -23,7 +23,8 @@ Ta có:
         │ 0x7FF8      │ ← vị trí hiện tại  
         │ 0x7FF0      │  
         │ 0x7FE8      │  
-        └─────────────┘  
+        └─────────────┘
+```
 **RSP chứa địa chỉ để CPU biết vị trí hiện tại của đỉnh Stack.**  
   
 Stack không chỉ dùng để chứa một loại dữ liệu.  
@@ -52,7 +53,7 @@ Memory
   
 Một phần trong vùng này được sử dụng làm Stack.  
 Ví dụ:  
-  
+  ```
 Memory  
 ┌───────────────┐  
 │               │    
@@ -64,11 +65,12 @@ Memory
 │      ...      │  
 └───────────────┘  
 
-
+```
 ### Stack lớn lên như thế nào?  
 
 -Stack sẽ thường phát triển về phía **địa chỉ thấp hơn**.  
 Khi Stack cần thêm không gian, nó phát triển xuống:  
+```
 Địa chỉ cao  
     │  
     │  
@@ -90,7 +92,7 @@ Stack sau khi mở rộng:
 0x7FF0  
   ↓  
 0x7FE8  
-  
+  ```
 Ngược lại, khi thu hẹp nó sẽ thu hẹp dần lên địa chỉ cao hơn.  
 
   
@@ -102,6 +104,7 @@ Ngược lại, khi thu hẹp nó sẽ thu hẹp dần lên địa chỉ cao hơ
 Lúc này sẽ lấy giá trị của RAX đặt lên Stack.  
 **Quá trình Push:**  
 **+Trước Push**  
+```
 RAX = 42  
 RSP = 0x7000  
   
@@ -110,8 +113,9 @@ Memory:
 0x7000 → ...  <-Top of stack  
 0x6FF8 → ...  
 0x6FF0 → ...
-  
+  ```
 **+Sau Push**  
+```
 RAX = 42    
 RSP = 0x6FF8  
   
@@ -119,7 +123,8 @@ Memory:
   
 0x7000 → ...  
 0x6FF8 → 42   ← TOP  
-0x6FF0 → ...  
+0x6FF0 → ...
+```
 **Sau khi Push thì RSP sẽ giảm, giá trị được ghi vào vị trí mới.**  
 **Vì RAX là 64-bit = 8 byte nên RSPsau = RSPtrước - 8**  
 VD: 0x7000 - 8 = 0x6FF8  
@@ -158,13 +163,13 @@ RSP →   └─────────────────┘
 ```   
 -Một function truyền thống thường có dạng  
 ```
-push rbp
-mov  rbp, rsp
+push rbp    //lưu base pointer cũ của hàm cha vào stack
+mov  rbp, rsp    //tạo base pointer mới của hàm con
 
-; function body
+...code trong hàm
 
-mov  rsp, rbp
-pop  rbp
+mov  rsp, rbp    //đưa rsp quay lại vị trí rbp, giải phóng vùng nhớ đc cấp
+pop  rbp    //lấy rbp hàm cha ra và nạp lại vào thanh ghi rbp để trở về
 ret 
 ```
 Phần đầu gọi là function prologue  
