@@ -165,7 +165,7 @@ mov  rbp, rsp
 
 mov  rsp, rbp
 pop  rbp
-ret
+ret 
 ```
 Phần đầu gọi là function prologue  
   
