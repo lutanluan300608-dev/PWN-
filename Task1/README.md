@@ -164,4 +164,5 @@ Sau khi ghi đè
 
 <img width="1912" height="678" alt="Screenshot 2026-09-28 202322" src="https://github.com/user-attachments/assets/15c17358-333a-45b1-b613-b243e03bbfd2" />
 
--Mình đã nhập vào 1 chuỗi 123456789123456\n gồm 16 byte (/n là enter, được tính là 1 byte), các byte địa chỉ phía dưới đã bị ghi đè. Nhưng quan trọng hơn, khi mình x/s 0x00007fffffffdf20 thì không chỉ in ra 8 byte đầu là 12345678 mà còn in ra những byte ở địa chỉ phía dưới đến khi gặp byte 0x00 thì dừng   
+-Mình đã nhập vào 1 chuỗi 123456789123456\n gồm 16 byte (/n là enter, được tính là 1 byte), các byte địa chỉ phía dưới đã bị ghi đè. Nhưng quan trọng hơn, khi mình x/s 0x00007fffffffdf20 thì không chỉ in ra 8 byte đầu là 12345678 mà còn in ra những byte ở địa chỉ phía dưới đến khi gặp byte 0x00 thì dừng      
+-> Đây cũng là 1 cách để leak địa chỉ   
