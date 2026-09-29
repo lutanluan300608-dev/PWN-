@@ -177,7 +177,7 @@ Sau khi ghi đè
 <img width="1812" height="1016" alt="Screenshot 2026-09-29 164742" src="https://github.com/user-attachments/assets/9f4f3169-b671-482a-9fa7-f85f58f7c156" />
 
 <br>
-<img width="1917" height="1013" alt="Screenshot 2026-09-29 160029" src="https://github.com/user-attachments/assets/62b62e6f-e7c1-430f-a445-40e8a68e075a" />
+
 <br>
 <img width="1917" height="925" alt="Screenshot 2026-09-29 163247" src="https://github.com/user-attachments/assets/54b2e99c-fe40-4cdb-aa39-605735a1b8a3" />
 <br> <br>
@@ -185,6 +185,9 @@ Sau khi ghi đè
 -Mình đã kiểm tra và đúng shellcode mình gửi, mình sẽ lấy địa chỉ Stack leak được trừ đi địa chỉ trỏ vào shellcode, khoảng cách là 0x220 byte. Đồng nghĩa với việc lấy leaked stack address trừ đi 0x220 byte sẽ ra được **địa chỉ đang trỏ vào shellcode**   
 <br>
 <img width="1917" height="528" alt="Screenshot 2026-09-29 164528" src="https://github.com/user-attachments/assets/766d5980-3718-4ffa-a6a0-1c0d2dd0a84f" />
+<img width="1621" height="913" alt="Screenshot 2026-09-29 165051" src="https://github.com/user-attachments/assets/4b78ffa7-b0c8-48a3-a7e6-5c3979c698ec" />
+<br> <br>
+-Vì `ljust` đã ghi đè lố 16 byte nên mình phải trừ đi để dời địa chỉ leaked stack lên và địa chỉ mới lúc đó sẽ là `0x00007ffeab9cc290 - 0x220`
 
 
 
