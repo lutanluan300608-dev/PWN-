@@ -171,7 +171,7 @@ Sau khi ghi đè
 <br>
 -Những địa chỉ Stack này thông thường là những địa chỉ không xác định, nên việc lấy địa chỉ này khá rủi ro. Do vùng nằm ở đỉnh Stack có thể thay đổi chiều dài khác đi khi chạy chương trình thật so với khi chạy trên GDB   
 
-<img width="1732" height="918" alt="Screenshot 2026-09-29 121936" src="https://github.com/user-attachments/assets/3bf388db-6ebb-4392-8dac-9bea1515e085" />
+<img width="1721" height="925" alt="Screenshot 2026-09-29 122717" src="https://github.com/user-attachments/assets/be84b5c7-1097-4b28-9003-3223e9b24b82" />
 <br>
 -Nên lấy địa chỉ Stack tại saved-RBP, vì khoảng cách từ buffer được nhập đến saved-RBP luôn là 1 con số cố định. Như thế sẽ đảm bảo được sự ổn định     
 
