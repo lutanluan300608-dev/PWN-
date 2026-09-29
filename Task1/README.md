@@ -153,20 +153,20 @@ Sau khi ghi đè
 
 
 
-<img width="1525" height="732" alt="Screenshot 2026-09-28 160146" src="https://github.com/user-attachments/assets/56d06817-b860-4d21-8bbb-215c615c79ca" />
+<img width="1525" height="732" alt="Screenshot 2026-09-28 160146" src="https://github.com/user-attachments/assets/56d06817-b860-4d21-8bbb-215c615c79ca" /> <br>
 
 
-<img width="1917" height="776" alt="Screenshot 2026-09-28 194812" src="https://github.com/user-attachments/assets/1f91015a-01f4-4ace-a431-5f758522147f" />
-
+<img width="1917" height="776" alt="Screenshot 2026-09-28 194812" src="https://github.com/user-attachments/assets/1f91015a-01f4-4ace-a431-5f758522147f" /> <br>
+<br>
 
 -Có 1 điều đặc biệt ở hàm read(), nó sẽ chỉ đọc và ghi đúng số byte được nhập vào Stack mà không thêm `/0`(Null byte) vào cuối để kết thúc chuỗi như `scanf` hay `fgets`   
 -Nếu không có null byte, việc sử dụng `x/s`(examine string) để in chuỗi byte từ 1 địa chỉ sẽ làm nối theo những byte ở địa chỉ tiếp theo cho đến khi gặp null byte (0x00)   
-
-<img width="1912" height="678" alt="Screenshot 2026-09-28 202322" src="https://github.com/user-attachments/assets/15c17358-333a-45b1-b613-b243e03bbfd2" />
-
+<br>
+<img width="1912" height="678" alt="Screenshot 2026-09-28 202322" src="https://github.com/user-attachments/assets/15c17358-333a-45b1-b613-b243e03bbfd2" /> <br>
+<br>
 -Mình đã nhập vào 1 chuỗi 123456789123456\n gồm 16 byte (/n là enter, được tính là 1 byte), các byte địa chỉ phía dưới đã bị ghi đè. Nhưng quan trọng hơn, khi mình x/s 0x00007fffffffdf20 thì không chỉ in ra 8 byte đầu là 12345678 mà còn in ra những byte ở địa chỉ phía dưới đến khi gặp byte 0x00 thì dừng      
 -> Đây cũng là 1 cách để leak địa chỉ   
-
+<br>
 <img width="1720" height="927" alt="Screenshot 2026-09-29 120403" src="https://github.com/user-attachments/assets/77e74d20-be54-45a4-bee8-7ab2c4111a0d" /> <br>
 <br>
 -Những địa chỉ Stack này thông thường là những địa chỉ không xác định, nên việc lấy địa chỉ này khá rủi ro. Do vùng nằm ở đỉnh Stack có thể thay đổi chiều dài khác đi khi chạy chương trình thật so với khi chạy trên GDB, hoặc có trường hợp cả dữ liệu buffer bị set hết về null byte   
