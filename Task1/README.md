@@ -1,4 +1,4 @@
-
+<img width="1917" height="1013" alt="Screenshot 2026-09-29 160029" src="https://github.com/user-attachments/assets/c4f7d2d6-871b-43aa-900a-d241fc0b20a6" />
 # BUFFER OVERFLOW
 ## Khái niệm
 -**Buffer overflow** (Tràn bộ đệm) là một lỗi lập trình, xảy ra khi một **chương trình cố gắng lưu trữ lượng dữ liệu vượt quá dung lượng** cho phép của **vùng nhớ đệm** (buffer, là vùng nhớ được cấp phát tạm thời để chứa dữ liệu)  
@@ -175,3 +175,18 @@ Sau khi ghi đè
 <br>
 -Nên lấy địa chỉ Stack tại saved-RBP, vì khoảng cách từ buffer được nhập đến saved-RBP luôn là 1 con số cố định. Như thế sẽ đảm bảo được sự ổn định     <br>
 <br>
+
+<img width="1670" height="451" alt="Screenshot 2026-09-29 150248" src="https://github.com/user-attachments/assets/e87d0039-be0e-46b2-b26f-6c840de0d2db" />
+<br>
+<img width="1917" height="1013" alt="Screenshot 2026-09-29 160029" src="https://github.com/user-attachments/assets/62b62e6f-e7c1-430f-a445-40e8a68e075a" />
+<br>
+<img width="1917" height="925" alt="Screenshot 2026-09-29 163247" src="https://github.com/user-attachments/assets/54b2e99c-fe40-4cdb-aa39-605735a1b8a3" />
+<br> <br>
+-Mình đã kiểm tra và đúng shellcode mình gửi, mình sẽ lấy địa chỉ Stack leak được trừ đi địa chỉ trỏ vào shellcode, khoảng cách là 0x220 byte. Đồng nghĩa với việc lấy leaked stack address trừ đi 0x220 byte sẽ ra được **địa chỉ đang trỏ vào shellcode**   
+
+
+
+
+
+
+
