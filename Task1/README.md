@@ -173,5 +173,5 @@ Sau khi ghi đè
 <br>
 <img width="1721" height="925" alt="Screenshot 2026-09-29 122717" src="https://github.com/user-attachments/assets/be84b5c7-1097-4b28-9003-3223e9b24b82" /> <br>
 <br>
--Nên lấy địa chỉ Stack tại saved-RBP, vì khoảng cách từ buffer được nhập đến saved-RBP luôn là 1 con số cố định. Như thế sẽ đảm bảo được sự ổn định     
-
+-Nên lấy địa chỉ Stack tại saved-RBP, vì khoảng cách từ buffer được nhập đến saved-RBP luôn là 1 con số cố định. Như thế sẽ đảm bảo được sự ổn định     <br>
+<br>
