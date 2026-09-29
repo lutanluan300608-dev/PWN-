@@ -166,3 +166,12 @@ Sau khi ghi đè
 
 -Mình đã nhập vào 1 chuỗi 123456789123456\n gồm 16 byte (/n là enter, được tính là 1 byte), các byte địa chỉ phía dưới đã bị ghi đè. Nhưng quan trọng hơn, khi mình x/s 0x00007fffffffdf20 thì không chỉ in ra 8 byte đầu là 12345678 mà còn in ra những byte ở địa chỉ phía dưới đến khi gặp byte 0x00 thì dừng      
 -> Đây cũng là 1 cách để leak địa chỉ   
+
+<img width="1720" height="927" alt="Screenshot 2026-09-29 120403" src="https://github.com/user-attachments/assets/77e74d20-be54-45a4-bee8-7ab2c4111a0d" />
+<br>
+-Những địa chỉ Stack này thông thường là những địa chỉ không xác định, nên việc lấy địa chỉ này khá rủi ro. Do vùng nằm ở đỉnh Stack có thể thay đổi chiều dài khác đi khi chạy chương trình thật so với khi chạy trên GDB   
+
+<img width="1732" height="918" alt="Screenshot 2026-09-29 121936" src="https://github.com/user-attachments/assets/3bf388db-6ebb-4392-8dac-9bea1515e085" />
+<br>
+-Nên lấy địa chỉ Stack tại saved-RBP, vì khoảng cách từ buffer được nhập đến saved-RBP luôn là 1 con số cố định. Như thế sẽ đảm bảo được sự ổn định     
+
