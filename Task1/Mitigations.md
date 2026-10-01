@@ -9,3 +9,8 @@
 -Có 1 kỹ thuật bảo mật khác gọi là ASLR (Address Space Layout Randomization), dùng để chặn việc khai thác bộ nhớ bằng cách sắp xếp **ngẫu nhiên vị trí** các vùng dữ liệu chính trong bộ nhớ ảo. Nhưng chỉ có Stack, Heap, Shared Libs được ngẫu nhiên vị trí, còn file thực thi chính (`main binary`) vẫn nằm ở vị trí cố định  
 -Do địa chỉ bị xáo trộn mỗi lần chạy, mình ko thể biết chính xác ROP Gadget hay hàm nào đang ở đâu   
 ->**Information Leak (Rò rỉ bộ nhớ):** Khai thác một lỗ hổng khác (như Format String hoặc Out-of-bounds Read) để đọc một địa chỉ bộ nhớ đang chạy 
+
+# Canary 
+-Cơ chế chống khai thác BOF bằng cách phát hiện các hành vi ghi đè dữ liệu trên vùng Stack trước khi hàm kết thúc  
+-Khi một hàm bắt đầu thực thi, chương trình sẽ chèn một giá trị ngẫu nhiên bí mật vào Stack, nằm ngay trước Saved-RBP và Return address. Vì thế khi BOF xảy ra thì dữ liệu sẽ tràn đến Canary trước return address.  
+-Trước khi hàm kết thúc, chương trình sẽ so sánh giá trị được lưu trong vùng nhớ an toàn 
