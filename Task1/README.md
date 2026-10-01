@@ -189,7 +189,9 @@ Sau khi ghi đè
 <br> <br>
 -Vì `ljust` đã ghi đè lố 16 byte nên mình phải trừ đi để dời địa chỉ leaked stack lên và địa chỉ mới lúc đó sẽ là `0x00007ffeab9cc290 - 0x220`
 
-
+## BOF7 - Ret2libc
+-Ret2libc là 1 kỹ thuật chuyển hướng luồng thực thi của chương trình sang các hàm có sẵn trong thư viện C (libc) và thực hiện mã độc, thay vì tự chèn shellcode trên Stack  
+-
 
 
 
