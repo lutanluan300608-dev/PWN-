@@ -13,4 +13,5 @@
 # Canary 
 -Cơ chế chống khai thác BOF bằng cách phát hiện các hành vi ghi đè dữ liệu trên vùng Stack trước khi hàm kết thúc  
 -Khi một hàm bắt đầu thực thi, chương trình sẽ chèn một giá trị ngẫu nhiên bí mật vào Stack, nằm ngay trước Saved-RBP và Return address. Vì thế khi BOF xảy ra thì dữ liệu sẽ tràn đến Canary trước return address.  
--Trước khi hàm kết thúc, chương trình sẽ so sánh giá trị được lưu trong vùng nhớ an toàn 
+-Trước khi hàm kết thúc, chương trình sẽ so sánh giá trị được lưu trong vùng nhớ an toàn (Thread Local Storage - TLS)
+<img width="1151" height="638" alt="Screenshot 2026-10-01 165644" src="https://github.com/user-attachments/assets/447d57cc-f7c2-48fc-baaf-051e0d62c124" />
