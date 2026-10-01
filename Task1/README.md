@@ -192,7 +192,8 @@ Sau khi ghi đè
 ## BOF7 - Ret2libc
 -Ret2libc là 1 kỹ thuật chuyển hướng luồng thực thi của chương trình sang các hàm có sẵn trong thư viện C (libc) và thực hiện mã độc, thay vì tự chèn shellcode trên Stack  
 -Thay vì tự viết shellcode, mình có thể tận dụng những hàm thực thi có sẵn trong libc ví dụ như hàm system() để thực
-
-
-
+<br>
+<img width="1200" height="357" alt="Screenshot 2026-10-01 131648" src="https://github.com/user-attachments/assets/c7661e5b-ecb0-4964-a9bd-e6eebbad9ae4" />
+<br>
+-
 
