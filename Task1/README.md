@@ -207,7 +207,11 @@ Sau khi ghi đè
 
 -Đối với hàm puts(), mình chỉ cần 1 tham số là có thể in dữ liệu của địa chỉ trỏ ra, như trong ảnh nếu mình đưa địa chỉ trỏ của rsi xuống rdi (tham số đầu tiên) thì puts() sẽ in ra dữ liệu mà địa chỉ đó đang trỏ tới là "aaa....."
 
+### GOT - Global offset table
+-Nơi chứa **địa chỉ các hàm** của libc, nằm ở vùng nhớ dữ liệu `.got`/`.got.plt` 
 
+### PLT - Procedure linkage table 
+-Thực thi hàm được chứa ở trong GOT, nằm ở vùng nhớ chứa mã lệnh (`.text`/`.plt`). Ví dụ hàm puts() có địa chỉ là `0x7ffff7c8e860` thì PLT sẽ thực thi địa chỉ hàm puts() đó. Và địa chỉ `0x403fd8` (GOT Entry/`puts@got.plt`) là địa chỉ ô nhớ thuộc bảng GOT, dùng để lưu giá trị con trỏ trỏ đến `0x7ffff7c8e860` 
 
 
 
