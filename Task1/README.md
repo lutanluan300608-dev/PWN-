@@ -201,5 +201,20 @@ Sau khi ghi đè
 -Mình cần phải leak địa chỉ Libc để thực thi được hàm system 
 <img width="1917" height="638" alt="Screenshot 2026-10-01 155733" src="https://github.com/user-attachments/assets/6d1d8d80-7378-4ec0-8c91-4e8502a0e034" />
 
--Thường các địa chỉ libc đều là địa chỉ động, còn địa chỉ hiển thị trong gdb chỉ là địa chỉ tĩnh 
+-Thường các địa chỉ libc đều là địa chỉ động, còn địa chỉ hiển thị trong gdb chỉ là địa chỉ tĩnh
+
+<img width="1912" height="667" alt="Screenshot 2026-10-02 174655" src="https://github.com/user-attachments/assets/8383f88c-542a-4eba-8ccd-eefa84a0568e" />
+
+-Đối với hàm puts(), mình chỉ cần 1 tham số là có thể in dữ liệu của địa chỉ trỏ ra, như trong ảnh nếu mình đưa địa chỉ trỏ của rsi xuống rdi (tham số đầu tiên) thì puts() sẽ in ra dữ liệu mà địa chỉ đó đang trỏ tới là "aaa....."
+
+
+
+
+
+
+
+
+
+
+
 
