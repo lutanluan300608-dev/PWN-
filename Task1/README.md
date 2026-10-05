@@ -241,4 +241,7 @@ sudo docker stop bof7_container && sudo docker rm bof7_container
 
 -Mình dùng lệnh p=remote(ip,port) để chuyển từ local sang server. Lúc này địa chỉ leak được sẽ là của server   
 -Sau khi mình chạy lại file thì địa chỉ libc leak được đã thay đổi sang của server. 
+
+<img width="1392" height="573" alt="Screenshot 2026-10-05 181623" src="https://github.com/user-attachments/assets/5f29b49e-351d-4b94-a982-009d858c37f8" />
+
 -Do offset mỗi hàm thay đổi theo phiên bản libc, đồng thời có thể libc trên máy mình đang dùng sẽ khác với libc của server mình kết nối đến. Mình truy cập libc.rip, paste địa chỉ vào và tìm phiên bản libc phù hợp, vì có rất nhiều phiên bản khớp với 3 byte cuối của địa chỉ nên mình bắt buộc phải thử từng phiên bản libc một.
