@@ -145,31 +145,31 @@ Sau khi **Pop** thì RSP cũng sẽ thay đổi. Pop xong thì RSP sẽ tăng l�
 Stack  
 Ví dụ frame 1 hàm
 ```
-Địa chỉ cao
+Địa chỉ thấp
         │
         │
         ├─────────────────┐
-        │ return address  │ ← được call tạo
+        │ local variable  │ 
         ├─────────────────┤
-        │ saved RBP       │ ← push rbp
+        │ local variable  │ 
 RBP →   ├─────────────────┤
-        │ local variable  │
+        │ saved RBP       │← push rbp
         ├─────────────────┤
-        │ local variable  │
+        │ return address  │← được call tạo
 RSP →   └─────────────────┘
         │
         ▼
-Địa chỉ thấp
+Địa chỉ cao
 ```   
 -Một function truyền thống thường có dạng  
 ```
-push rbp    //lưu base pointer cũ của hàm cha vào stack
-mov  rbp, rsp    //tạo base pointer mới của hàm con
+push rbp    ->lưu base pointer cũ của hàm cha vào stack
+mov  rbp, rsp      ->tạo base pointer mới của hàm con
 
 ...code trong hàm
 
-mov  rsp, rbp    //đưa rsp quay lại vị trí rbp, giải phóng vùng nhớ đc cấp
-pop  rbp    //lấy rbp hàm cha ra và nạp lại vào thanh ghi rbp để trở về
+mov  rsp, rbp    ->đưa rsp quay lại vị trí rbp, giải phóng vùng nhớ đc cấp
+pop  rbp    ->lấy rbp hàm cha ra và nạp lại vào thanh ghi rbp để trở về
 ret 
 ```
 Phần đầu gọi là function prologue  
@@ -177,3 +177,61 @@ Phần đầu gọi là function prologue
 Phần cuối gọi là function epilogue  
   
 Lưu ý: không phải mọi function hiện đại đều bắt buộc có push rbp / mov rbp, rsp. Compiler có thể tối ưu và bỏ frame pointer  
+
+### Cách 1 stack frame được hình thành
+-Khi 1 hàm được gọi, nó sẽ được cấp 1 stack frame mới để chứa dữ liệu (các biến cục bộ,...), như thế sẽ tránh việc ghi đè frame của hàm trước đó, thêm vào đó nữa là do độ rộng vùng nhớ mỗi hàm cần là khác nhau.  
+-Khi 1 hàm foo được gọi,   
+đầu tiên nó sẽ đẩy địa chỉ tiếp theo (saved-rip) lên stack, rồi cập nhật rip là lệnh đầu tiên trong foo  
+tiếp theo foo sẽ thiết lập Stack frame mới bằng cách lưu rbp_main bằng push rbp  
+lúc này stack frame sẽ có dạng:  
+```
+----------- high address  
+main frame  
+-----------   
+saved_rip (main command after call foo())  
+-----------  
+saved_rbp (rbp_main)  
+-----------   
+```
+
+mov rbp, rsp để lấy rbp mới là rbp_foo, lúc này rsp và rbp đang trỏ về cùng 1 chỗ
+tiếp theo rsp sẽ bị trừ đi 1 khoảng dựa vào kích thước   
+```
+----------- high address
+main frame
+----------- 
+saved_rip (main command after call foo())
+-----------
+saved_rbp (rbp_main) <-- rbp_foo
+-----------
+foo frame
+----------- <- rsp_foo
+```
+khi khôi phục,  
+mov rsp, rbp lúc này rsp_foo sẽ trỏ về cùng vị trí với rbp_foo  
+```
+----------- high address
+main frame
+----------- 
+saved_rip (main command after call foo())
+-----------
+saved_rbp (rbp_main) <-- rbp_foo  <- rsp_foo
+-----------
+foo frame
+-----------
+```
+pop rbp để lấy main_rbp vào thanh ghi rbp khôi phục lại frame của main  
+```
+pop rbp để lấy main_rbp vào thanh ghi rbp khôi phục lại frame của main  
+----------- high address
+...
+----------- <- rbp_main
+main frame
+----------- 
+saved_rip (main command after call foo())  <-- rsp_main
+-----------
+saved_rbp (rbp_main)
+-----------
+foo frame
+-----------
+```
