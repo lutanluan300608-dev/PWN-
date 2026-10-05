@@ -125,7 +125,7 @@ Sau khi ghi đè
 <img width="1507" height="770" alt="Screenshot 2026-09-24 191804" src="https://github.com/user-attachments/assets/91718025-f226-4e01-99fc-9a22ff5fa589" />
 
 ## BOF5 - Ret2shellcode no leak 
--Ret2shellcode là kỹ thuật chèn các đoạn mã máy (shellcode) vào chương trình, sau đó ghi đè địa chỉ trở về trên Stack, ép CPU nhảy đến và thực thi các đoạn shellcode đó (thường là mở /bin/sh hoặc lệnh hệ thống) 
+-Ret2shellcode là kỹ thuật chèn các đoạn mã máy (shellcode) vào chương trình, sau đó ghi đè địa chỉ trở về trên Stack, ép CPU nhảy đến và thực thi các đoạn shellcode đó (thường là mở /bin/sh hoặc lệnh hệ thống)    
 -Nhưng kỹ thuật này cũng có thể bị hạn chế nếu cơ chế NX được bật 
 
 <img width="850" height="316" alt="Screenshot 2026-09-26 121005" src="https://github.com/user-attachments/assets/9ab02000-66e5-46db-87af-aa4e42b98214" />
