@@ -219,11 +219,26 @@ Sau khi ghi đè
 
 <img width="973" height="502" alt="Screenshot 2026-10-05 163856" src="https://github.com/user-attachments/assets/04317220-16f9-426b-9e6c-2e6136716dad" />
 
--Vì hiện tại đang chạy trên máy nên libc hiện tại là của local 
+-Vì hiện tại mình đang chạy trên máy nên libc hiện tại là của local nên có thể sẽ khác địa chỉ với libc của server, nên lúc này mình cần tìm libc server 
 
+ 
+-Đầu tiên mình mình tải docker theo hướng dẫn của Gemini, sau đó build docker:   
+```
+docker build . -t bof7
+```
+-Chạy docker tạo container:
+```
+sudo docker run -d -p 9993:9993 --name bof7_container bof7
 
+```
+-Dừng và xóa container:
+```
+sudo docker stop bof7_container && sudo docker rm bof7_container
 
+```
 
+<img width="432" height="52" alt="Screenshot 2026-10-05 173649" src="https://github.com/user-attachments/assets/79c43ec8-0239-4bff-b478-5ffc790d2196" />
 
-
-
+-Mình dùng lệnh p=remote(ip,port) để chuyển từ local sang server. Lúc này địa chỉ leak được sẽ là của server   
+-Sau khi mình chạy lại file thì địa chỉ libc leak được đã thay đổi sang của server. 
+-Do offset mỗi hàm thay đổi theo phiên bản libc, đồng thời có thể libc trên máy mình đang dùng sẽ khác với libc của server mình kết nối đến. Mình truy cập libc.rip, paste địa chỉ vào và tìm phiên bản libc phù hợp, vì có rất nhiều phiên bản khớp với 3 byte cuối của địa chỉ nên mình bắt buộc phải thử từng phiên bản libc một.
