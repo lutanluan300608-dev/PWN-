@@ -213,7 +213,7 @@ Sau khi ghi đè
 ### PLT - Procedure linkage table 
 -Thực thi hàm được chứa ở trong GOT, nằm ở vùng nhớ chứa mã lệnh (`.text`/`.plt`). Ví dụ hàm puts() có địa chỉ là `0x7ffff7c8e860` thì PLT sẽ thực thi địa chỉ hàm puts() đó. Và địa chỉ `0x403fd8` (GOT Entry/`puts@got.plt`) là địa chỉ ô nhớ thuộc bảng GOT, dùng để lưu giá trị con trỏ trỏ đến `0x7ffff7c8e860` 
 
-
+### 
 
 
 
