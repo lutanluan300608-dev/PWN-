@@ -260,4 +260,5 @@ Stage 2
 
 ## BOF8 - Stack Pivot   
 -Stack Pivot là kỹ thuật biến đổi (pivot) giá trị của thanh ghi con trỏ ngăn xếp (RSP) để trỏ đến 1 vùng nhớ khác do mình kiểm soát, mình sẽ biến vùng đó thành 1 vùng **Stack giả(Fake Stack)** 
--Stack Pivot thường được sử dụng khi vùng Stack thật không đủ để chứa toàn bộ ROPchain 
+-Stack Pivot thường được sử dụng khi vùng Stack thật không đủ để chứa toàn bộ ROPchain. Vì kích thước của buffer thường giới hạn số byte mình có thể ghi đè sau địa chỉ trả về (Saved RET)   
+
