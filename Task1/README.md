@@ -279,3 +279,18 @@ Stage 2
 <img width="805" height="30" alt="Screenshot 2026-10-11 153243" src="https://github.com/user-attachments/assets/d21f5b1e-442a-4415-a66f-4c5c3c836448" />
 
 -Địa chỉ binary lần này là địa chỉ tĩnh nên mình có thể dùng địa chỉ đó thay vào RBP để chạy bình thường   
+
+<img width="867" height="70" alt="Screenshot 2026-10-11 154413" src="https://github.com/user-attachments/assets/b9495df0-5d4b-490a-ad3e-43cd1052b7ca" />
+
+-Offset là 32 byte 
+
+<img width="952" height="27" alt="Screenshot 2026-10-11 154614" src="https://github.com/user-attachments/assets/c73bb1c6-ab8c-4178-b168-29e37b745d86" />
+
+-Mình tìm và chọn địa chỉ có quyền RW rồi đưa vào payload, tuy nhiên ở đây <img width="600" height="20" alt="Screenshot 2026-10-11 153243" src="https://github.com/user-attachments/assets/64629445-0282-4b20-9ada-f270b3c37296" /> là RBP-0x2 nên nếu copy thẳng địa chỉ vào sẽ bị lùi lại địa chỉ phía trên nên mình phải tăng địa chỉ `0x0000000000404000` lên `0x0000000000404a00`
+ 
+
+
+
+
+
+
