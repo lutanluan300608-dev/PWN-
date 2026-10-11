@@ -264,12 +264,17 @@ Stage 2
 -Thông thường khi ghi đè đến Saved-RBP sẽ không có vấn đề gì, nhưng trong BOF8 này sẽ có những trường hợp đặc biệt xảy ra    
 
 <img width="1062" height="662" alt="Screenshot 2026-10-11 150714" src="https://github.com/user-attachments/assets/0cbe17f2-dcf9-4a7b-a4b5-0b513c5616c4" />
+
 -Ở đây hàm win() chứa lệnh thực hiện tạo shell được gán vào 1 con trỏ, mình chỉ cần chuyển hướng đến vùng nhớ chứa hàm win() để thực thi   
 
 <img width="1046" height="410" alt="Screenshot 2026-10-11 150745" src="https://github.com/user-attachments/assets/589cd54b-157c-4aed-bafe-3b395f7351b4" />
+
 -Lỗi Bof lần này xuất hiện ở hàm buy()   
+
 <img width="532" height="31" alt="Screenshot 2026-10-11 152747" src="https://github.com/user-attachments/assets/799bb20f-2e63-484d-96d0-2a80d1ec974e" />
+
 -Sau khi ghi đè thì chương trình xảy ra SIGBUS, lúc này mình cần kiểm tra ngay lại điểm mà chương trình gặp lỗi, mình xem thanh ghi và thấy là RBP đã bị ghi đè và giá trị này không hợp lệ để thực thi. 
 
 <img width="805" height="30" alt="Screenshot 2026-10-11 153243" src="https://github.com/user-attachments/assets/d21f5b1e-442a-4415-a66f-4c5c3c836448" />
+
 -Địa chỉ binary lần này là địa chỉ tĩnh nên mình có thể dùng địa chỉ đó thay vào RBP để chạy bình thường   
