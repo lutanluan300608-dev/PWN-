@@ -289,10 +289,13 @@ Stage 2
 -Mình tìm và chọn địa chỉ có quyền RW rồi đưa vào payload, tuy nhiên ở đây <img width="600" height="20" alt="Screenshot 2026-10-11 153243" src="https://github.com/user-attachments/assets/64629445-0282-4b20-9ada-f270b3c37296" /> là RBP-0x2 nên nếu copy thẳng địa chỉ vào sẽ bị lùi lại địa chỉ phía trên nên mình phải tăng địa chỉ `0x0000000000404000` lên `0x0000000000404a00`
  
 <img width="635" height="22" alt="Screenshot 2026-10-11 163200" src="https://github.com/user-attachments/assets/54d30279-4742-4d88-83cc-9082d5d7c31d" />
+
 -RBP đã được thay đổi, mình sẽ đặt break point tại hàm read() của hàm buy() để xem sự thay đổi  
+
 ### Lệnh leave   
 -Như mình đã biết khi 1 hàm con được gọi thì nó sẽ `push rbp` để lưu RBP hàm cha và `mov rbp, rsp` để tạo RBP mới cho hàm con.   
 -Lệnh leave là để dọn dẹp nhanh biến cục bộ trong stackframe khi kết thúc hàm. Leave sẽ thực thi `mov rsp, rbp` để kéo con trỏ đầu Stack(RSP) về lại vị trí của saved-RBP, sau đó `pop rbp` để khôi phục RBP thành saved-RBP của hàm cha.   
+
 <img width="1796" height="877" alt="image" src="https://github.com/user-attachments/assets/90b3d5b5-2c80-42b5-8da7-6b98735c2dbd" />
 
 
