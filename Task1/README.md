@@ -298,8 +298,11 @@ Stage 2
 
 <img width="1796" height="877" alt="image" src="https://github.com/user-attachments/assets/90b3d5b5-2c80-42b5-8da7-6b98735c2dbd" />
 
+<img width="976" height="170" alt="Screenshot 2026-10-11 211729" src="https://github.com/user-attachments/assets/72262e58-2bc4-437b-a07e-2040bb415358" />
 
 
+<img width="482" height="52" alt="Screenshot 2026-10-11 211719" src="https://github.com/user-attachments/assets/4d9b9fac-6c08-4de5-a364-9393d7893571" />
 
+-Vì ở trên, hàm win() được gán vào 1 con trỏ nên mình dùng `x/xg50` để kiểm tra và thấy tại ô nhớ 0x404850 đang chứa giá trị 0x0000000000401366 là con trỏ trỏ tới địa chỉ hàm win(). Mình đã `x/xg` và tìm được địa chỉ hàm win()   
 
 
