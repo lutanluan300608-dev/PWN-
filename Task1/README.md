@@ -305,4 +305,5 @@ Stage 2
 
 -Vì ở trên, hàm win() được gán vào 1 con trỏ nên mình dùng `x/xg50` để kiểm tra và thấy tại ô nhớ 0x404850 đang chứa giá trị 0x0000000000401366 là con trỏ trỏ tới địa chỉ hàm win(). Mình đã `x/xg` và tìm được địa chỉ hàm win()   
 
-
+### Cách khai thác 
+-Mình có thể ghi đè địa chỉ vùng nhớ mà mình muốn chuyển hướng đến vào rbp thì khi leave, `mov rsp, rbp` sẽ kéo rsp theo đến vùng nhớ đó. Nhưng `pop rbp` sẽ làm lùi rsp xuống 8 byte mình cần lấy địa chỉ rbp trừ đi 8 byte. (`ret` cũng sẽ đẩy rsp lùi xuống 8 byte)   
