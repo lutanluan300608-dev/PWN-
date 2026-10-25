@@ -324,13 +324,18 @@ Stage 2
 
 <img width="1917" height="675" alt="Screenshot 2026-10-25 112422" src="https://github.com/user-attachments/assets/a4274640-14a2-42b8-a6e3-7ee7004cdf76" />
 
--Chính vì thế mình có thể lợi dụng việc ghi đè rbp để trỏ đến 1 vùng khác chứa đúng giá trị của biến v4 để tạo shell
+-Chính vì thế mình có thể lợi dụng việc ghi đè rbp để trỏ đến 1 vùng khác chứa đúng giá trị của biến v4 để tạo shell. Mình sẽ tạo 1 mảng fake để rbp-0x20 nhảy đến. 
 
 
+<img width="1757" height="637" alt="Screenshot 2026-10-25 125539" src="https://github.com/user-attachments/assets/6800c4dc-27be-452c-bd4b-ba1255515a28" />
 
 
+<img width="447" height="38" alt="Screenshot 2026-10-25 125517" src="https://github.com/user-attachments/assets/5cacc818-e833-4828-94bc-075fd8ea9eaf" />
 
-
+-Mình chạy lại chương trình và tính khoảng cách từ hàm read() của username cho đến địa chỉ Stack leak được.  
+-Vì mình muốn tạo 1 mảng fake trong username, nhưng nếu mình ghi địa chỉ saved-rbp thành 0xdf10 thì khi nhảy về hàm main, rbp sẽ trừ 0x20 và khiến cho nó nhảy về 0xdef0 là địa chỉ cuẩ password.   
+->Mình phải trỏ vào địa chỉ lớn hơn username 0x20 để khi rbp trừ đi nó sẽ nhảy đúng vào username.   
+ <img width="517" height="56" alt="Screenshot 2026-10-25 131034" src="https://github.com/user-attachments/assets/c0f18b44-3297-4799-9244-60ffa92e355b" />
 
 
 
