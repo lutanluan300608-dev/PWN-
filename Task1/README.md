@@ -347,9 +347,16 @@ Stage 2
 
 -Trên là 2 cách để nhập 2 byte
 
+<img width="842" height="198" alt="Screenshot 2026-10-25 224244" src="https://github.com/user-attachments/assets/705efc26-a5d2-4902-8b15-bdc3ad858d17" />
+
+<img width="488" height="49" alt="Screenshot 2026-10-25 224225" src="https://github.com/user-attachments/assets/e7cd330f-fbd7-451d-b90e-c0539b444360" />
 
 
+<img width="876" height="32" alt="Screenshot 2026-10-25 224238" src="https://github.com/user-attachments/assets/09a010d8-1cd7-42b7-ade0-4db1754e35bc" />
 
+-Khi chạy thì mình thấy rbp đã bị ghi đè đúng như mong muốn, địa chỉ của username khi cộng thêm 0x20 byte đã thành địa chỉ saved-rbp.   
+
+<img width="585" height="64" alt="Screenshot 2026-10-25 224614" src="https://github.com/user-attachments/assets/4e45a2ea-f266-48f5-a9ca-9b9492ce8c7e" />
 
 
 
