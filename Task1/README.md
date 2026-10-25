@@ -337,8 +337,12 @@ Stage 2
 ->Mình phải trỏ vào địa chỉ lớn hơn username 0x20 để khi rbp trừ đi nó sẽ nhảy đúng vào username.   
  <img width="517" height="56" alt="Screenshot 2026-10-25 131034" src="https://github.com/user-attachments/assets/c0f18b44-3297-4799-9244-60ffa92e355b" />
 
+<img width="1577" height="285" alt="Screenshot 2026-10-25 170950" src="https://github.com/user-attachments/assets/4e945f9c-2e42-4609-a3c8-496aa9cc622e" />
+-Mình đã ghi đè 24 byte cần thiết, nhưng do password khai báo 32 byte nên mình cần nhập thêm 8 byte rác(hoặc set null) nữa để  ghi đè được đến rbp. Nhưng hàm read() username chỉ đọc được tối đa 34 byte nên mình chỉ có thể ghi đè 2 byte vào rbp, nếu ghi lố sẽ xảy ra lỗi. 
 
+<img width="517" height="56" alt="Screenshot 2026-10-25 131034" src="https://github.com/user-attachments/assets/29b747ae-a22b-44f9-ada8-5d0ca0761d11" />
 
+-Trên là 2 cách để nhập 2 byte
 
 
 
