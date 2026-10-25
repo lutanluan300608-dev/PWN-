@@ -307,3 +307,40 @@ Stage 2
 
 ### Cách khai thác 
 -Mình có thể ghi đè địa chỉ vùng nhớ mà mình muốn chuyển hướng đến vào rbp thì khi leave, `mov rsp, rbp` sẽ kéo rsp theo đến vùng nhớ đó. Nhưng `pop rbp` sẽ làm lùi rsp xuống 8 byte mình cần lấy địa chỉ rbp trừ đi 8 byte. (`ret` cũng sẽ đẩy rsp lùi xuống 8 byte)   
+
+
+
+
+
+
+### BOF9 - Stack Pivot thay đổi biến 
+<img width="421" height="119" alt="Screenshot 2026-10-24 181736" src="https://github.com/user-attachments/assets/2f4912d1-1e05-4c96-9f43-74110ccea3ae" />
+-Hàm printf() trong chương trình này sẽ in ra địa chỉ của v4, mình có thể lợi dụng để leak địa chỉ Stack
+<img width="612" height="27" alt="Screenshot 2026-10-25 113010" src="https://github.com/user-attachments/assets/f440055e-c658-402a-b004-3e0131062553" />
+
+-Mình đã ghi đè 2 byte vào địa chỉ rbp thông qua hàm read() username. Lúc này rbp đã bị thay đổi và khi kết thúc hàm get_credencial(), nó đã nhảy vào 1 vùng khác và không còn trỏ vào giá trị ở hàm main()
+
+<img width="612" height="32" alt="Screenshot 2026-10-25 112354" src="https://github.com/user-attachments/assets/e44932f6-7dcd-4849-80ec-db6e688fb3f2" />
+
+<img width="1917" height="675" alt="Screenshot 2026-10-25 112422" src="https://github.com/user-attachments/assets/a4274640-14a2-42b8-a6e3-7ee7004cdf76" />
+
+-Chính vì thế mình có thể lợi dụng việc ghi đè rbp để trỏ đến 1 vùng khác chứa đúng giá trị của biến v4 để tạo shell
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
