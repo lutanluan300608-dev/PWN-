@@ -358,6 +358,14 @@ Stage 2
 
 <img width="585" height="64" alt="Screenshot 2026-10-25 224614" src="https://github.com/user-attachments/assets/4e45a2ea-f266-48f5-a9ca-9b9492ce8c7e" />
 
+## BOF10 - Off by One
+-Off-by-one là kỹ thuật mà mình chỉ ghi tràn được đúng 1 byte 
+
+<img width="897" height="308" alt="Screenshot 2026-10-26 174026" src="https://github.com/user-attachments/assets/c41f3349-f9eb-46b2-ac6c-9afc52d7762d" />
+
+-Hàm `fgets` cho phép mình nhập tới byte thứ n-1, tức trong chương trình này chỉ cho nhập đến 79 byte, byte thứ 80 sẽ thiết lập về null và không xảy ra Overflow
+-Hàm printf in %p tức là địa chỉ của biến name, name là biến cục bộ nên địa chỉ được in ra cũng là địa chỉ Stack 
+      
 
 
 
