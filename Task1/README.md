@@ -376,6 +376,23 @@ Stage 2
 
 <img width="936" height="45" alt="Screenshot 2026-10-28 230123" src="https://github.com/user-attachments/assets/83b06d25-49a7-4145-958f-5829fc7fcb7f" />
 
--Khi nhập đủ 512 byte thì null byte 
+-Khi nhập đủ 512 byte thì null byte đã ghi vào byte cuối của rbp, nên khi return thì chương trình sẽ lỗi. Nhưng vì đây là debug tĩnh nên mới lỗi. Còn khi debug động sẽ khác 
+```
+set disable-randomiztion off
+```
+-Lệnh này dùng để bật lại cơ chế xáo trộn bộ nhớ (ASLR), do bình thường xài gdb thì ASLR thường sẽ bị tắt, ví dụ để giúp dễ đặt breakpoint 
+
+<img width="1917" height="237" alt="Screenshot 2026-10-28 235454" src="https://github.com/user-attachments/assets/c6acdca3-99c6-4288-8236-9bd37b3c0e08" />
+
+-Do lúc đầu tắt ASLR nên khi ghi đè rbp, nó nhảy cố định vô 1 chỗ duy nhất, chỗ mình nhảy vô là biến môi trường. 
+
+<img width="1917" height="626" alt="Screenshot 2026-10-29 003605" src="https://github.com/user-attachments/assets/3e228367-7c1b-47f3-8118-84a3fb43d82c" />
+
+-Sau khi bật ASLR thì địa chỉ Stack luôn thay đổi, nên sau mỗi lần chạy, địa chỉ rbp nhảy vào cũng luôn thay đổi 
+
+
+
+
+
 
 
