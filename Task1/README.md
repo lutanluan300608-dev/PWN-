@@ -365,9 +365,17 @@ Stage 2
 
 -Hàm `fgets` cho phép mình nhập tới byte thứ n-1, tức trong chương trình này chỉ cho nhập đến 79 byte, byte thứ 80 sẽ thiết lập về null và không xảy ra Overflow
 -Hàm printf in %p tức là địa chỉ của biến name, name là biến cục bộ nên địa chỉ được in ra cũng là địa chỉ Stack 
-      
 
+<img width="737" height="247" alt="Screenshot 2026-10-28 220658" src="https://github.com/user-attachments/assets/fa104616-5c68-481f-9af4-8f0cd7f9a0e8" />
 
+-Trong playgame(), hàm scanf cho phép nhập 512 byte, bằng với biến s, nên cũng không xảy ra Buffer Overflow.   
+-**NHƯNG**, hàm scanf() sẽ tự động thêm null byte vào cuối cùng, thế nên nếu mình nhâp vào 512 byte, thì byte thứ 513 sẽ là null byte -> Lỗi   
+-Có điều byte null thì mình cũng không kiểm soát được do nó được scanf() thêm vào 
 
+<img width="837" height="35" alt="Screenshot 2026-10-28 230041" src="https://github.com/user-attachments/assets/98e9516d-a534-45ae-a025-f512dbcc24d4" />
+
+<img width="936" height="45" alt="Screenshot 2026-10-28 230123" src="https://github.com/user-attachments/assets/83b06d25-49a7-4145-958f-5829fc7fcb7f" />
+
+-Khi nhập đủ 512 byte thì null byte 
 
 
