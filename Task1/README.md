@@ -390,13 +390,35 @@ set disable-randomiztion off
 -Mình lấy chuỗi /bin/sh ở dạng int rồi viết shellcode
 -Có điều bây giờ mình phải nhâp dữ liệu thế nào, bởi vì địa chỉ rbp nhảy vô là ngẫu nhiên, nên trong đống buffer mình nhập vô, nó có thể nhảy vào giữa, vào đầu, vào cuối, hoặc ra ngoài buffer. Thế nên mình sẽ dùng **nod sled**
 <br>
-<br>=> Tức là mình sẽ ghi vô buffer 1 đống lệnh `ret`, khi mà nó chạy dọc buffer thì nó cứ return mãi cho đến khi gặp đúng cái lệnh `ret` nhảy tới con trỏ trỏ tới shellcode thì thôi 
+<br>
+=> Tức là mình sẽ ghi vô buffer 1 đống lệnh `ret`, khi mà nó chạy dọc buffer thì nó cứ return mãi cho đến khi gặp đúng cái lệnh `ret` nhảy tới con trỏ trỏ tới shellcode thì thôi 
 
 <img width="276" height="110" alt="Screenshot 2026-10-29 121311" src="https://github.com/user-attachments/assets/1c78086b-ec03-4afc-aabd-6327d312dd72" />
 
 <img width="515" height="182" alt="Screenshot 2026-10-29 121547" src="https://github.com/user-attachments/assets/84c6722a-fe3c-4111-a1c0-22b49dbbf62a" />
 
 -Mình disas main và lấy địa chỉ return, vì có tận 512 byte buffer nên mình cứ cho nó return tầm 0x180/8 lần. Còn địa chỉ trỏ tới shellcode thì mình chưa biết nên cứ đặt tạm cho dễ nhận biết.   
+
+<img width="647" height="270" alt="Screenshot 2026-10-29 135835" src="https://github.com/user-attachments/assets/a1869dc5-47db-414f-8152-f928b2b7f855" />
+
+<img width="331" height="32" alt="Screenshot 2026-10-29 140101" src="https://github.com/user-attachments/assets/89d1d1a1-283a-4e26-b047-b516c30dc033" />
+
+<img width="552" height="70" alt="Screenshot 2026-10-29 140211" src="https://github.com/user-attachments/assets/a53e8b4a-9f62-4469-96b5-d8aad76c701f" />
+
+
+
+-Khi chạy thì nó cứ return cho tới khi gặp địa chỉ trỏ tới shellcode, shellcode nó nằm ngay phía dưới 
+-Địa chỉ Stack đã leak ra được cao hơn địa chỉ shellcode nên mình tính toán offset ra được 0x88 byte 
+
+
+<img width="672" height="752" alt="Screenshot 2026-10-29 144935" src="https://github.com/user-attachments/assets/52c8c0da-243c-48de-84f4-2762dfd8a0d5" />
+
+<img width="933" height="487" alt="Screenshot 2026-10-29 144133" src="https://github.com/user-attachments/assets/11a56b1e-da04-4dd6-b894-0c635fdf31d9" />
+
+-Xong Script rồi thì mình chỉ cần brute-force(Chạy lại chương trình liên tục) cho đến khi gặp đúng cái lệnh ret nhảy đến địa chỉ trỏ tới shellcode của mình là được
+
+<img width="628" height="165" alt="Screenshot 2026-10-29 150004" src="https://github.com/user-attachments/assets/9852d2c6-2be4-4d6a-a96d-7947583e9559" />
+
 
 
 
