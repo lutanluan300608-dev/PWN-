@@ -6,14 +6,10 @@
 -Việc kiểm soát được BOF có thể ghi đè địa chỉ trở về và dẫn đến 1 hàm mà mình muốn, hoặc ghi đè RIP để thực hiện instruction   
 <img width="1600" height="900" alt="overflow-vulnerabilities-example-4" src="https://github.com/user-attachments/assets/e4aa5504-5ec2-4ce3-9347-aba2449483f4" />
 
-**1. Trên Stack**   
-   +Thường xảy ra khi một hàm tự gọi chính nó liên tục mà không có điểm dừng, mỗi lần gọi sẽ thêm một vùng stack frame mới vào      
-   +Hoặc hàm gọi chồng nhau quá sâu(Hàm A gọi B, B gọi C, C gọi D,...) vượt quá giới hạn độ sâu của Stack      
-   +Hoặc khai báo biến cục bộ hay mảng có kích thước quá lớn vượt quá giới hạn ngăn xếp của luồng   
-   **=>Phần lớn khi tràn dữ liệu sẽ khiến chương trình crash ngay lập tức:**   
-         Địa chỉ bộ nhớ không hợp lệ: Máy tính cố đọc dữ liệu bị đè nhưng nhận ra đó không phải là một địa chỉ phân vùng được phép truy cập. Hệ điều hành sẽ can thiệp và đưa ra lỗi Segmentation Fault (Core Dumped) để bảo vệ hệ thống.   
-         Địa chỉ trả về của hàm (Return Address): Khi hàm chạy xong, nó lấy dữ liệu rác (ví dụ chuỗi AAAA) làm địa chỉ để nhảy tiếp. Vì AAAA không phải là địa chỉ của lệnh nào cả, chương trình sẽ crash.   
-   +Việc nhập ký tự vượt quá kích thước mảng cũng có thể gây ra Stack-based Overflow(Tràn bộ đệm ngăn xếp)     
+### Vài trường hợp ví dụ mình tìm được: 
+- Một hàm tự gọi chính nó liên tục mà không có điểm dừng, mà mỗi lần gọi thì sẽ thêm một vùng stack frame mới vào      
+- Hoặc hàm gọi chồng nhau quá sâu(Hàm A gọi B, B gọi C, C gọi D,...) vượt quá giới hạn độ sâu của Stack      
+- Hoặc là mình ghi đè vào return address nhưng không phải địa chỉ mà là chuỗi ký tự ABCDXYZ đi, thì chương trình sẽ gặp lỗi và crash vì chuỗi đó khôgn phải địa chỉ để nhảy vào 
 
 ## BOF1 
 <img width="956" height="741" alt="Thiết kế chưa có tên (1)" src="https://github.com/user-attachments/assets/d8e89809-64e6-4fd4-9cc3-32fda6423b98" />
