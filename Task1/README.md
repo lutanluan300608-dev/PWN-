@@ -382,14 +382,21 @@ set disable-randomiztion off
 -Sau khi bật ASLR thì địa chỉ Stack luôn thay đổi, nên sau mỗi lần chạy, địa chỉ rbp nhảy vào cũng luôn thay đổi
 <br>
 <br>
--Bây giờ, NX tắt và mình muốn viết shellcode. Mà thứ mình cần làm là tính offset từ địa chỉ Stack đã được leak sẵn và cho rbp nhảy vào shellcode. Nhưng vấn đề là mình chỉ ghi đè được đúng 1 null byte thôi, đồng nghĩa với việc địa chỉ sẽ là ngẫu nhiên, nên lúc này mình phải Brute-force, chạy lại cho đến khi nào rbp nhảy đúng vào địa chỉ shellcode thì thôi.  
+-Bây giờ, NX tắt và mình muốn viết shellcode. Mà thứ mình cần làm là tính offset từ địa chỉ Stack đã được leak sẵn và cho rbp nhảy vào shellcode. Nhưng vấn đề là mình chỉ ghi đè được đúng 1 null byte thôi, đồng nghĩa với việc địa chỉ sẽ là ngẫu nhiên, nên lúc này mình phải Brute-force
 
 <img width="885" height="187" alt="Screenshot 2026-10-29 111429" src="https://github.com/user-attachments/assets/109566db-f104-40a6-b9f3-4a5125deee99" />
 <img width="1158" height="530" alt="Screenshot 2026-10-29 114353" src="https://github.com/user-attachments/assets/5514deda-ef3c-44ef-85ea-69179bffd542" />
 
 -Mình lấy chuỗi /bin/sh ở dạng int rồi viết shellcode
+-Có điều bây giờ mình phải nhâp dữ liệu thế nào, bởi vì địa chỉ rbp nhảy vô là ngẫu nhiên, nên trong đống buffer mình nhập vô, nó có thể nhảy vào giữa, vào đầu, vào cuối, hoặc ra ngoài buffer. Thế nên mình sẽ dùng **nod sled**
+<br>
+<br>=> Tức là mình sẽ ghi vô buffer 1 đống lệnh `ret`, khi mà nó chạy dọc buffer thì nó cứ return mãi cho đến khi gặp đúng cái lệnh `ret` nhảy tới con trỏ trỏ tới shellcode thì thôi 
 
+<img width="276" height="110" alt="Screenshot 2026-10-29 121311" src="https://github.com/user-attachments/assets/1c78086b-ec03-4afc-aabd-6327d312dd72" />
 
+<img width="515" height="182" alt="Screenshot 2026-10-29 121547" src="https://github.com/user-attachments/assets/84c6722a-fe3c-4111-a1c0-22b49dbbf62a" />
+
+-Mình disas main và lấy địa chỉ return, vì có tận 512 byte buffer nên mình cứ cho nó return tầm 0x180/8 lần. Còn địa chỉ trỏ tới shellcode thì mình chưa biết nên cứ đặt tạm cho dễ nhận biết.   
 
 
 
