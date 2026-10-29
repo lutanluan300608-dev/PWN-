@@ -388,7 +388,16 @@ set disable-randomiztion off
 
 <img width="1917" height="626" alt="Screenshot 2026-10-29 003605" src="https://github.com/user-attachments/assets/3e228367-7c1b-47f3-8118-84a3fb43d82c" />
 
--Sau khi bật ASLR thì địa chỉ Stack luôn thay đổi, nên sau mỗi lần chạy, địa chỉ rbp nhảy vào cũng luôn thay đổi 
+-Sau khi bật ASLR thì địa chỉ Stack luôn thay đổi, nên sau mỗi lần chạy, địa chỉ rbp nhảy vào cũng luôn thay đổi
+<br>
+<br>
+-Bây giờ, NX tắt và mình muốn viết shellcode. Mà thứ mình cần làm là tính offset từ địa chỉ Stack đã được leak sẵn và cho rbp nhảy vào shellcode. Nhưng vấn đề là mình chỉ ghi đè được đúng 1 null byte thôi, đồng nghĩa với việc địa chỉ sẽ là ngẫu nhiên, nên lúc này mình phải Brute-force, chạy lại cho đến khi nào rbp nhảy đúng vào địa chỉ shellcode thì thôi.  
+
+<img width="885" height="187" alt="Screenshot 2026-10-29 111429" src="https://github.com/user-attachments/assets/109566db-f104-40a6-b9f3-4a5125deee99" />
+<img width="1158" height="530" alt="Screenshot 2026-10-29 114353" src="https://github.com/user-attachments/assets/5514deda-ef3c-44ef-85ea-69179bffd542" />
+
+-Mình lấy chuỗi /bin/sh ở dạng int rồi viết shellcode
+
 
 
 
