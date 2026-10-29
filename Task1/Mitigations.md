@@ -23,4 +23,4 @@
 <img width="1327" height="588" alt="Screenshot 2026-10-29 164602" src="https://github.com/user-attachments/assets/5bd0278d-5b80-4661-9f3a-cb6c3e61ced2" />
 
 -Khi chạy chương trình này, giá trị canary sẽ được đẩy vào rax, sau đó giá trị đó sẽ được đưa lên stack nằm ở địa chỉ rbp-8, tức ngay trước saved-rbp  
--ĐẶC ĐIỂM: Byte đầu tiên (little endian) luôn là NULL BYTE, 7 byte còn lại là random và KHÁC NULL
+**-ĐẶC ĐIỂM:** Byte đầu tiên (little endian) luôn là NULL BYTE, 7 byte còn lại là random và KHÁC NULL
