@@ -55,23 +55,20 @@
 
 <img width="1432" height="651" alt="Tạm dừng chương trình để lấy PID" src="https://github.com/user-attachments/assets/70b84e34-d084-423d-ac38-36beb5768aba" />   
 
-<img width="3176" height="1344" alt="Gemini_Generated_Image_2ao62k2ao62k2ao6" src="https://github.com/user-attachments/assets/69eae858-ca17-4639-ba37-166b12333e5d" />
+<img width="1568" height="656" alt="KY0cv" src="https://github.com/user-attachments/assets/9771b06e-783d-4079-9c52-a409ce8d9021" />
 
 
 -Mình disassemble main và đặt break point tại ret để xem thay đổi, lỗi gặp phải ở đây là Stack Alignment khi gọi hàm system().   
 -Lệnh gây lỗi chương trình là `movaps XMMWORD PTR [rsp], xmm1`, lệnh movaps trên kiến trúc 64-bit buộc địa chỉ trong thanh ghi rsp phải chia hết cho 16(kết thúc bằng số 0 ở dạng hex)   
 -Nhưng $rsp lại = 0x00007ffc70d5c458 điều này dẫn đến lỗi SIGSEGV
 
-<img width="2752" height="1536" alt="Gemini_Generated_Image_13c7az13c7az13c7" src="https://github.com/user-attachments/assets/97c0e37a-296f-4113-a381-6e9e49ef23b6" />
+<img width="1360" height="752" alt="G4jeE" src="https://github.com/user-attachments/assets/06f64e55-8929-4b4c-bcff-e1cc83fd5e9d" />
 
 
 
 -Khi ở đầu hàm win(), địa chỉ stack vẫn đang chia hết cho 16, nhưng khi chạy tiếp và thực hiện `push rbp`, địa chỉ stack thay đổi và ko còn chia hết cho 16 nữa   
 -Hướng giải quyết là ta có thể bỏ qua bước push rbp, và nhảy vào địa chỉ của lệnh phía sau đó là 0x40124e <win+0005> ->ko nhất thiết phải nhảy vào đầu hàm mà mình có thể nhảy vào vị trí khác để truy cập   
 <img width="723" height="435" alt="Screenshot 2026-09-21 112152" src="https://github.com/user-attachments/assets/5da65ef5-0b15-47ed-8818-abfb10efaf73" />
-
-<img width="3244" height="1280" alt="Gemini_Generated_Image_kohrmhkohrmhkohr" src="https://github.com/user-attachments/assets/56072766-d014-41e4-ace3-bf76c93834be" />
-
 
 -Lúc này ret đã nhảy đến <win+0005>, địa chỉ stack đã thỏa điều kiện và mình đã chiếm được shell
 
@@ -83,7 +80,7 @@
 
 -Ở BOF4, hàm main() và các hàm khác đều ko có hàm `system("/bin/sh")` để lấy shell, NX cũng đã được bật để tránh việc execute shellcode được chèn vào trên Stack. Nhưng chương trình vẫn chạy lệnh trên vùng `.text`(thường mặc định là có quyền RX), mình có thể tận dụng các lệnh có sẵn để gọi hệ thống và tạo shell.   
 
-<img width="3244" height="1280" alt="Gemini_Generated_Image_kohrmhkohrmhkohr" src="https://github.com/user-attachments/assets/6b1189e4-2a14-45f7-a4b9-8945f0467389" />
+<img width="1616" height="640" alt="gaaqy" src="https://github.com/user-attachments/assets/1451f79f-0987-4f8e-a415-6e00b6d68529" />
 
 
 <img width="947" height="480" alt="Screenshot 2026-09-23 205413" src="https://github.com/user-attachments/assets/99196ce3-2761-41ef-8b43-9368ec6e12d3" />
