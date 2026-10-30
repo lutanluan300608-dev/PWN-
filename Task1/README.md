@@ -56,8 +56,10 @@
 -Mình disassemble main và đặt break point tại ret để xem thay đổi, lỗi gặp phải ở đây là Stack Alignment khi gọi hàm system().   
 -Lệnh gây lỗi chương trình là `movaps XMMWORD PTR [rsp], xmm1`, lệnh movaps trên kiến trúc 64-bit buộc địa chỉ trong thanh ghi rsp phải chia hết cho 16(kết thúc bằng số 0 ở dạng hex)   
 -Nhưng $rsp lại = 0x00007ffc70d5c458 điều này dẫn đến lỗi SIGSEGV
-<img width="1453" height="378" alt="Screenshot 2026-09-21 110731" src="https://github.com/user-attachments/assets/a0c42152-d27f-4d78-8e26-9f22c6ed895e" />
-<img width="1477" height="363" alt="Screenshot 2026-09-21 110807" src="https://github.com/user-attachments/assets/946bf9f7-26b9-4f05-a1d8-f36b46c1ae94" />
+
+![Uploading Gemini_Generated_Image_13c7az13c7az13c7.png…]()
+
+
 -Khi ở đầu hàm win(), địa chỉ stack vẫn đang chia hết cho 16, nhưng khi chạy tiếp và thực hiện `push rbp`, địa chỉ stack thay đổi và ko còn chia hết cho 16 nữa   
 -Hướng giải quyết là ta có thể bỏ qua bước push rbp, và nhảy vào địa chỉ của lệnh phía sau đó là 0x40124e <win+0005> ->ko nhất thiết phải nhảy vào đầu hàm mà mình có thể nhảy vào vị trí khác để truy cập   
 <img width="723" height="435" alt="Screenshot 2026-09-21 112152" src="https://github.com/user-attachments/assets/5da65ef5-0b15-47ed-8818-abfb10efaf73" />
