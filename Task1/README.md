@@ -61,7 +61,10 @@
 -Khi ở đầu hàm win(), địa chỉ stack vẫn đang chia hết cho 16, nhưng khi chạy tiếp và thực hiện `push rbp`, địa chỉ stack thay đổi và ko còn chia hết cho 16 nữa   
 -Hướng giải quyết là ta có thể bỏ qua bước push rbp, và nhảy vào địa chỉ của lệnh phía sau đó là 0x40124e <win+0005> ->ko nhất thiết phải nhảy vào đầu hàm mà mình có thể nhảy vào vị trí khác để truy cập   
 <img width="723" height="435" alt="Screenshot 2026-09-21 112152" src="https://github.com/user-attachments/assets/5da65ef5-0b15-47ed-8818-abfb10efaf73" />
-<img width="1461" height="505" alt="Screenshot 2026-09-21 112011" src="https://github.com/user-attachments/assets/8a598529-981c-4c7d-894a-9112e6da83a2" />
+
+<img width="3244" height="1280" alt="Gemini_Generated_Image_kohrmhkohrmhkohr" src="https://github.com/user-attachments/assets/56072766-d014-41e4-ace3-bf76c93834be" />
+
+
 -Lúc này ret đã nhảy đến <win+0005>, địa chỉ stack đã thỏa điều kiện và mình đã chiếm được shell
 
 ## BOF4 - ROPchain
