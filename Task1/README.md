@@ -51,13 +51,15 @@
 
 <img width="1432" height="651" alt="Tạm dừng chương trình để lấy PID" src="https://github.com/user-attachments/assets/70b84e34-d084-423d-ac38-36beb5768aba" />   
 
-<img width="1470" height="622" alt="Screenshot 2026-09-21 104723" src="https://github.com/user-attachments/assets/0b7b9b5c-ab65-46cd-94d0-742bec93070e" />
+<img width="3176" height="1344" alt="Gemini_Generated_Image_2ao62k2ao62k2ao6" src="https://github.com/user-attachments/assets/69eae858-ca17-4639-ba37-166b12333e5d" />
+
 
 -Mình disassemble main và đặt break point tại ret để xem thay đổi, lỗi gặp phải ở đây là Stack Alignment khi gọi hàm system().   
 -Lệnh gây lỗi chương trình là `movaps XMMWORD PTR [rsp], xmm1`, lệnh movaps trên kiến trúc 64-bit buộc địa chỉ trong thanh ghi rsp phải chia hết cho 16(kết thúc bằng số 0 ở dạng hex)   
 -Nhưng $rsp lại = 0x00007ffc70d5c458 điều này dẫn đến lỗi SIGSEGV
 
-![Uploading Gemini_Generated_Image_13c7az13c7az13c7.png…]()
+<img width="2752" height="1536" alt="Gemini_Generated_Image_13c7az13c7az13c7" src="https://github.com/user-attachments/assets/97c0e37a-296f-4113-a381-6e9e49ef23b6" />
+
 
 
 -Khi ở đầu hàm win(), địa chỉ stack vẫn đang chia hết cho 16, nhưng khi chạy tiếp và thực hiện `push rbp`, địa chỉ stack thay đổi và ko còn chia hết cho 16 nữa   
