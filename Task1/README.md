@@ -416,7 +416,9 @@ set disable-randomiztion off
 
 <img width="647" height="270" alt="Screenshot 2026-10-29 135835" src="https://github.com/user-attachments/assets/a1869dc5-47db-414f-8152-f928b2b7f855" />
 
+<br>
 <img width="331" height="32" alt="Screenshot 2026-10-29 140101" src="https://github.com/user-attachments/assets/89d1d1a1-283a-4e26-b047-b516c30dc033" />
+<br>
 
 <img width="552" height="70" alt="Screenshot 2026-10-29 140211" src="https://github.com/user-attachments/assets/a53e8b4a-9f62-4469-96b5-d8aad76c701f" />
 
