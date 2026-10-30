@@ -23,7 +23,8 @@
 
 -Cũng giống như BOF1, mình cần ghi đè vào 3 biến a, b, c để chiếm shell. Nhưng chương trình yêu cầu giá trị được ghi đè phải khớp với điều kiện if, và các giá trị trên không thể nhập được từ bàn phím. Ví dụ 0xCAFEBABE gồm các byte 0xBE/0xBA/0xFE/0xCA, các byte này thuộc nhóm **ký tự không in được (non-printable ASCII)** <br>
 
-<img width="1917" height="1068" alt="Screenshot 2026-09-20 140326" src="https://github.com/user-attachments/assets/a045a04a-bd9e-4303-8ede-11cc0fd50538" />
+<img width="2752" height="1536" alt="Gemini_Generated_Image_hjuuwihjuuwihjuu" src="https://github.com/user-attachments/assets/6e657371-8511-411d-96d5-c506ee07dd9f" />
+
 
 -Mình đã cài Sublime Text qua Snap và tạo 1 file  
 <img width="955" height="695" alt="Thiết kế chưa có tên (3)" src="https://github.com/user-attachments/assets/05171524-ecd3-4bc6-afc3-1b0eb4ef3e26" />
