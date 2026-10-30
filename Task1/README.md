@@ -399,6 +399,7 @@ set disable-randomiztion off
 -Bây giờ, NX tắt và mình muốn viết shellcode. Mà thứ mình cần làm là tính offset từ địa chỉ Stack đã được leak sẵn và cho rbp nhảy vào shellcode. Nhưng vấn đề là mình chỉ ghi đè được đúng 1 null byte thôi, đồng nghĩa với việc địa chỉ sẽ là ngẫu nhiên, nên lúc này mình phải Brute-force
 
 <img width="885" height="187" alt="Screenshot 2026-10-29 111429" src="https://github.com/user-attachments/assets/109566db-f104-40a6-b9f3-4a5125deee99" />
+
 <img width="1158" height="530" alt="Screenshot 2026-10-29 114353" src="https://github.com/user-attachments/assets/5514deda-ef3c-44ef-85ea-69179bffd542" />
 
 -Mình lấy chuỗi /bin/sh ở dạng int rồi viết shellcode
