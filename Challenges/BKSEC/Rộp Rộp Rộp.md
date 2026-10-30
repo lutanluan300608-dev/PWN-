@@ -24,7 +24,7 @@
 
 <img width="840" height="468" alt="Screenshot 2026-10-20 225908" src="https://github.com/user-attachments/assets/2aa4cbe6-b813-467c-8e26-26716db071cc" />
 
--Mình dùng ROPgadget --binary để tìm 2 gadget pop rdi và pop rsi và gán giá trị vào
+-Mình dùng ROPgadget --binary để tìm 2 gadget pop rdi và pop rsi và gán giá trị vào  
 -Nhưng khi chạy lại gặp lỗi, kiểm tra lỗi thì mình thấy là do SIGSEGV. Giống trong BOF3, lỗi này là do khi thực hiện lệnh push rbp ở đầu hàm win(), địa chỉ Stack lúc này không chia hết cho 16. Mình disas win và +5 để nhảy vào lệnh mov rbp, rsp là được.  
 
 <img width="935" height="631" alt="Screenshot 2026-10-20 231122" src="https://github.com/user-attachments/assets/e6fe3b3d-f584-4e87-92e3-4ae90d3fff8d" />
