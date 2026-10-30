@@ -318,7 +318,10 @@ Stage 2
 
 ## BOF9 - Stack Pivot thay đổi biến 
 <img width="421" height="119" alt="Screenshot 2026-10-24 181736" src="https://github.com/user-attachments/assets/2f4912d1-1e05-4c96-9f43-74110ccea3ae" />
+
 -Hàm printf() trong chương trình này sẽ in ra địa chỉ của v4, mình có thể lợi dụng để leak địa chỉ Stack
+
+
 <img width="612" height="27" alt="Screenshot 2026-10-25 113010" src="https://github.com/user-attachments/assets/f440055e-c658-402a-b004-3e0131062553" />
 
 -Mình đã ghi đè 2 byte vào địa chỉ rbp thông qua hàm read() username. Lúc này rbp đã bị thay đổi và khi kết thúc hàm get_credencial(), nó đã nhảy vào 1 vùng khác và không còn trỏ vào giá trị ở hàm main()
