@@ -35,16 +35,31 @@
 <img width="470" height="42" alt="Screenshot 2026-10-31 162348" src="https://github.com/user-attachments/assets/4fb98a43-eade-4092-b235-8861f78a2aca" />
 
 -Mình sẽ tận dụng hàm read(), ghi đè buffer cho đến luôn cả byte đầu là byte null của canary để nối chuõi vào và in ra 7 byte còn lại của canary. Lúc đó hàm prinf() sẽ in ra cả mớ mình nhập vào lẫn canary value  
+-Mình có thể bypass canary bằng cách ghi đè offset từ buffer đến canary, do ở đây cả 2 hàm read() đều nhận đến 0x200 byte,   
+
++Lần ghi đè đầu tiên sẽ là để leak canary: ghi đè offset và byte null đầu của canary để hàm read() in ra  
++Lần ghi đè thứ 2 sẽ là ghi đè lại offset, và chính giá trị của canary, và ghi đè cả saved-rip  
+
+<img width="672" height="428" alt="Screenshot 2026-10-31 220939" src="https://github.com/user-attachments/assets/02a34bc6-3dd6-4005-9371-e468dd15143e" />
 
 
+<img width="1286" height="337" alt="Screenshot 2026-10-31 221320" src="https://github.com/user-attachments/assets/37c3a458-0410-4d52-8ed3-4c90d830c1a0" />
 
 
+-Tình hình là ở lần ghi đè thứ 2, canary đã bị ghi đè sai bởi byte rác, còn giá trị canary thì lại nằm ở dưới,   
+
+<img width="666" height="60" alt="Screenshot 2026-10-31 222912" src="https://github.com/user-attachments/assets/5b22f66d-76b9-4915-a52f-07a95a3a06af" />
+
+-Do biến feedback nằm sau biến name nên nó bị đẩy lên 1 khoảng 
+
+<img width="518" height="52" alt="Screenshot 2026-10-31 224156" src="https://github.com/user-attachments/assets/7ac631ce-ccae-47ca-8011-7bac23030db1" />
+
+<img width="247" height="147" alt="Screenshot 2026-10-31 224407" src="https://github.com/user-attachments/assets/1c82a664-cedd-4734-8dca-0fe5d431015c" />
+
+<img width="935" height="245" alt="Screenshot 2026-10-31 224938" src="https://github.com/user-attachments/assets/36f0f024-3ffa-4fd5-8bfa-1300c0d191fa" />
 
 
-
-
-
-
+-Mình chỉ cần tính lại offset để gửi (mình lấy địa chỉ bị ghi sai giá trị rbp trừ đi rbp) và canary đã ghi đèn đúng, saved-rip cũng đã bị ghi đè  
 
 
 
