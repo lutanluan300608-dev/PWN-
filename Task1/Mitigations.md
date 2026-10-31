@@ -61,9 +61,24 @@
 
 -Mình chỉ cần tính lại offset để gửi (mình lấy địa chỉ bị ghi sai giá trị rbp trừ đi rbp) và canary đã ghi đèn đúng, saved-rip cũng đã bị ghi đè  
 
+<img width="316" height="151" alt="Screenshot 2026-10-31 230450" src="https://github.com/user-attachments/assets/d25506ee-d62a-4d05-8437-fa5fdaf50e97" />
+
+-Giờ mình chỉ cần đổi saved-rip thành dịa chỉ hàm win() là tạo được shell   
+
+<img width="1917" height="1077" alt="Screenshot 2026-10-31 230831" src="https://github.com/user-attachments/assets/d7054cd9-c142-44cb-8d6a-e70866e0c6ed" />
+
+-Lại là lỗi SIGSEGV do địa chỉ Stack không chia hết cho 16 
 
 
+<img width="970" height="251" alt="Screenshot 2026-10-31 231321" src="https://github.com/user-attachments/assets/1b9d9cbc-37d9-4287-a10d-136163067924" />
 
+<img width="1917" height="1077" alt="Screenshot 2026-10-31 230831" src="https://github.com/user-attachments/assets/20e7f19a-fe24-41f8-95a9-03a0b8528869" />
+
+-Giờ mình chỉ cần nhảy vào win+5 là được.  
+
+- Hoặc 1 cách khác:  
+
+<img width="710" height="466" alt="Screenshot 2026-10-31 231651" src="https://github.com/user-attachments/assets/5108366d-edfe-42d6-afae-0d3a4083cbe7" />
 
 
 
