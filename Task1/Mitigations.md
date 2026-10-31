@@ -25,4 +25,38 @@
 
 -Canary value được giữ trong vùng TLS, thanh ghi fs trỏ tới vùng TLS, với độ lệch 0x28 byte (fs:[0x28]) là địa chỉ chứa canary value    
 -Khi chạy chương trình này, giá trị canary từ ô nhớ fs:[0x28] sẽ được đẩy vào rax, sau đó giá trị đó sẽ được đưa lên stack nằm ở địa chỉ rbp-8, tức ngay trước saved-rbp  
-**-ĐẶC ĐIỂM:** Byte đầu tiên (little endian) luôn là NULL BYTE, 7 byte còn lại là random và KHÁC NULL và nó sẽ nằm ngay trước rbp
+**-ĐẶC ĐIỂM:** Byte đầu tiên (little endian) luôn là NULL BYTE, 7 byte còn lại là random và KHÁC NULL và nó sẽ nằm ngay trước rbp  
+
+<img width="1193" height="255" alt="Screenshot 2026-10-31 161916" src="https://github.com/user-attachments/assets/48427049-4047-4b18-888c-85adad3a37ac" />
+
+-Mình có thể dùng lệnh `canary` để check xem canary value hiện tại.  
+
+- **Ý TƯỞNG**
+<img width="470" height="42" alt="Screenshot 2026-10-31 162348" src="https://github.com/user-attachments/assets/4fb98a43-eade-4092-b235-8861f78a2aca" />
+
+-Mình sẽ tận dụng hàm read(), ghi đè buffer cho đến luôn cả byte đầu là byte null của canary để nối chuõi vào và in ra 7 byte còn lại của canary. Lúc đó hàm prinf() sẽ in ra cả mớ mình nhập vào lẫn canary value  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
