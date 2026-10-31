@@ -20,7 +20,8 @@
 ### Ví dụ Canary trong 1 chương trình  
 <img width="1381" height="637" alt="Screenshot 2026-10-29 163540" src="https://github.com/user-attachments/assets/34601874-91a4-4c4d-a33a-f1f008454c99" />
 
-<img width="1327" height="588" alt="Screenshot 2026-10-29 164602" src="https://github.com/user-attachments/assets/5bd0278d-5b80-4661-9f3a-cb6c3e61ced2" />
 
--Khi chạy chương trình này, giá trị canary sẽ được đẩy vào rax, sau đó giá trị đó sẽ được đưa lên stack nằm ở địa chỉ rbp-8, tức ngay trước saved-rbp  
+<img width="1327" height="588" alt="Screenshot 2026-10-29 164602" src="https://github.com/user-attachments/assets/5bd0278d-5b80-4661-9f3a-cb6c3e61ced2" />
+-Canary value được giữ trong vùng TLS, thanh ghi fs trỏ tới vùng TLS, với độ lệch 0x28 byte (fs:[0x28]) là địa chỉ chứa canary value  
+-Khi chạy chương trình này, giá trị canary từ ô nhớ fs:[0x28] sẽ được đẩy vào rax, sau đó giá trị đó sẽ được đưa lên stack nằm ở địa chỉ rbp-8, tức ngay trước saved-rbp  
 **-ĐẶC ĐIỂM:** Byte đầu tiên (little endian) luôn là NULL BYTE, 7 byte còn lại là random và KHÁC NULL và nó sẽ nằm ngay trước rbp
