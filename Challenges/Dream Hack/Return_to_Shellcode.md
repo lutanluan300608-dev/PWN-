@@ -3,6 +3,6 @@
 
 -Bài này in thẳng địa chỉ Stack cho mình, NX cũng tắt, Canary đang bật, mình chỉ cần leak canary thông qua hàm read, rồi gửi shellcode ở lần thứ 2 và ghi đè Stack leak vào rip là được
 
-# Mình sẽ viết tiếp vào ngày mai
+# Mình sẽ viết tiếp write up này vào ngày mai
 
-<img width="787" height="916" alt="Screenshot 2026-11-01 134514" src="https://github.com/user-attachments/assets/49304154-cdfc-44ed-946c-ce88d66f2f74" />
+<img width="612" height="957" alt="Screenshot 2026-11-01 220500" src="https://github.com/user-attachments/assets/e237a4e0-6e3c-46d4-8eaf-79815612e9b8" />
