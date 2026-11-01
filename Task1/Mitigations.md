@@ -72,7 +72,6 @@
 
 <img width="970" height="251" alt="Screenshot 2026-10-31 231321" src="https://github.com/user-attachments/assets/1b9d9cbc-37d9-4287-a10d-136163067924" />
 
-<img width="1917" height="1077" alt="Screenshot 2026-10-31 230831" src="https://github.com/user-attachments/assets/20e7f19a-fe24-41f8-95a9-03a0b8528869" />
 
 -Giờ mình chỉ cần nhảy vào win+5 là được.  
 
