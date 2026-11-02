@@ -4,7 +4,7 @@
 -Bài này in thẳng địa chỉ Stack cho mình, NX cũng tắt, Canary đang bật, mình chỉ cần leak canary thông qua hàm read, rồi gửi shellcode ở lần thứ 2 và ghi đè Stack leak vào rip là được
 
 # Khai thác
--Đầu tiên mình gửi trước 0x60 byte và tính được offset từ buffer đến canary là 0x58 byte. Mình sẽ ghi đè 0x59 byte để hàm read() sẽ nối thêm chuỗi Canary vào.
--Xử lí xong lần gửi đầu tiên, có địa chỉ stack rồi, có canary rồi,  giờ mình chỉ cần viết shellcode và ghi đè địa chỉ stack leak ra được vào saved-rip để nó nhảy vào và thực hiện như bình thường  
+-Đầu tiên mình gửi trước 0x60 byte và tính được offset từ buffer đến canary là 0x58 byte. Mình sẽ ghi đè 0x59 byte để hàm read() sẽ nối thêm chuỗi Canary vào.  
+-Xử lí xong lần gửi đầu tiên, có địa chỉ stack rồi, có canary rồi,  giờ mình chỉ cần viết shellcode và ghi đè địa chỉ stack leak ra được vào saved-rip để nó nhảy vào và thực hiện như bình thường    
 
 <img width="612" height="957" alt="Screenshot 2026-11-01 220500" src="https://github.com/user-attachments/assets/e237a4e0-6e3c-46d4-8eaf-79815612e9b8" />
