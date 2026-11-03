@@ -17,3 +17,10 @@
 
 -Mình nhận thấy rằng khi đến return, thanh ghi rdx lại đang trỏ tới địa chỉ của buffer (nhận biết bằng việc lúc chạy mình đã nhập vào "c\n"). Mình sẽ muốn giữ lại giá trị này để khi read và write mình sẽ đưa nó vào rsi để chỉ định đọc và in từ chỗ địa chỉ buffer  
 -Mình lưu địa chỉ buffer vào thanh ghi r13, vì trong suốt quá trình chạy chương trình, nó không thay đổi giá trị  
+
+<img width="612" height="813" alt="Screenshot 2026-11-03 213650" src="https://github.com/user-attachments/assets/7ed05b4f-1f19-423b-abb6-635d9976cb87" />
+
+
+
+
+
