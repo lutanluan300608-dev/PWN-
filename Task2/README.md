@@ -6,6 +6,5 @@
 char buf[100];
 fgets(buf, sizeof(buf), stdin);
 printf(buf);      -> lỗi 
-
 ```
 -> Thông thường khi in sẽ viết là `printf("%s", buf);`
