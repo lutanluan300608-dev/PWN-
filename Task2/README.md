@@ -7,4 +7,12 @@ char buf[100];
 fgets(buf, sizeof(buf), stdin);
 printf(buf);      -> lỗi 
 ```
--> Thông thường khi in sẽ viết là `printf("%s", buf);`
+-> Thông thường khi in sẽ viết là `printf("%s", buf);` -> có định dạng là %s  
+
+### Các loại Format (Định dạng)
+- `%p` in ra địa chỉ dưới dạng hex
+- `%x` in ra số nguyên 32 bit (unsigned int) dạng hex  
+- `%lx`  in ra số nguyên 64 bit (unsigned long) dạng hex
+- `%d` in ra số nguyên có dấu 32 bit (signed int) dạng dec
+- `%ld` in ra số nguyên có dấu 32 bit (signed int) dạng dec
+- `%u` in số nguyên không dấu (unsigned int) dạng dec  
