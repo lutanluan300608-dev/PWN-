@@ -10,16 +10,23 @@ printf(buf);      -> lỗi
 -> Thông thường khi in sẽ viết là `printf("%s", buf);` -> có định dạng là %s  
 
 ### Các loại Format (Định dạng)
-- `%p` in ra địa chỉ dưới dạng hex
+- `%p` in ra địa chỉ con trỏ dưới dạng hex
 - `%x` in ra số nguyên 32 bit (unsigned int) dạng hex  
 - `%lx`  in ra số nguyên 64 bit (unsigned long) dạng hex
 - `%d` in ra số nguyên có dấu 32 bit (signed int) dạng dec
 - `%ld` in ra số nguyên có dấu 32 bit (signed int) dạng dec
 - `%u` in số nguyên không dấu (unsigned int) dạng dec  
 - `%c` in ra 1 ký tự (1 byte) dựa teho ASCII
-- `%s` in ra chuỗi (nhiều byte) đến khi gặp null byte `(\x00)`
+- `%s` in ra chuỗi dữ liệu đến khi gặp null byte `(\x00)`. Nó sẽ truy cập vào địa chỉ đang chứa dữ liệu và in ra dữ liệu
 - `%n` không in ra, nhưng nó sẽ đếm số byte được in ra trước nó và truyền vào biến tương ứng
 
 ### Cơ chế printf 
 - 32 bit: In trên stack
 - 64 bit: 5 format đầu sẽ được đưa vào 5 thanh ghi theo thứ tự: RSI, RDX, RCX, R9, R8. (RDI chứa chuỗi printf). Từ format thứ 6 sẽ là dữ liệu trên Stack.
+
+
+
+
+
+
+
