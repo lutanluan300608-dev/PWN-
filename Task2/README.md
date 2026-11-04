@@ -19,3 +19,7 @@ printf(buf);      -> lỗi
 - `%c` in ra 1 ký tự (1 byte) dựa teho ASCII
 - `%s` in ra chuỗi (nhiều byte) đến khi gặp null byte `(\x00)`
 - `%n` không in ra, nhưng nó sẽ đếm số byte được in ra trước nó và truyền vào biến tương ứng
+
+### Cơ chế printf 
+- 32 bit: In trên stack
+- 64 bit: 5 format đầu sẽ được đưa vào 5 thanh ghi theo thứ tự: RSI, RDX, RCX, R9, R8. (RDI chứa chuỗi printf). Từ format thứ 6 sẽ là dữ liệu trên Stack.
