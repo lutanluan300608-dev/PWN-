@@ -29,6 +29,5 @@ printf(buf);      -> lỗi
 - `%s` sẽ trỏ tới vị trí chứa địa chỉ HỢP LỆ để đọc chuỗi ký tự tại đó. 
 
 ### Ghi đè dữ liệu 
-- `%n` sẽ ghi đè số byte đếm được vào địa chỉ trỏ tới 
-
+- `%n` sẽ ghi đè số byte đếm được vào địa chỉ trỏ tới. Mà `%c` lại lấy đúng duy nhất 1 byte -> mình có thể viết 1 hoặc 1 chuỗi `%c` trước `%n`, khi printf thì `%n` sẽ đếm số byte (số lần `%c`) và ghi đè dữ liệu tại vị trí tương ứng
 
