@@ -24,9 +24,11 @@ printf(buf);      -> lỗi
 - 32 bit: In trên stack
 - 64 bit: 5 format đầu sẽ được đưa vào 5 thanh ghi theo thứ tự: RSI, RDX, RCX, R8, R9. (RDI chứa chuỗi printf). Từ format thứ 6 sẽ là dữ liệu trên Stack.
 
+### Leak Stack Memory 
+- Vì `%p` là in địa chỉ con trỏ trỏ tới dữ liệu. Nên khi `printf("%p")`, nó sẽ in ra địa chỉ con trỏ(% đầu tiên thì sẽ là địa chỉ bên trong rsi). Mình có thể truyền nhiều `%p`.
+- `%s` sẽ trỏ tới vị trí chứa địa chỉ HỢP LỆ để đọc chuỗi ký tự tại đó. 
 
-
-
-
+### Ghi đè dữ liệu 
+- `%n` sẽ ghi đè số byte đếm được vào địa chỉ trỏ tới 
 
 
