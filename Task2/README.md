@@ -22,7 +22,7 @@ printf(buf);      -> lỗi
 
 ### Cơ chế printf 
 - 32 bit: In trên stack
-- 64 bit: 5 format đầu sẽ được đưa vào 5 thanh ghi theo thứ tự: RSI, RDX, RCX, R9, R8. (RDI chứa chuỗi printf). Từ format thứ 6 sẽ là dữ liệu trên Stack.
+- 64 bit: 5 format đầu sẽ được đưa vào 5 thanh ghi theo thứ tự: RSI, RDX, RCX, R8, R9. (RDI chứa chuỗi printf). Từ format thứ 6 sẽ là dữ liệu trên Stack.
 
 
 
