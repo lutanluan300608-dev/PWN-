@@ -18,4 +18,4 @@ printf(buf);      -> lỗi
 - `%u` in số nguyên không dấu (unsigned int) dạng dec  
 - `%c` in ra 1 ký tự (1 byte) dựa teho ASCII
 - `%s` in ra chuỗi (nhiều byte) đến khi gặp null byte `(\x00)`
-- `%n` không in ra, nhưng nó sẽ đếm số byte được nhập vào trước đó và truyền vào biến tương ứng
+- `%n` không in ra, nhưng nó sẽ đếm số byte được in ra trước nó và truyền vào biến tương ứng
