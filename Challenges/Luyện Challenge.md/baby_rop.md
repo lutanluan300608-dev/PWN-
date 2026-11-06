@@ -34,3 +34,20 @@
 - Mình đã tính được offset từ địa chỉ trong vùng `.text` đến binary base. Giờ trừ ngược lại binary leak với offset là ra được base address.
 - Cộng base address vào gadget là ra được offset đúng của gadget
 
+<img width="521" height="57" alt="Screenshot 2026-11-06 145659" src="https://github.com/user-attachments/assets/e870809f-075b-4f87-8ba6-b68192d3007b" />
+
+- Mình tính offset từ buf đến saved-rip để ghi đè gadget
+
+
+<img width="1358" height="776" alt="Screenshot 2026-11-06 150408" src="https://github.com/user-attachments/assets/b86fe380-64ad-487f-9149-a3cd09f30f0f" />
+
+<img width="542" height="55" alt="Screenshot 2026-11-06 150949" src="https://github.com/user-attachments/assets/3e637efa-cf9c-4247-a6d7-1c6d4e91280a" />
+<img width="262" height="36" alt="Screenshot 2026-11-06 152115" src="https://github.com/user-attachments/assets/d770a436-2a94-47f1-8efb-abb5aa5e8720" />
+
+- Mình cũng cần tìm 1 vùng địa chỉ có quyền read, write, mình mở vmmap và tìm 1 vùng trống nhiều
+
+<img width="621" height="695" alt="Screenshot 2026-11-06 152830" src="https://github.com/user-attachments/assets/87b97d0c-484f-4b4e-865d-84660c045045" />
+
+
+
+
