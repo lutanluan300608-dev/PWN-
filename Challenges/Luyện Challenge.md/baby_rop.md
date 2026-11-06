@@ -17,7 +17,9 @@
 
 - Mình chạy thử và tìm trên Stack và tìm thấy 1 địa chỉ hợp lệ. Các địa chỉ màu đỏ thường sẽ là địa chỉ trong vùng `.text`. Mình cần phải vmmap để check
 
+<img width="506" height="65" alt="Screenshot 2026-11-06 092008" src="https://github.com/user-attachments/assets/6f4df6e2-5c3c-48ce-bc47-50f0e947cb88" />
 
+<img width="506" height="91" alt="Screenshot 2026-11-06 141519" src="https://github.com/user-attachments/assets/419df543-940d-414a-85b6-53ea43c349df" />
 
-
+- Mình tính offset và tiến hành leak địa chỉ, vì địa chỉ chỉ có 6 byte nên mình nối thêm 2 byte null để hàm read tự ngắt
 
