@@ -42,6 +42,7 @@
 <img width="1358" height="776" alt="Screenshot 2026-11-06 150408" src="https://github.com/user-attachments/assets/b86fe380-64ad-487f-9149-a3cd09f30f0f" />
 
 <img width="542" height="55" alt="Screenshot 2026-11-06 150949" src="https://github.com/user-attachments/assets/3e637efa-cf9c-4247-a6d7-1c6d4e91280a" />
+
 <img width="262" height="36" alt="Screenshot 2026-11-06 152115" src="https://github.com/user-attachments/assets/d770a436-2a94-47f1-8efb-abb5aa5e8720" />
 
 - Mình cũng cần tìm 1 vùng địa chỉ có quyền read, write, mình mở vmmap và tìm 1 vùng trống nhiều
