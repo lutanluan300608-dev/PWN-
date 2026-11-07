@@ -308,7 +308,8 @@ Stage 2
 
 -Vì ở trên, hàm win() được gán vào 1 con trỏ nên mình dùng `x/xg50` để kiểm tra và thấy tại ô nhớ 0x404850 đang chứa giá trị 0x0000000000401366 là con trỏ trỏ tới địa chỉ hàm win(). Mình đã `x/xg` và tìm được địa chỉ hàm win()   
 
-![Uploading Screenshot 2026-11-07 183032.png…]()
+<img width="611" height="212" alt="Screenshot 2026-11-07 183032" src="https://github.com/user-attachments/assets/b06eaf43-2452-4200-b416-c0ccafe185e7" />
+
 
 
 ### Cách khai thác 
