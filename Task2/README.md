@@ -47,7 +47,7 @@ Ví dụ mình muốn ghi đè vào [rsp+16] thì mình sẽ `printf("%c%c%c%c%c
 - Có 2 cách để mình leak ra:
 - Cách 1 là chạy chương trình và nhập thủ công từng %, sau đó chuyển hết về đúng dạng
 
-  <img width="920" height="467" alt="Screenshot 2026-11-09 164133" src="https://github.com/user-attachments/assets/2c720dc5-fdd3-4033-8d6c-8eb9a478eb7c" />
+<img width="920" height="467" alt="Screenshot 2026-11-09 164133" src="https://github.com/user-attachments/assets/2c720dc5-fdd3-4033-8d6c-8eb9a478eb7c" />
 
 - Cách 2 là viết Script
 
