@@ -46,9 +46,11 @@ Ví dụ mình muốn ghi đè vào [rsp+16] thì mình sẽ `printf("%c%c%c%c%c
 - Kiểm tra Stack thì chuỗi Flag nằm ở vị trí % thứ 12 trở đi
 - Có 2 cách để mình leak ra:
 - Cách 1 là chạy chương trình và nhập thủ công từng %, sau đó chuyển hết về đúng dạng
+
   <img width="920" height="467" alt="Screenshot 2026-11-09 164133" src="https://github.com/user-attachments/assets/2c720dc5-fdd3-4033-8d6c-8eb9a478eb7c" />
 
 - Cách 2 là viết Script
+
   <img width="655" height="381" alt="Screenshot 2026-11-09 164725" src="https://github.com/user-attachments/assets/0dc8d71d-2cea-4423-b6da-bc5ea94e0b75" />
 
 - Do chương trình chỉ có 1 lần nhập nên mình sẽ chạy 1 vòng lặp chạy lại chạy chương trình để tự động nhập
