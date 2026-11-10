@@ -92,10 +92,12 @@ Ví dụ mình muốn ghi đè vào [rsp+16] thì mình sẽ `printf("%c%c%c%c%c
 (Địa chỉ muốn lấy - địa chỉ rsp)/8 + 6
 ```
 
-<img width="807" height="488" alt="Screenshot 2026-11-10 171957" src="https://github.com/user-attachments/assets/42525dd5-ece7-4b29-825d-469703374abd" />
+<img width="875" height="493" alt="Screenshot 2026-11-10 174114" src="https://github.com/user-attachments/assets/406a208a-6cd5-419e-9632-cb3749f666bb" />
 
-<img width="1557" height="877" alt="Screenshot 2026-11-10 171832" src="https://github.com/user-attachments/assets/bf6fc8ec-8076-487a-8a9f-8435bab081e9" />
+<img width="1542" height="872" alt="Screenshot 2026-11-10 174058" src="https://github.com/user-attachments/assets/69fea46b-50e4-4ca8-b5c9-b78745a55bf2" />
 
 
+- Mình sử dụng debug động để thao tác nhanh hơn thay vì attach thủ công
+- Mình tính địa chỉ binary leak được trừ đi binary base và ra được offset của base (đang debug gdb nên dùng địa chỉ tĩnh cho dễ)
 
 
