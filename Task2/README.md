@@ -72,7 +72,7 @@ Ví dụ mình muốn ghi đè vào [rsp+16] thì mình sẽ `printf("%c%c%c%c%c
 
 - Vì %s in ra đến khi nào gặp null byte, nên việc flag không có null byte bên trong thì khá dễ để leak vì nó in ra hết được 
 - Nhập thẳng trong lúc chạy chương trình hoặc trên gdb sẽ nhanh hơn thay vì viết Script cho bài này
-## FMTSTR 3 - Leak dữ liệu kết hợp %p và %
+## FMTSTR 3 - Leak dữ liệu kết hợp %p và %s
 
 <img width="1457" height="652" alt="Screenshot 2026-11-10 153316" src="https://github.com/user-attachments/assets/5b2fc771-d4ae-4544-a367-8af01f0fbf1e" />
 <img width="486" height="246" alt="Screenshot 2026-11-10 153731" src="https://github.com/user-attachments/assets/5932c295-ba1d-4ba5-a856-07a32b4c6cc7" />
@@ -92,7 +92,8 @@ Ví dụ mình muốn ghi đè vào [rsp+16] thì mình sẽ `printf("%c%c%c%c%c
 (Địa chỉ muốn lấy - địa chỉ rsp)/8 + 6
 ```
 
-<img width="875" height="493" alt="Screenshot 2026-11-10 174114" src="https://github.com/user-attachments/assets/406a208a-6cd5-419e-9632-cb3749f666bb" />
+<img width="847" height="357" alt="Screenshot 2026-11-10 185455" src="https://github.com/user-attachments/assets/f705584c-82f8-44d3-9305-e14f7d174670" />
+
 
 <img width="1542" height="872" alt="Screenshot 2026-11-10 174058" src="https://github.com/user-attachments/assets/69fea46b-50e4-4ca8-b5c9-b78745a55bf2" />
 
