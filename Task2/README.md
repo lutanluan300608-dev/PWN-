@@ -81,7 +81,14 @@ Ví dụ mình muốn ghi đè vào [rsp+16] thì mình sẽ `printf("%c%c%c%c%c
 - Có 2 lỗi Format String và không có BOF
   
 <img width="1192" height="492" alt="Screenshot 2026-11-10 160729" src="https://github.com/user-attachments/assets/2142ae33-d6b3-4ee5-9dd1-3a93521c9763" />
+<img width="288" height="70" alt="Screenshot 2026-11-10 161116" src="https://github.com/user-attachments/assets/d4fade8c-e741-4be1-a20f-660dcbabbb10" />
 
-- Nửa đầu flag thì mình còn có thể dùng %s để leak do nằm trên Stack. Do PIE đang bật nên nửa còn lại thì buộc minh phải leak địa chỉ binary
+- Nửa đầu flag thì mình còn có thể dùng %s để leak do nằm trên Stack. Do PIE đang bật nên nửa còn lại thì buộc minh phải leak địa chỉ binary.
 
+<img width="1831" height="637" alt="Screenshot 2026-11-10 163124" src="https://github.com/user-attachments/assets/042e9a69-2bbe-4822-b300-8259364d331d" />
+
+- Mình có 1 địa chỉ binary của chương trình nằm ở saved-rip, mình có thể tel và đếm. Hoặc có cách tính nhanh:
+```
+(Địa chỉ muốn lấy - địa chỉ rsp)/8 + 6
+```
 
