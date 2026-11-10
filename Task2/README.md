@@ -99,5 +99,13 @@ Ví dụ mình muốn ghi đè vào [rsp+16] thì mình sẽ `printf("%c%c%c%c%c
 
 - Mình sử dụng debug động để thao tác nhanh hơn thay vì attach thủ công
 - Mình tính địa chỉ binary leak được trừ đi binary base và ra được offset của base (đang debug gdb nên dùng địa chỉ tĩnh cho dễ)
+- Có được địa chỉ rồi thì mình chỉ cần tính offset từ base đến flag2, rồi lấy base cộng offset đấy là ra được địa chỉ chính xác của flag2
 
+<img width="1172" height="692" alt="Screenshot 2026-11-10 182416" src="https://github.com/user-attachments/assets/632ef7c0-d2e9-44f6-9c41-35570f60f4f6" />
+
+- Tại sao mình phải thêm 3 byte rác vào payload? Do lúc chạy có 1 vấn đề xảy ra
+
+<img width="1482" height="832" alt="Screenshot 2026-11-10 183051" src="https://github.com/user-attachments/assets/88d40c7e-93fa-4c55-bf73-feb9ffcd62ce" />
+
+- Địa chỉ của flag2 đang nằm không đúng vị trí, nói chính xác thì một nửa đang nằm ở trên, một nửa đang nằm ở dưới. Thứ nhất nó sẽ sai địa chỉ flag2 là điều chắc chắn, thứ 2 là %s cần 1 địa chỉ hợp lệ để trỏ tới, nhưng cả 2 cái đều không phải địa chỉ hợp lệ, chính vì thế khi gửi payload, mình phải kẹp thêm trước địa chỉ flag2 3 byte rác để địa chỉ flag2 nằm đúng vị trí
 
