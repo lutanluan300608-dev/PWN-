@@ -92,3 +92,10 @@ Ví dụ mình muốn ghi đè vào [rsp+16] thì mình sẽ `printf("%c%c%c%c%c
 (Địa chỉ muốn lấy - địa chỉ rsp)/8 + 6
 ```
 
+<img width="807" height="488" alt="Screenshot 2026-11-10 171957" src="https://github.com/user-attachments/assets/42525dd5-ece7-4b29-825d-469703374abd" />
+
+<img width="1557" height="877" alt="Screenshot 2026-11-10 171832" src="https://github.com/user-attachments/assets/bf6fc8ec-8076-487a-8a9f-8435bab081e9" />
+
+
+
+
