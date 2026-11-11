@@ -1,6 +1,6 @@
 # FORMAT STRING
 ## Khái niệm 
-Source: https://youtu.be/b8GMf5kM2LU?si=CJeDrYdz5ugZhW46
+Source: https://youtu.be/b8GMf5kM2LU?si=CJeDrYdz5ugZhW46  
 -Lỗi format string xảy ra khi mà chương trình truyền trực tiếp dữ liệu đầu vào của người dùng vào các hàm in (`printf`) mà không dùng chuỗi định dạng cố định
 -VÍ DỤ  
 ```
@@ -37,7 +37,7 @@ Ví dụ mình muốn ghi đè vào [rsp+16] thì mình sẽ `printf("%c%c%c%c%c
 - Mình cũng có thể điều khiển `%n` ghi vào thứ tự nào, ví dụ `printf("%28c%8$n")` -> ghi 28 vào % thứ 8
 
 ## FMTSTR 1 - Leak dữ liệu bằng %p
-Source: https://youtu.be/Vkv3s-_DYnM?si=tvlficM9LUUChxON
+Source: https://youtu.be/Vkv3s-_DYnM?si=tvlficM9LUUChxON  
 
 <img width="1067" height="717" alt="Screenshot 2026-11-08 180713" src="https://github.com/user-attachments/assets/bf929cce-b115-4c18-9fa0-a3374f7d9dcf" />
 
@@ -61,7 +61,7 @@ Source: https://youtu.be/Vkv3s-_DYnM?si=tvlficM9LUUChxON
 - Mình sẽ nhận hết các byte leak ra và đưa vào output, sau đó nối vào flag thành chuỗi, khi output có byte '}' thì sẽ in ra chuỗi flag và dừng vòng lặp. 
 
 ## FMTSTR 2 - Leak dữ liệu bằng %s
-Source: https://youtu.be/jsnxpBg2y28?si=3OtvWY0qnObCns0x
+Source: https://youtu.be/jsnxpBg2y28?si=3OtvWY0qnObCns0x  
 
 <img width="1687" height="832" alt="Screenshot 2026-11-09 175239" src="https://github.com/user-attachments/assets/47622486-b404-42b4-ad06-2a8fa7269e46" />
 
@@ -78,7 +78,7 @@ Source: https://youtu.be/jsnxpBg2y28?si=3OtvWY0qnObCns0x
 - Vì %s in ra đến khi nào gặp null byte, nên việc flag không có null byte bên trong thì khá dễ để leak vì nó in ra hết được 
 - Nhập thẳng trong lúc chạy chương trình hoặc trên gdb sẽ nhanh hơn thay vì viết Script cho bài này
 ## FMTSTR 3 - Leak dữ liệu kết hợp %p và %s
-
+Source: https://youtu.be/WXBnSjwfcBw?si=od5CRzN7H9gGwgV_
 <img width="1457" height="652" alt="Screenshot 2026-11-10 153316" src="https://github.com/user-attachments/assets/5b2fc771-d4ae-4544-a367-8af01f0fbf1e" />
 <img width="486" height="246" alt="Screenshot 2026-11-10 153731" src="https://github.com/user-attachments/assets/5932c295-ba1d-4ba5-a856-07a32b4c6cc7" />
 
