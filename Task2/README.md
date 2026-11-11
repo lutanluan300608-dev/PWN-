@@ -110,3 +110,11 @@ Ví dụ mình muốn ghi đè vào [rsp+16] thì mình sẽ `printf("%c%c%c%c%c
 
 - Địa chỉ của flag2 đang nằm không đúng vị trí, nói chính xác thì một nửa đang nằm ở trên, một nửa đang nằm ở dưới. Thứ nhất nó sẽ sai địa chỉ flag2 là điều chắc chắn, thứ 2 là %s cần 1 địa chỉ hợp lệ để trỏ tới, nhưng cả 2 cái đều không phải địa chỉ hợp lệ, chính vì thế khi gửi payload, mình phải kẹp thêm trước địa chỉ flag2 3 byte rác để địa chỉ flag2 nằm đúng vị trí
 
+## FMTSTR4 - Format String & Bof
+- Soucre: https://youtu.be/Q0SPwsxW_-s?si=EeKamsD8MVKaOk54
+<img width="1361" height="798" alt="Screenshot 2026-11-11 143141" src="https://github.com/user-attachments/assets/796cc1dd-2d19-43ed-9470-f2ea4a2ad8ed" />
+
+<img width="703" height="271" alt="Screenshot 2026-11-11 143153" src="https://github.com/user-attachments/assets/2b26d54c-fcc1-41d1-8c77-57e6f30e3571" />
+
+- Bài này có 2 lỗi Format String và Buffer Overflow. Lỗi Format String nằm ở biến ID, hàm stringcompare chỉ so sánh 11 byte đầu xem có giống không. Thế nên mình có thể tận dụng để leak địa chỉ Canary và thậm chí là địa chỉ binary
+- 
