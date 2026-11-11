@@ -1,5 +1,6 @@
 # FORMAT STRING
 ## Khái niệm 
+Source: https://youtu.be/b8GMf5kM2LU?si=CJeDrYdz5ugZhW46
 -Lỗi format string xảy ra khi mà chương trình truyền trực tiếp dữ liệu đầu vào của người dùng vào các hàm in (`printf`) mà không dùng chuỗi định dạng cố định
 -VÍ DỤ  
 ```
@@ -36,6 +37,8 @@ Ví dụ mình muốn ghi đè vào [rsp+16] thì mình sẽ `printf("%c%c%c%c%c
 - Mình cũng có thể điều khiển `%n` ghi vào thứ tự nào, ví dụ `printf("%28c%8$n")` -> ghi 28 vào % thứ 8
 
 ## FMTSTR 1 - Leak dữ liệu bằng %p
+Source: https://youtu.be/Vkv3s-_DYnM?si=tvlficM9LUUChxON
+
 <img width="1067" height="717" alt="Screenshot 2026-11-08 180713" src="https://github.com/user-attachments/assets/bf929cce-b115-4c18-9fa0-a3374f7d9dcf" />
 
 - Mình chạy file và đi tới hàm open(), nó sẽ mở file flag.txt đọc dữ liệu vào. Khi chạy đến hàm printf(), dữ liệu đó đã được đưa lên Stack
@@ -58,6 +61,8 @@ Ví dụ mình muốn ghi đè vào [rsp+16] thì mình sẽ `printf("%c%c%c%c%c
 - Mình sẽ nhận hết các byte leak ra và đưa vào output, sau đó nối vào flag thành chuỗi, khi output có byte '}' thì sẽ in ra chuỗi flag và dừng vòng lặp. 
 
 ## FMTSTR 2 - Leak dữ liệu bằng %s
+Source: https://youtu.be/jsnxpBg2y28?si=3OtvWY0qnObCns0x
+
 <img width="1687" height="832" alt="Screenshot 2026-11-09 175239" src="https://github.com/user-attachments/assets/47622486-b404-42b4-ad06-2a8fa7269e46" />
 
 - Vì flag lần này được read vào buf nằm ở vùng Heap chứ không phải Stack, thứ nằm trên Stack sẽ là địa chỉ vùng Heap đang chứa flag, nên nếu dùng %p thì thứ mình leak được là địa chỉ heap chứ không phải flag.
@@ -110,7 +115,7 @@ Ví dụ mình muốn ghi đè vào [rsp+16] thì mình sẽ `printf("%c%c%c%c%c
 
 - Địa chỉ của flag2 đang nằm không đúng vị trí, nói chính xác thì một nửa đang nằm ở trên, một nửa đang nằm ở dưới. Thứ nhất nó sẽ sai địa chỉ flag2 là điều chắc chắn, thứ 2 là %s cần 1 địa chỉ hợp lệ để trỏ tới, nhưng cả 2 cái đều không phải địa chỉ hợp lệ, chính vì thế khi gửi payload, mình phải kẹp thêm trước địa chỉ flag2 3 byte rác để địa chỉ flag2 nằm đúng vị trí
 
-## FMTSTR4 - Format String & Bof
+## FMTSTR 4 - Format String & Bof
 - Soucre: https://youtu.be/Q0SPwsxW_-s?si=EeKamsD8MVKaOk54
 <img width="1361" height="798" alt="Screenshot 2026-11-11 143141" src="https://github.com/user-attachments/assets/796cc1dd-2d19-43ed-9470-f2ea4a2ad8ed" />
 
@@ -150,3 +155,5 @@ Ví dụ mình muốn ghi đè vào [rsp+16] thì mình sẽ `printf("%c%c%c%c%c
 
 ### Final Script
 <img width="553" height="918" alt="Screenshot 2026-11-11 180021" src="https://github.com/user-attachments/assets/a659d48a-6c80-415b-b08c-bbe769a5e259" />
+
+## FMTSTR 5 - Ghi đè dữ liệu bằng %n
