@@ -131,7 +131,8 @@ Ví dụ mình muốn ghi đè vào [rsp+16] thì mình sẽ `printf("%c%c%c%c%c
 - Sau đó mình dùng split để chia ra, nó được chia ra thành 1 mảng có 3 phần tử
 - Leak được địa chỉ libc rồi mình sẽ tính offser từ libc base tới địa chỉ đó. Rồi lấy địa chỉ đó trừ ngược lại là ra được chính xác libc.address
 
-<img width="1197" height="483" alt="Screenshot 2026-11-11 154515" src="https://github.com/user-attachments/assets/4b48066f-8b92-442c-8d23-04353a79cd69" />
+<img width="1527" height="615" alt="Screenshot 2026-11-11 175041" src="https://github.com/user-attachments/assets/631dd1cd-7df8-48e8-9b83-270a9524c965" />
+
 
 - Mình sẽ dùng 1 công cụ là one_gadget để tự động tìm trong libc các địa chỉ offset tạo shell
 - Mỗi cái đều có điều kiện riêng, ví dụ cái đầu tiên con của r15 bằng null hoặc r15 bằng null và con của r12 bằng null hoặc r12 bằng null.
@@ -139,3 +140,13 @@ Ví dụ mình muốn ghi đè vào [rsp+16] thì mình sẽ `printf("%c%c%c%c%c
 <img width="1541" height="832" alt="Screenshot 2026-11-11 172552" src="https://github.com/user-attachments/assets/83ef5abd-2647-43f6-8e1f-a2dc6d2c96dd" />
 
 - Như mình check thì thấy điều kiện thỏa rồi. Còn để mà check con thì mình dùng x/xg. Nếu mà không thỏa điều kiện, mình gọi vẫn được nhưng nó sẽ không tạo shell
+
+<img width="905" height="342" alt="Screenshot 2026-11-11 173545" src="https://github.com/user-attachments/assets/cdf00a87-e44b-4e04-bdd3-96b298daf46c" />
+<img width="957" height="832" alt="Screenshot 2026-11-11 174101" src="https://github.com/user-attachments/assets/259ede75-e682-4de3-933a-908c5bd7b0ad" />
+<img width="443" height="197" alt="Screenshot 2026-11-11 175339" src="https://github.com/user-attachments/assets/afc7ddad-d71d-4555-96cf-bccc2b3990db" />
+
+- Mình tính offset từ buf đến rip, và xem khi return thì thanh ghi có thỏa điều kiện không. -> Có
+- Nên lần payload mình cứ gửi byte rác đến canary thì ghi đè, byte rác cho rbp và ghi đè địa chỉ nhảy đến gadget vào rip. (Khi dùng one_gadget thì nó sẽ cho mình offset từ libc base đến gadget đó, do địa chỉ động nên mình phải cộng thêm địa chỉ libc base mới ra đúng địa chỉ one_gadget)
+
+### Final Script
+<img width="562" height="860" alt="Screenshot 2026-11-11 175739" src="https://github.com/user-attachments/assets/315972df-a031-4aa4-b24d-8c1ec3c42570" />
