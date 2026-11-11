@@ -117,4 +117,20 @@ Ví dụ mình muốn ghi đè vào [rsp+16] thì mình sẽ `printf("%c%c%c%c%c
 <img width="703" height="271" alt="Screenshot 2026-11-11 143153" src="https://github.com/user-attachments/assets/2b26d54c-fcc1-41d1-8c77-57e6f30e3571" />
 
 - Bài này có 2 lỗi Format String và Buffer Overflow. Lỗi Format String nằm ở biến ID, hàm stringcompare chỉ so sánh 11 byte đầu xem có giống không. Thế nên mình có thể tận dụng để leak địa chỉ Canary và thậm chí là địa chỉ binary
-- 
+
+<img width="447" height="66" alt="Screenshot 2026-11-11 152252" src="https://github.com/user-attachments/assets/64ddecde-cb6f-42a2-8408-4d8481cce777" />
+
+<img width="878" height="156" alt="Screenshot 2026-11-11 152219" src="https://github.com/user-attachments/assets/ec57352d-5f0a-40f5-aceb-9bf8d5aaf553" />
+
+- Mình đã thành công Leak Canary và địa chỉ libc (mình định dùng ROPchain nhưng lúc ghi đè chỉ ghi được tới saved-rip là tối đa).
+
+<img width="521" height="132" alt="Screenshot 2026-11-11 152533" src="https://github.com/user-attachments/assets/7bee0aff-b341-471c-9bef-f705e2d22fc5" />
+<img width="1920" height="1080" alt="Screenshot (130)" src="https://github.com/user-attachments/assets/9e115f75-7eb4-4040-959b-e3cf1d5ad74b" />
+
+- Lần recv thứ nhất sẽ nhận cho tới byte '9', nên lần recv thứ 2 sẽ nhận từ byte 0x của canary đến byte 'Enter ', mình bỏ Enter đi là được chuỗi canary và địa chỉ Libc
+- Sau đó mình dùng split để chia ra, nó được chia ra thành 1 mảng có 3 phần tử
+- Leak được địa chỉ libc rồi mình sẽ tính offser từ libc base tới địa chỉ đó. Rồi lấy địa chỉ đó trừ ngược lại là ra được chính xác libc.address
+
+<img width="1197" height="483" alt="Screenshot 2026-11-11 154515" src="https://github.com/user-attachments/assets/4b48066f-8b92-442c-8d23-04353a79cd69" />
+
+- Mình sẽ dùng 1 công cụ là one_gadget để tự động tìm trong libc các địa chỉ offset tạo shell 
