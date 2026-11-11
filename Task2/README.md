@@ -138,4 +138,4 @@ Ví dụ mình muốn ghi đè vào [rsp+16] thì mình sẽ `printf("%c%c%c%c%c
 
 <img width="1541" height="832" alt="Screenshot 2026-11-11 172552" src="https://github.com/user-attachments/assets/83ef5abd-2647-43f6-8e1f-a2dc6d2c96dd" />
 
-- Như mình check thì thấy điều kiện thỏa rồi. Còn để mà check con thì mình dùng x/xg. Nếu mà không thỏa điều kiện nó sẽ không tạo shell
+- Như mình check thì thấy điều kiện thỏa rồi. Còn để mà check con thì mình dùng x/xg. Nếu mà không thỏa điều kiện, mình gọi vẫn được nhưng nó sẽ không tạo shell
