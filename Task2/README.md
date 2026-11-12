@@ -165,4 +165,29 @@ Source: https://youtu.be/WXBnSjwfcBw?si=od5CRzN7H9gGwgV_
 
 - Biến check hiện tại đang là 0, và quan trọng, địa chỉ check vẫn chưa có trên Stack, nên mình phải đưa địa chỉ check lên Stack. Sau đó chạy thử chương trình để xem chính xác địa chỉ biến check nằm ở vị trí nào rồi mới để %n trỏ vào 
 
+<img width="432" height="102" alt="Screenshot 2026-11-12 114952" src="https://github.com/user-attachments/assets/e572b1c2-c9a0-48c3-97af-5dd66bf1d48e" />
+<img width="952" height="126" alt="Screenshot 2026-11-12 115013" src="https://github.com/user-attachments/assets/651a9dea-1d00-4c43-b39b-beeb07085093" />
+
+- Mình để %n trỏ tạm vào %6 và chạy thử chương trình, lúc này mình nhận thấy rằng địa chỉ check đang dính với %6$n, nó tạo thành 1 địa chỉ không hợp lệ để mà %n ghi vào. Thế nên mình cần tách địa chỉ check ra bằng cách thêm byte rác cho đủ 8 byte của %6$n.
+
+<img width="452" height="121" alt="Screenshot 2026-11-12 115851" src="https://github.com/user-attachments/assets/162a6a39-1bd8-41e5-b12d-1530c1961e23" />
+
+<img width="888" height="150" alt="Screenshot 2026-11-12 115903" src="https://github.com/user-attachments/assets/81973654-b9c5-4452-8af9-7e74d371881f" />
+
+- Địa chỉ biến check đã được tách ra và gdb cũng nhận biết được địa chỉ biến check
+- Nhưng mục tiêu của mình là phải ghi đè 0xdeadbeef vào check, mình sẽ sử dụng %c
+
+<img width="536" height="128" alt="Screenshot 2026-11-12 123849" src="https://github.com/user-attachments/assets/ef031d38-55b7-4e61-80b7-882a78ab80b7" />
+
+
+- Mình sẽ dùng f để đưa 0xdeadbeef vào.
+- Mình cần phải chừa thêm 1 khoảng dành cho Format String, vì Format String của mình có thể sẽ thay đổi tiếp, có thể lùi ra lùi vào và làm thay đổi địa chỉ check
+- Mình chừa ra 0x20 byte rồi địa check nằm ở đâu thì mình thay đổi padding là được. -> đảm bảo được địa chỉ check vẫn giữ nguyên trên 1 hàng
+
+<img width="835" height="848" alt="Screenshot 2026-11-12 124200" src="https://github.com/user-attachments/assets/ddf73b6d-6411-4996-9b85-e9d340d4ad8f" />
+<img width="536" height="128" alt="Screenshot 2026-11-12 123849" src="https://github.com/user-attachments/assets/66253c56-c29a-4332-b3b3-e60885a60181" />
+
+
+- Nhưng vì {0xdeadbeef} quá lớn nên printf không xử lý được, nên mình sẽ in trước 2 byte {0xbeef} 
+
 
