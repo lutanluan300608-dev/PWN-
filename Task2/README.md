@@ -163,6 +163,6 @@ Source: https://youtu.be/WXBnSjwfcBw?si=od5CRzN7H9gGwgV_
 
 <img width="701" height="105" alt="Screenshot 2026-11-12 110915" src="https://github.com/user-attachments/assets/ca6d6a3b-9f4c-4368-89d3-8ce311084540" />
 
-- Biến check hiện tại đang là 0,
+- Biến check hiện tại đang là 0, và quan trọng, địa chỉ check vẫn chưa có trên Stack, nên mình phải đưa địa chỉ check lên Stack. Sau đó chạy thử chương trình để xem chính xác địa chỉ biến check nằm ở vị trí nào rồi mới để %n trỏ vào 
 
 
