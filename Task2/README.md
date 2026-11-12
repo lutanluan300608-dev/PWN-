@@ -204,6 +204,18 @@ Source: https://youtu.be/WXBnSjwfcBw?si=od5CRzN7H9gGwgV_
 ### Final Script
 <img width="675" height="577" alt="Screenshot 2026-11-12 133111" src="https://github.com/user-attachments/assets/49a3b49b-f30a-49ba-901f-b2fb514caf27" />
 
+## FMTSTR 6 - Tấn công GOT 
+<img width="743" height="305" alt="Screenshot 2026-11-12 173636" src="https://github.com/user-attachments/assets/46b3ef31-9566-4cf5-8510-1d3eaaf749f6" />
+<img width="795" height="282" alt="Screenshot 2026-11-12 173623" src="https://github.com/user-attachments/assets/d2a9a19f-fb61-4ef9-afb1-96712833160b" />
 
+- Trong bài này chỉ có lỗi Format String, và địa chỉ là địa chỉ động nên mình phải leak địa chỉ. Và bài này có vòng lặp cho phép mình nhập liên tục nhiều lần.
 
+<img width="1462" height="410" alt="Screenshot 2026-11-12 175137" src="https://github.com/user-attachments/assets/8a4fd66f-8756-45b9-a73f-ae3d62c07721" />
 
+- Do RELRO tắt nên mình có thể tận dụng khả năng RW- của GOT 
+- Mình có thể ghi đè địa chỉ các hàm trong GOT, ví dụ mình ghi đè địa chỉ printf() địa chỉ hàm system(), thì sau khi thay đổi printf() khi chạy chương trình nó sẽ biến thành system()
+
+<img width="538" height="115" alt="Screenshot 2026-11-12 181430" src="https://github.com/user-attachments/assets/82baa10b-c18c-44c9-8408-ba3a174bfe2f" />
+<img width="520" height="125" alt="Screenshot 2026-11-12 180640" src="https://github.com/user-attachments/assets/984cc6bc-9cc8-418a-803d-01337557f422" />
+
+- Đầu tiên mình sẽ leak libc address trước
