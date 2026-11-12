@@ -185,9 +185,23 @@ Source: https://youtu.be/WXBnSjwfcBw?si=od5CRzN7H9gGwgV_
 - Mình chừa ra 0x20 byte rồi địa check nằm ở đâu thì mình thay đổi padding là được. -> đảm bảo được địa chỉ check vẫn giữ nguyên trên 1 hàng
 
 <img width="835" height="848" alt="Screenshot 2026-11-12 124200" src="https://github.com/user-attachments/assets/ddf73b6d-6411-4996-9b85-e9d340d4ad8f" />
-<img width="536" height="128" alt="Screenshot 2026-11-12 123849" src="https://github.com/user-attachments/assets/66253c56-c29a-4332-b3b3-e60885a60181" />
 
+<img width="431" height="160" alt="Screenshot 2026-11-12 131202" src="https://github.com/user-attachments/assets/87dbdd71-0d54-4ff2-acaa-6cb83d9bf9fa" />
+
+<img width="921" height="206" alt="Screenshot 2026-11-12 131253" src="https://github.com/user-attachments/assets/d9bc3905-639d-49d6-8091-5d7ccad57476" />
 
 - Nhưng vì {0xdeadbeef} quá lớn nên printf không xử lý được, nên mình sẽ in trước 2 byte {0xbeef} 
+- Giờ mình sẽ nối chuỗi còn lại {0xdead} vào trong địa chỉ check
+
+<img width="536" height="157" alt="Screenshot 2026-11-12 131156" src="https://github.com/user-attachments/assets/421e5f19-a5bf-461a-ae9d-f01a8f6161d0" />
+
+<img width="613" height="155" alt="Screenshot 2026-11-12 132042" src="https://github.com/user-attachments/assets/677c6107-3f52-4b7e-9471-33b40d51659d" />
+
+- Để ghi {0xdead} vào thì mình phải cộng địa chỉ lên 2 byte, khi cộng lên nó sẽ trỏ đúng vị trí để %n ghi đè vào
+- Còn 1 vấn đề nữa cần lưu ý, %n sẽ ghi vào số byte nó đếm được khi in ra trước nó, mà trước đó mình đã in ra 0xbeef rồi thì tức là lần này nếu ghi mỗi f'%{0xdead}%11$n' thôi thì nó ghi đếm luôn cả 0xbeef và 0xdead cộng vào rồi ghi vô. Nên mình cần trừ đi 0xbeef trước đó đã ghi để %n ghi chính xác vào (hoặc mình có thể dùng %hn để chỉ định ghi đúng số byte) 
+
+### Final Script
+<img width="653" height="576" alt="Screenshot 2026-11-12 132802" src="https://github.com/user-attachments/assets/2d51248b-8c22-4e48-a107-225442598b90" />
+
 
 
