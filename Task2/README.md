@@ -195,13 +195,15 @@ Source: https://youtu.be/WXBnSjwfcBw?si=od5CRzN7H9gGwgV_
 
 <img width="536" height="157" alt="Screenshot 2026-11-12 131156" src="https://github.com/user-attachments/assets/421e5f19-a5bf-461a-ae9d-f01a8f6161d0" />
 
-<img width="613" height="155" alt="Screenshot 2026-11-12 132042" src="https://github.com/user-attachments/assets/677c6107-3f52-4b7e-9471-33b40d51659d" />
+<img width="557" height="205" alt="Screenshot 2026-11-12 133206" src="https://github.com/user-attachments/assets/ee4d1fce-5a12-4b4b-95d6-ba77145dc4f2" />
+
 
 - Để ghi {0xdead} vào thì mình phải cộng địa chỉ lên 2 byte, khi cộng lên nó sẽ trỏ đúng vị trí để %n ghi đè vào
 - Còn 1 vấn đề nữa cần lưu ý, %n sẽ ghi vào số byte nó đếm được khi in ra trước nó, mà trước đó mình đã in ra 0xbeef rồi thì tức là lần này nếu ghi mỗi f'%{0xdead}%11$n' thôi thì nó ghi đếm luôn cả 0xbeef và 0xdead cộng vào rồi ghi vô. Nên mình cần trừ đi 0xbeef trước đó đã ghi để %n ghi chính xác vào (hoặc mình có thể dùng %hn để chỉ định ghi đúng số byte) 
 
 ### Final Script
-<img width="653" height="576" alt="Screenshot 2026-11-12 132802" src="https://github.com/user-attachments/assets/2d51248b-8c22-4e48-a107-225442598b90" />
+<img width="675" height="577" alt="Screenshot 2026-11-12 133111" src="https://github.com/user-attachments/assets/49a3b49b-f30a-49ba-901f-b2fb514caf27" />
+
 
 
 
