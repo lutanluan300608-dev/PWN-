@@ -157,3 +157,12 @@ Source: https://youtu.be/WXBnSjwfcBw?si=od5CRzN7H9gGwgV_
 <img width="553" height="918" alt="Screenshot 2026-11-11 180021" src="https://github.com/user-attachments/assets/a659d48a-6c80-415b-b08c-bbe769a5e259" />
 
 ## FMTSTR 5 - Ghi đè dữ liệu bằng %n
+<img width="720" height="457" alt="Screenshot 2026-11-12 101739" src="https://github.com/user-attachments/assets/77394502-6ae2-4846-8078-cb9a49fde7e7" />
+
+- Trong bài này, mình chỉ cần ghi đè được biến check thành 0xdeadbeef là lấy được shell. Mình sẽ dùng %n, %n sẽ đếm số byyte được in ra trước nó và ghi đè giá trị mà con trỏ đang trỏ vào.
+
+<img width="701" height="105" alt="Screenshot 2026-11-12 110915" src="https://github.com/user-attachments/assets/ca6d6a3b-9f4c-4368-89d3-8ce311084540" />
+
+- Biến check hiện tại đang là 0,
+
+
