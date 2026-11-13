@@ -205,6 +205,7 @@ Source: https://youtu.be/WXBnSjwfcBw?si=od5CRzN7H9gGwgV_
 <img width="675" height="577" alt="Screenshot 2026-11-12 133111" src="https://github.com/user-attachments/assets/49a3b49b-f30a-49ba-901f-b2fb514caf27" />
 
 ## FMTSTR 6 - Tấn công GOT 
+Source: https://youtu.be/ZosW20QjET8?si=Js2CTy5OQO2r1X4u
 <img width="743" height="305" alt="Screenshot 2026-11-12 173636" src="https://github.com/user-attachments/assets/46b3ef31-9566-4cf5-8510-1d3eaaf749f6" />
 <img width="795" height="282" alt="Screenshot 2026-11-12 173623" src="https://github.com/user-attachments/assets/d2a9a19f-fb61-4ef9-afb1-96712833160b" />
 
@@ -219,3 +220,6 @@ Source: https://youtu.be/WXBnSjwfcBw?si=od5CRzN7H9gGwgV_
 <img width="520" height="125" alt="Screenshot 2026-11-12 180640" src="https://github.com/user-attachments/assets/984cc6bc-9cc8-418a-803d-01337557f422" />
 
 - Đầu tiên mình sẽ leak libc address trước
+- Mình cũng sẽ chạy file buildnstart.sh trong docker mà anh Trí đã cho sẵn để lấy đúng phiên bản libc. Do trong thực tế thì local libc của mình sẽ khác với libc trên server
+- Vì địa chỉ libc sẽ khác 3 byte cuối theo mỗi phiên bản (ví dụ của mình là 601 thì có chạy bao nhiêu lần nó vẫn là 601), mà địa chỉ khác nhau sẽ khiến offset cũng khác nhau.
+- 
