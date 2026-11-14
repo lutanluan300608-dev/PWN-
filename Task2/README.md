@@ -260,8 +260,24 @@ Source: https://youtu.be/ZosW20QjET8?si=Js2CTy5OQO2r1X4u
 <img width="1092" height="482" alt="Screenshot 2026-11-14 120417" src="https://github.com/user-attachments/assets/65cb9b3a-6d53-499e-ad3f-c8a50abca1f3" />
 
 - Chạy trên server và đúng i chang địa chỉ binary mình chạy trên local -> dùng được địa chỉ này để tính offset binary base
+<img width="431" height="95" alt="Screenshot 2026-11-14 130111" src="https://github.com/user-attachments/assets/7964baa3-a24b-4415-aa4c-261272151210" />
 
+<img width="925" height="242" alt="Screenshot 2026-11-14 130118" src="https://github.com/user-attachments/assets/12f8b9cb-2b8a-40ab-a2b8-df9aed4adbcb" />
 
+- NOTE: Địa chỉ base là số không âm và 3 ký tự cuối là 000
+
+<img width="1142" height="535" alt="Screenshot 2026-11-14 131427" src="https://github.com/user-attachments/assets/b7046294-e0f7-4491-942b-0b5f9e3f0693" />
+
+- Giờ mình sẽ đến bước ghi đè system, mình cần tìm sự tương quan giữa printf() và system(), ở đây khác nhau 3 byte cuối thì mình chỉ cần ghi đè 3 byte cuối, không cần phải ghi đè hết
+- Ở đây ghi đè 3 byte thì mình sẽ ghi đè 1 byte trước rồi mới ghi đè 2 byte, không ghi 2 byte rồi đến 1 vì sẽ dẫn tới lỗi
+
+<img width="462" height="127" alt="Screenshot 2026-11-14 163637" src="https://github.com/user-attachments/assets/814a0100-5762-44f6-b97e-894bd52cb6c5" />
+
+- Đầu tiên mình lấy 1 byte đầu của địa chỉ system gắn làm part 1. Part 2 thì lấy 2 byte tiếp theo nhưng sẽ dịch vào 8 bit(1 byte đã lấy). 
+
+<img width="540" height="323" alt="Screenshot 2026-11-14 163901" src="https://github.com/user-attachments/assets/305b9868-6d64-4e86-9bd5-ca31a827be57" />
+
+- Sau đó khai thác như bài trước đó, sử dụng %hn. Đưa %hn lên trước, sau đó chừa 1 khoảng ra và đưa địa chỉ printf() lên. Sau khi ghi đè hàm system() lên hàm printf(), mình chỉ gần gửi chuỗi `/bin/sh\0` ở hàm fgets(), thì xuống dưới system() thực thi là mình có được shell 
 
 
 
