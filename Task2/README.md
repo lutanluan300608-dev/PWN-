@@ -222,4 +222,46 @@ Source: https://youtu.be/ZosW20QjET8?si=Js2CTy5OQO2r1X4u
 - Đầu tiên mình sẽ leak libc address trước
 - Mình cũng sẽ chạy file buildnstart.sh trong docker mà anh Trí đã cho sẵn để lấy đúng phiên bản libc. Do trong thực tế thì local libc của mình sẽ khác với libc trên server
 - Vì địa chỉ libc sẽ khác 3 byte cuối theo mỗi phiên bản (ví dụ của mình là 601 thì có chạy bao nhiêu lần nó vẫn là 601), mà địa chỉ khác nhau sẽ khiến offset cũng khác nhau.
-- 
+
+<img width="676" height="546" alt="Screenshot 2026-11-14 111448" src="https://github.com/user-attachments/assets/7ce9da00-4479-4bc3-87e3-95646ca0dedc" />
+
+<img width="800" height="123" alt="Screenshot 2026-11-14 111504" src="https://github.com/user-attachments/assets/7cc74c36-f999-4683-866f-524cf29dab54" />
+
+- Mình đã kết nối server và địa chỉ libc leak được ra với 3 byte cuối là 023
+
+<img width="1192" height="642" alt="Screenshot 2026-11-14 112621" src="https://github.com/user-attachments/assets/2a0756e6-a471-4027-b7e4-a5228afd08e4" />
+<img width="1882" height="270" alt="Screenshot 2026-11-14 112908" src="https://github.com/user-attachments/assets/b9aa0853-e202-4172-84f7-d5285e5e9cfd" />
+
+
+- Mình lên libc.rip để tải phiên bản phù hợp có đuôi 023, mình phải thử từng libc. Mình sẽ chọn phiên bản cuối, copy linl và wget để tải về cho nhanh, sau đó pwninit 
+
+<img width="732" height="572" alt="Screenshot 2026-11-14 113513" src="https://github.com/user-attachments/assets/927b0cc5-5f67-4ce0-a158-2cb9ecf91be4" />
+
+<img width="1878" height="308" alt="Screenshot 2026-11-14 113503" src="https://github.com/user-attachments/assets/cd72ff81-be2d-4a0b-bf61-98c6657fb814" />
+
+
+- Rồi mình đưa libc lên, chạy local thì đuôi __libc_start_main_ret đax thành 023 chứ không phải 601 như lúc đầu -> giờ mình đã có thể khai thác đúng offset tính địa chỉ libc base 
+
+<img width="663" height="147" alt="Screenshot 2026-11-14 114326" src="https://github.com/user-attachments/assets/c9afbac9-9166-454c-96b8-fad75947f615" />
+
+<img width="466" height="67" alt="Screenshot 2026-11-14 114318" src="https://github.com/user-attachments/assets/42460054-407c-47f6-b595-5155e90359cd" />
+
+- Bây giờ, do chương trình chạy liên tục ở hàm main và không return, nên việc overwrite rip và vô nghĩa 
+
+<img width="438" height="151" alt="Screenshot 2026-11-14 114620" src="https://github.com/user-attachments/assets/a3dca944-9868-48ad-9760-7043843cd7f5" />
+
+- RELRO tắt và mình có thể ghi đè GOT, quan trọng bây giờ mình phải ghi đè system() lên fgets() hay printf(). Mình muốn thực thi system() với argument đầu tiên là chuỗi `/bin/sh` thì mình phải chọn hàm nào có argument đầu tiên mình điều khiển được
+- Mà GOT mình tấn công là của binary, nên mình phải leak binary ra  
+
+<img width="955" height="563" alt="Screenshot 2026-11-14 115801" src="https://github.com/user-attachments/assets/1ad5896a-e815-4e05-ba73-a743a42b1679" />
+
+- Các địa chỉ màu đỏ thường là địa chỉ binary của chương trình. Nhưng mấy địa chỉ xuất hiện trên Stack này thường là địa chỉ rác, mình cần kiểm tra thử và kiếm thêm địa chỉ khác nếu sai, địa chỉ binary trên local chưa chắc đã giống khi chạy trên server. Mình sẽ chọn thử địa chỉ có đuôi 2cd 
+
+<img width="1092" height="482" alt="Screenshot 2026-11-14 120417" src="https://github.com/user-attachments/assets/65cb9b3a-6d53-499e-ad3f-c8a50abca1f3" />
+
+- Chạy trên server và đúng i chang địa chỉ binary mình chạy trên local -> dùng được địa chỉ này để tính offset binary base
+
+
+
+
+
