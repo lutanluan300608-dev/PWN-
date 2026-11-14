@@ -279,5 +279,8 @@ Source: https://youtu.be/ZosW20QjET8?si=Js2CTy5OQO2r1X4u
 
 - Sau đó khai thác như bài trước đó, sử dụng %hn. Đưa %hn lên trước, sau đó chừa 1 khoảng ra và đưa địa chỉ printf() lên. Sau khi ghi đè hàm system() lên hàm printf(), mình chỉ gần gửi chuỗi `/bin/sh\0` ở hàm fgets(), thì xuống dưới system() thực thi là mình có được shell 
 
+### Final Script
+
+<img width="612" height="882" alt="Screenshot 2026-11-14 164738" src="https://github.com/user-attachments/assets/57ed046f-d808-4901-92dd-f70da645dd33" />
 
 
