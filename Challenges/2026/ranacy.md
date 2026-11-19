@@ -15,3 +15,4 @@
 <img width="1891" height="652" alt="Screenshot 2026-11-19 125055" src="https://github.com/user-attachments/assets/8b6c3c0f-7f73-49a1-8fa5-d14adb0a101e" />
 
 - Do là read() nó sẽ nối chuỗi byte đến khi gặp null nên tận dụng lúc leak canary thì nó cũng nối cả canary lẫn địa chỉ phía dưới là saved-rbp, mình recv canary rồi recv luôn 8 byte tiếp theo để leak địa chỉ stack, trừ đi buf là ra được offset
+<img width="508" height="852" alt="Screenshot 2026-11-19 125401" src="https://github.com/user-attachments/assets/3ab4398a-2b24-4742-b425-8c7651a17b77" />
