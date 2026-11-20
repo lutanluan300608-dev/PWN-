@@ -234,6 +234,20 @@ docker build . -t bof7
 sudo docker run -d -p 9993:9993 --name bof7_container bof7
 
 ```
+
+-Xem binary đang chạy libc nào 
+```
+sudo docker exec fsb_overwrite_container ldd /home/fsb_overwrite/fsb_overwrite
+```
+
+-Copy ra máy host
+```
+sudo docker cp fsb_overwrite_container:/lib/x86_64-linux-gnu/libc.so.6 ./libc.so.6
+```
+-Copy linker để chạy binary local với đúng libc
+```
+sudo docker cp fsb_overwrite_container:/lib64/ld-linux-x86-64.so.2 ./ld-linux-x86-64.so.2
+```
 -Dừng và xóa container:
 ```
 sudo docker stop bof7_container && sudo docker rm bof7_container
