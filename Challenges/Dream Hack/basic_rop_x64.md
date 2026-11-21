@@ -13,3 +13,4 @@ Source: https://dreamhack.io/wargame/challenges/29
 - Mình tìm thì chỉ có hàm system() của Libc, nhưng để dùng được thì phải leak được địa chỉ libc và tính libc base.
 - Vì chỉ có 1 lần read() nên mình phải dùng cách khác để leak địa chỉ. Mình sẽ tận dụng hàm write() để in ra địa chỉ libc
 
+<img width="673" height="932" alt="Screenshot 2026-11-21 083437" src="https://github.com/user-attachments/assets/83b2c741-dc6e-4480-bf1c-27dbc01fe51f" />
