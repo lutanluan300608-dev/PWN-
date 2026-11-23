@@ -337,7 +337,7 @@ Source: https://youtu.be/ZosW20QjET8?si=Js2CTy5OQO2r1X4u
 ### Final Script
 <img width="527" height="825" alt="Screenshot 2026-11-23 151736" src="https://github.com/user-attachments/assets/d190e779-dd6d-459e-99e5-9d18972b02f4" />
 
-### FMTSTR 8 - Khai thác .fini_array
+## FMTSTR 8 - Khai thác .fini_array
 
 <img width="825" height="666" alt="Screenshot 2026-11-23 162140" src="https://github.com/user-attachments/assets/6e217e2b-5304-4b05-a1f9-6d23db0f42c6" />
 
