@@ -354,4 +354,26 @@ Source: https://youtu.be/ZosW20QjET8?si=Js2CTy5OQO2r1X4u
 
 - Dùng lệnh info files để kiểm tra, có 1 địa chỉ là .fini_arry, đây là 1 mảng gồm khoảng 1-2 phần tử, khi kết thúc chương trình, thực hiện exit, chương trình sẽ thực thi địa chỉ .fini_array. Nhưng địa chỉ .fini_array đó không phải là cố định, khi exit, chương trình sẽ lấy địa chỉ base cộng với 1 offset nhất định để ra được đúng địa chỉ .fini_array
 
+### Khai thác
+- Lúc nãy mình thấy là trên Stack có 1 con trỏ trỏ tới địa chỉ base, mà từ base cộng với offset sẽ ra được .fini_array. Vậy nếu mình thay đổi được địa chỉ mà con trỏ đó trỏ tới (base) thành địa chỉ khác thì lúc kết thúc và exit nó sẽ lấy địa chỉ khác đó cộng với offset và thực thi dữ liệu khác (không còn thực thi dữ liệu của .fini_array)
+
+- -> Mục tiêu lúc này sẽ là thay đổi được địa chỉ con trỏ trỏ tới
+
+<img width="880" height="150" alt="Screenshot 2026-11-23 183837" src="https://github.com/user-attachments/assets/9ca1ce26-d61d-4413-b824-ad8d8526b6fe" />
+
+- Trong chương trình mình có luôn hàm get_shell() để lấy shell
+- Vậy giờ mình sẽ cần leak địa chỉ binary
+
+<img width="930" height="987" alt="Screenshot 2026-11-23 205107" src="https://github.com/user-attachments/assets/15e9f722-4e3b-4ee8-be83-f94c922c5b02" />
+
+- Sau khi leak được base address, mình kiểm tra vùng rw- của binary thì thấy chỗ này đang khá trống chỉ có stdin, stdout.
+
+<img width="1595" height="741" alt="Screenshot 2026-11-23 212708" src="https://github.com/user-attachments/assets/374b9ad2-da4f-4885-927d-41318e14006f" />
+
+- Mình sẽ chọn 1 vùng trống nằm trong phần rw- của binary để đưa get_shell() vào, sau đó tính offset từ base tới đó.
+
+<img width="1646" height="270" alt="Screenshot 2026-11-23 222917" src="https://github.com/user-attachments/assets/22429494-d59d-4972-b504-f59abc247a35" />
+
+- Để ghi đè địa chỉ get_shell() vào thì mình cần ghi đè 2 byte mỗi lần (tránh lỗi và ghi quá lâu với 6 byte 1 lần), mình sẽ dùng package 
+
 
