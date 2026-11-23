@@ -332,5 +332,26 @@ Source: https://youtu.be/ZosW20QjET8?si=Js2CTy5OQO2r1X4u
 <img width="426" height="435" alt="Screenshot 2026-11-23 150906" src="https://github.com/user-attachments/assets/8027ca71-7e13-4d1c-a188-59b20a0ffa36" />
 <img width="1916" height="992" alt="Screenshot 2026-11-23 150652" src="https://github.com/user-attachments/assets/e61260f4-7f6d-433d-8f93-f824b94c5d06" />
 
-- Đây là khi mình thêm %* vào thì nó sẽ lấy đúng số lượng byte và in ra các byte rỗng để %n ghi đè đúng số lượng byte vào địa chỉ exit 
+- Đây là khi mình thêm %* vào thì nó sẽ lấy đúng số lượng byte và in ra các byte rỗng để %n ghi đè đúng số lượng byte vào địa chỉ exit()
+
+### Final Script
+<img width="527" height="825" alt="Screenshot 2026-11-23 151736" src="https://github.com/user-attachments/assets/d190e779-dd6d-459e-99e5-9d18972b02f4" />
+
+### FMTSTR 8 - Khai thác .fini_array
+
+<img width="825" height="666" alt="Screenshot 2026-11-23 162140" src="https://github.com/user-attachments/assets/6e217e2b-5304-4b05-a1f9-6d23db0f42c6" />
+
+<img width="522" height="185" alt="Screenshot 2026-11-23 162155" src="https://github.com/user-attachments/assets/919fdcae-3759-4796-86c8-fa02d4913352" />
+
+- Bài này mình có thể nhập 3 lần và đồng nghĩa với 3 lần Format String. Chỉ cần nhập 1 lý tự khác y và Y là quay lại vòng lặp. Giờ mình cần phải vào gdb xem có gì để khai thác được 
+
+<img width="1526" height="482" alt="Screenshot 2026-11-23 175906" src="https://github.com/user-attachments/assets/c7efb4d2-b3b4-41a3-b47a-28fd1e345fce" />
+
+- Kiểm tra Stack bài này, có 1 địa chỉ đặc biệt, nó gần giống địa chỉ libc nhưng không phải, và nó đang trỏ tới 1 địa chỉ base binary
+
+<img width="942" height="297" alt="Screenshot 2026-11-23 180957" src="https://github.com/user-attachments/assets/6469ad3f-883e-40ed-ab0d-23987bf5738a" />
+<img width="756" height="55" alt="Screenshot 2026-11-23 180739" src="https://github.com/user-attachments/assets/9be1a2f7-d35f-4743-bbb6-ecc60f5e33ba" />
+
+- Dùng lệnh info files để kiểm tra, có 1 địa chỉ là .fini_arry, đây là 1 mảng gồm khoảng 1-2 phần tử, khi kết thúc chương trình, thực hiện exit, chương trình sẽ thực thi địa chỉ .fini_array. Nhưng địa chỉ .fini_array đó không phải là cố định, khi exit, chương trình sẽ lấy địa chỉ base cộng với 1 offset nhất định để ra được đúng địa chỉ .fini_array
+
 
