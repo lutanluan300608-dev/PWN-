@@ -283,4 +283,30 @@ Source: https://youtu.be/ZosW20QjET8?si=Js2CTy5OQO2r1X4u
 
 <img width="612" height="882" alt="Screenshot 2026-11-14 164738" src="https://github.com/user-attachments/assets/57ed046f-d808-4901-92dd-f70da645dd33" />
 
+## FMTSTR 7 - Định dạng con  "*"
+<img width="747" height="572" alt="Screenshot 2026-11-23 110846" src="https://github.com/user-attachments/assets/266bb226-9409-401d-b431-03fb861e8847" />
+<img width="755" height="263" alt="Screenshot 2026-11-23 113423" src="https://github.com/user-attachments/assets/f45e2be7-3949-41b4-80c4-bd1f222b5940" />
 
+
+
+- Trong bài này thì chỉ có 1 lỗi Format String duy nhất, mình cần dùng gdb để xem chương trình chạy thế nào và có thể khai thác ở đâu
+
+<img width="1287" height="852" alt="Screenshot 2026-11-23 113409" src="https://github.com/user-attachments/assets/8f1bcc90-a1b4-4bc4-a0bc-68969bcd520a" />
+<img width="1206" height="167" alt="Screenshot 2026-11-23 113214" src="https://github.com/user-attachments/assets/7532810a-b039-464d-9724-fb892e5ef44b" />
+
+
+- Chạy đến memset của content thì mình thấy là tại địa chỉ Stack đang chứa 1 địa chỉ binary, mà biến content lại nằm ngay dưới biến title, tức chỉ cần ghi đủ biến title thì printf(%s) của title sẽ nối chuỗi và in luôn ra địa chỉ binary 
+
+<img width="1902" height="857" alt="Screenshot 2026-11-23 132853" src="https://github.com/user-attachments/assets/34fdbbfd-4082-40ed-b2c5-d1d496f2c2fd" />
+<img width="507" height="57" alt="Screenshot 2026-11-23 133619" src="https://github.com/user-attachments/assets/8ca38e6c-7f7c-4952-abad-28fe47d9c9d2" />
+
+- Mình đã leak được binary. Lưu ý là do địa chỉ động nên random nó có thể xuất hiện byte null bên trong địa chỉ dẫn đến việc dừng in, nên mình cần chạy lại nhiều lần nếu gặp trường hợp đó. 
+- Bài này không có BOF nên cũng không còn leak thêm được gì
+
+<img width="452" height="577" alt="Screenshot 2026-11-23 134549" src="https://github.com/user-attachments/assets/e300ec3c-3c58-4aba-8288-2a3eead52d77" />
+
+<img width="463" height="192" alt="Screenshot 2026-11-23 134725" src="https://github.com/user-attachments/assets/9340d224-1668-4460-9275-b0cf0c3139e3" />
+
+
+- Mình quan sát thì thấy được là có hàm get_shell(), nếu truy cập vào được thì mình sẽ thực thi được system(/bin/sh)
+- Vì RELRO tắt nên mình có thể overwrite GOT được, bên dưới lỗi Format String thì có hàm exit(), mình có thể tận dụng ghi đè hàm exit() bằng hàm get_shell()
