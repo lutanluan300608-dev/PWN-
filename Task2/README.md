@@ -310,3 +310,27 @@ Source: https://youtu.be/ZosW20QjET8?si=Js2CTy5OQO2r1X4u
 
 - Mình quan sát thì thấy được là có hàm get_shell(), nếu truy cập vào được thì mình sẽ thực thi được system(/bin/sh)
 - Vì RELRO tắt nên mình có thể overwrite GOT được, bên dưới lỗi Format String thì có hàm exit(), mình có thể tận dụng ghi đè hàm exit() bằng hàm get_shell()
+
+<img width="1015" height="633" alt="Screenshot 2026-11-23 141308" src="https://github.com/user-attachments/assets/e9c5bf04-3a0b-430c-92de-2f16eea0ac70" />
+- Do chỉ khác nhau 2 byte nên mình sẽ ghi đè 1 lần 2 byte luôn
+- Nhưng do là địa chỉ động nên mình cần phải brute-force, do 1 lần mình chỉ ghi đè có 2 byte
+- Hoặc còn 1 cách khác, đó là sử dụng toán tử con "*". Ví dụ khi chạy chương trình, địa chỉ ngẫu nhiên, nhưng mình có thể ghi được chính xác 2 byte dù bị random
+
+### Toán tử con * trong Format String 
+<img width="236" height="125" alt="Screenshot 2026-11-23 143102" src="https://github.com/user-attachments/assets/eac2d6d6-cbe4-43ac-ba6e-931f3c76bf1f" />
+<img width="830" height="95" alt="Screenshot 2026-11-23 143322" src="https://github.com/user-attachments/assets/e05a65d4-f885-442c-b471-b71b8c5e7dce" />
+
+- Con * nó sẽ trỏ tới chính xác số lượng byte được chỉ định, ví dụ ở đây là 10 byte thì nó sẽ trỏ đúng số lượng 10 byte (bao gồm cả biến a là 2 byte) và rồi in ra 10 byte đó bằng %d.
+
+### Tiếp tục khai thác
+<img width="472" height="445" alt="Screenshot 2026-11-23 144909" src="https://github.com/user-attachments/assets/aeab8210-80a2-4742-af76-868d94a8a6e6" />
+
+<img width="1172" height="736" alt="Screenshot 2026-11-23 150132" src="https://github.com/user-attachments/assets/5f01c081-da6e-4e04-87cd-e7e94d293223" />
+
+- Đây là khi mình chỉ nhập %$c thông thường, mặc dù nó trỏ tới vị trí %14 nhưng nó sẽ không in đúng 0xb2b7 mà chỉ lấy đúng số lượng 1 byte cuối là 0xb7 thôi. Vì thế mình cần thêm con * vào để padding chính xác số lượng byte cần lấy và ghi.
+
+<img width="426" height="435" alt="Screenshot 2026-11-23 150906" src="https://github.com/user-attachments/assets/8027ca71-7e13-4d1c-a188-59b20a0ffa36" />
+<img width="1916" height="992" alt="Screenshot 2026-11-23 150652" src="https://github.com/user-attachments/assets/e61260f4-7f6d-433d-8f93-f824b94c5d06" />
+
+- Đây là khi mình thêm %* vào thì nó sẽ lấy đúng số lượng byte và in ra các byte rỗng để %n ghi đè đúng số lượng byte vào địa chỉ exit 
+
