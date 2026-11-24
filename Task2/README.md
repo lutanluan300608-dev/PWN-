@@ -463,3 +463,32 @@ p.sendlineafter(b'> ', b'n')
 
 p.interactive()
 ```
+
+## FMTSTR 9 - Dùng con trỏ Stack có sẵn để thay đổi dữ liệu
+
+- Trong bài này, phần buffer mà mình dùng để nhập Format String không còn nằm trên Stack nữa
+
+<img width="597" height="610" alt="Screenshot 2026-11-24 160934" src="https://github.com/user-attachments/assets/401d8160-a8eb-4116-8c3d-ed5918af698d" />
+<img width="371" height="85" alt="Screenshot 2026-11-24 180334" src="https://github.com/user-attachments/assets/f5952e56-b9bc-4b7a-ac4a-8d566137b731" />
+
+- Chỉ có 1 lần Format String. Mà mình thấy có hàm get_shell() có thể khai thác được
+
+<img width="1552" height="803" alt="Screenshot 2026-11-24 182011" src="https://github.com/user-attachments/assets/8f54ad92-80a0-4792-af02-bffa85a341f1" />
+
+- Mình dừng tại printf() mà xảy ra Format String, mình thấy là chuỗi mình vừa nhập vào không còn được nằm trên Stack nữa mà đang nằm trên Heap -> Đồng nghĩa với việc Format String mình nhập vào sẽ thay đổi dữ liệu trên Heap chứ không còn thay đổi dữ liệu trên Stack 
+
+- Để có thể thay đổi được địa chỉ đó, mình cần dùng 1 địa chỉ Stack có sẵn đang nằm trên Stack
+
+<img width="1632" height="512" alt="Screenshot 2026-11-24 185108" src="https://github.com/user-attachments/assets/13fead24-8ee9-4e99-9f0e-f388c4a5cc5e" />
+
+
+- Ý tưởng lúc này là mình sẽ ghi đè địa chỉ get_shell() vào saved-rip của hàm play(). Nhưng mình lại không có địa chỉ nào trỏ tới saved-rip của play(). Nên mình sẽ sử dụng 1 địa chỉ Stack đang trỏ tới 1 địa chỉ khác trên Stack.
+- Ví dụ mình %n vào 0x7fffffffde80, thì dữ liệu là 0x7fffffffde90 (địa chỉ Stack) sẽ bị thay đổi. 
+
+<img width="1421" height="512" alt="Screenshot 2026-11-24 234441" src="https://github.com/user-attachments/assets/1679bd6c-986f-4e5c-852c-30d21bddb0b5" />
+
+<img width="1412" height="457" alt="Screenshot 2026-11-24 234453" src="https://github.com/user-attachments/assets/87264375-b725-486f-9af7-9b4fa6805aec" />
+
+<img width="1643" height="782" alt="Screenshot 2026-11-24 232926" src="https://github.com/user-attachments/assets/ebdd7d53-4959-44df-9169-761ee753a0d2" />
+
+
