@@ -374,6 +374,9 @@ Source: https://youtu.be/ZosW20QjET8?si=Js2CTy5OQO2r1X4u
 
 <img width="1646" height="270" alt="Screenshot 2026-11-23 222917" src="https://github.com/user-attachments/assets/22429494-d59d-4972-b504-f59abc247a35" />
 
-- Để ghi đè địa chỉ get_shell() vào thì mình cần ghi đè 2 byte mỗi lần (tránh lỗi và ghi quá lâu với 6 byte 1 lần), mình sẽ dùng package 
+- Để ghi đè địa chỉ get_shell() vào thì mình cần ghi đè 2 byte mỗi lần (tránh lỗi và ghi quá lâu với 6 byte 1 lần), mình sẽ đưa vào package, mỗi lần lấy 2 byte mình sẽ dịch thêm 16 bit để lấy 2 byte kế tiếp
 
+<img width="780" height="251" alt="Screenshot 2026-11-24 142715" src="https://github.com/user-attachments/assets/2b554429-d373-4f36-8d1f-c58f9a9bdcbd" />
+ 
+- Sau đó mình cộnh thêm offset từ base tới vùng rw- mình muốn ghi vào. Và mình cũng cần cộng thêm 2 byte và 4 byte ở 2 lần ghi kế để nó ghi tới 2 byte sau của địa chỉ (nếu ko cộng nó sẽ ghi cả 3 lần đều vào 2 byte đầu của địa chỉ)
 
