@@ -493,3 +493,25 @@ p.interactive()
 
 - Nhưng vì địa chỉ Stack là random nên mình phải brute-force, mà địa chỉ Stack chỗ saved-rbp và saved-rip của play() chit khác nhau 1 byte cuối, nên mình sẽ brute-force 1 byte. Mình sẽ chọn byte 0x98 để brute-force, chạy lại cho tới khi nào gặp địa chỉ Stack chỗ saved-rip play() là đuôi 0x98. 
 
+<img width="1082" height="682" alt="Screenshot 2026-11-25 143434" src="https://github.com/user-attachments/assets/e79535d6-4dc8-488f-9f54-352c3e64e110" />
+
+- Saved-rbp play() là 1 con trỏ và đang trỏ tới 1 giá trị, mình ghi đè giá trị đó thông qua con trỏ saved-rbp. Và giá trị vừa ghi đè là 1 con trỏ khác trỏ tới saved-rip play()
+- Ngay tại deb0(địa chỉ Stack) có 1 giá trị địa chỉ, nó là con trỏ đang trỏ tới saved-rip play() -> tức là mình có thể ghi đề giá trị saved-rip đó thông qua con trỏ
+
+<img width="792" height="160" alt="Screenshot 2026-11-25 152149" src="https://github.com/user-attachments/assets/6c54d672-67ce-4207-a840-9f9a2c78943f" />
+
+<img width="946" height="603" alt="Screenshot 2026-11-25 152117" src="https://github.com/user-attachments/assets/f2b8b127-5f00-447d-b24e-9dfb30cda4de" />
+
+- Dù ghi đè thành công địa chỉ trỏ tới saved-rip nhưng mình không ghi đè được saved-rip
+- Lí do là cả 2 mình đều dùng padding short-form, thế nên ở lần ghi thứ 2 thì thứ tự % format ghi đè bị lệch đi. Mình cần phải ghi full-form trước vì full-form được thực thi trước rồi mới tới short-form.
+
+<img width="792" height="160" alt="Screenshot 2026-11-25 152149" src="https://github.com/user-attachments/assets/8d6d19e0-e5c0-4ddd-8893-af431d5cc79a" />
+
+- Thay vì dùng %10$hn thì mình sẽ ghi 8 % đầu tiên, % thứ 9 là số byte ghi đè và % 10 là vị trí mình ghi đè %hhn vào
+- Sau đó dùng padding short-form để ghi đè địa chỉ saved-rip
+- Nhưng do lúc chạy gặp lỗi SIGSEGV nên mình cần đổi địa chỉ nhảy vào của saved-rip tăng lên 5.
+
+## Final Script
+- Do là địa chỉ Stack động mà mình chỉ ghi đè có 1 byte nên mình phải brute-force, để nhanh thì mình dùng 1 vòng while
+
+<img width="867" height="695" alt="Screenshot 2026-11-25 155514" src="https://github.com/user-attachments/assets/9e06c6b5-8832-43b3-95f3-61dce425ad2f" />
