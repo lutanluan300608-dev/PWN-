@@ -512,6 +512,6 @@ p.interactive()
 - Nhưng do lúc chạy gặp lỗi SIGSEGV nên mình cần đổi địa chỉ nhảy vào của saved-rip tăng lên 5.
 
 ## Final Script
-- Do là địa chỉ Stack động mà mình chỉ ghi đè có 1 byte nên mình phải brute-force, để nhanh thì mình dùng 1 vòng while
+- Do là địa chỉ Stack động mà mình chỉ ghi đè có 1 byte nên mình phải brute-force, để nhanh thì mình dùng 1 vòng while  
 
 <img width="867" height="695" alt="Screenshot 2026-11-25 155514" src="https://github.com/user-attachments/assets/9e06c6b5-8832-43b3-95f3-61dce425ad2f" />
