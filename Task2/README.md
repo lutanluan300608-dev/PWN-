@@ -491,5 +491,5 @@ p.interactive()
 
 <img width="1643" height="782" alt="Screenshot 2026-11-24 232926" src="https://github.com/user-attachments/assets/ebdd7d53-4959-44df-9169-761ee753a0d2" />
 
-- Nhưng vì địa chỉ Stack là random nên mình phải brute-force, mà địa chỉ Stack chỗ saved-rbp và saved-rip của play() chit khác nhau 1 byte cuối, nên mình sẽ brute-force 1 byte. Mình sẽ chọn byte 0x68 để brute-force, chạy lại cho tới khi nào gặp địa chỉ Stack chỗ saved-rip play() là đuôi 0x68. 
+- Nhưng vì địa chỉ Stack là random nên mình phải brute-force, mà địa chỉ Stack chỗ saved-rbp và saved-rip của play() chit khác nhau 1 byte cuối, nên mình sẽ brute-force 1 byte. Mình sẽ chọn byte 0x98 để brute-force, chạy lại cho tới khi nào gặp địa chỉ Stack chỗ saved-rip play() là đuôi 0x98. 
 
