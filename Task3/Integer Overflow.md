@@ -57,4 +57,4 @@
 <img width="470" height="275" alt="Screenshot 2026-11-26 232654" src="https://github.com/user-attachments/assets/6bcc77f8-41c1-4044-8723-25aa0ab0c786" />
 
 - Mình có thể tận dụng lỗi ép kiểu để ghi từ dữ liệu này thành dữ liệu khác mà mình muốn
-- Ví dụ trước đó mình đã dùng %hn ghi vào `0x6789` mà mình muốn đổi thành số nhỏ hơn `0x1234`. Mình sẽ cộng 1 giá trị 
+- Ví dụ trước đó mình đã dùng %hn ghi vào `0x6789` mà mình muốn đổi thành số nhỏ hơn `0x1234`. Mình sẽ cộng 1 giá trị để thành `0x11234` do %hn chỉ ghi 2 byte nên nó sẽ lấy đúng 2 byte đầu `0x1234` rồi ngắt ra mà bỏ qua các byte còn lại.
