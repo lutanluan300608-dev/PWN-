@@ -34,3 +34,12 @@
 
 - Lần này mình nhập thử 128 chữ A (thêm \n) nhưng nó lại in ra -127 là số âm thay vì 129. Do size là biến chứa số ký tự mà size được khai báo kiểu `char` (thường mặc định là signed) nên kích thước số nguyên dương tối đa chỉ có 127 mà mình nhập tận 129 ký tự -> Tràn số nguyên có dấu
 - NOTE: kiểu char 8 bit -> $$2^8$$ -> 256 -> 129 - 256 = -127.
+
+### Ví dụ Khai thác Integer Overflow
+<img width="432" height="345" alt="Screenshot 2026-11-26 185105" src="https://github.com/user-attachments/assets/682c2e2d-91dc-43fc-8ac2-1b55d586368f" />
+<img width="1567" height="165" alt="Screenshot 2026-11-26 185057" src="https://github.com/user-attachments/assets/5a54a5bf-4b97-46d5-ab9e-e2ab1bd73c57" />
+
+<img width="487" height="380" alt="Screenshot 2026-11-26 185351" src="https://github.com/user-attachments/assets/98799569-37ff-428f-8af3-e226e17f9d75" />
+<img width="687" height="200" alt="Screenshot 2026-11-26 185343" src="https://github.com/user-attachments/assets/b1bf6a07-9726-4d9e-bf56-1d112afa5013" />
+
+# Integer Overflow - Lỗi ép kiểu
