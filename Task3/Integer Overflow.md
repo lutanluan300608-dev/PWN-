@@ -43,3 +43,18 @@
 <img width="687" height="200" alt="Screenshot 2026-11-26 185343" src="https://github.com/user-attachments/assets/b1bf6a07-9726-4d9e-bf56-1d112afa5013" />
 
 # Integer Overflow - Lỗi ép kiểu
+- Lỗi ép kiểu là việc 1 giá trị chuyển từ kiểu dữ liệu này sang kiểu dữ liệu kia nhưng ở kiểu mới, giá trị đó vượt quá kích thước, không biểu diễn được
+- Ví dụ
+
+<img width="485" height="377" alt="Screenshot 2026-11-26 225350" src="https://github.com/user-attachments/assets/90c20b20-6b3f-4c47-a37a-6a26c5881b54" />
+<img width="658" height="80" alt="Screenshot 2026-11-26 225343" src="https://github.com/user-attachments/assets/b9958b3f-5efd-4978-bba2-f6d6047aed22" />
+
+- Biến a khai báo với kiểu `unsigned long int` -> kích thước lớn và đủ để biểu diễn giá trị `0x123456789abcdef0` và in ra được đúng giá trị
+- Nhưng hàm void in ra biến a với kiểu `unsigned int` -> kích thước nhỏ hơn và không đủ thể biểu diễn cùng giá trị -> giá trị bị thất thoát và in ra sai giá trị
+- Do kích thước của `unsigned int` là 32 bit (4byte) nên khi lấy dữ liệu và in ra, nó sẽ chỉ lấy tối đa 4 byte, là 4 byte đầu: 0x9abcdef0
+
+### Ví dụ áp dụng khai thác
+<img width="470" height="275" alt="Screenshot 2026-11-26 232654" src="https://github.com/user-attachments/assets/6bcc77f8-41c1-4044-8723-25aa0ab0c786" />
+
+- Mình có thể tận dụng lỗi ép kiểu để ghi từ dữ liệu này thành dữ liệu khác mà mình muốn
+- Ví dụ trước đó mình đã dùng %hn ghi vào `0x6789` mà mình muốn đổi thành số nhỏ hơn `0x1234`. Mình sẽ cộng 1 giá trị 
