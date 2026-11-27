@@ -6,7 +6,6 @@
 - NX bật -> bỏ qua shellcode
 - Canary -> Leak canary
 - Mình kiểm tra ROPgadget trong file binary thì không có đủ gadget để gọi execve syscall, cả pop rdi và pop rsi cũng không có
-- Mình xem tiếp trong libc thì may mắn là có đủ các gadget cần thiết để gọi execve syscall -> Mình sẽ leak libc 
 
 
 # Khai thác 
