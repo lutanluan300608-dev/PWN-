@@ -23,13 +23,13 @@
 <img width="642" height="295" alt="Screenshot 2026-11-28 162116" src="https://github.com/user-attachments/assets/947fba6a-9461-45e1-bbfc-33060b8663ba" />
 
 - Do có hàm strlen() nên mình cần bypass bằng cách thêm null byte vào để ngắt.
-- Mình cũng sẽ đưa rw-section vào saved-rbp để tránh việc giá trị không hợp lệ
+- Mình cũng sẽ đưa rw-section nằm ở vùng trống nhiều vào saved-rbp ở lần đầu tiên để tránh việc giá trị không hợp lệ
 
 <img width="423" height="182" alt="Screenshot 2026-11-28 162512" src="https://github.com/user-attachments/assets/6676f208-06f7-4888-8025-fd72a7a7e646" />
 <img width="925" height="166" alt="Screenshot 2026-11-28 012224" src="https://github.com/user-attachments/assets/6b87470c-2aa3-48e9-b34d-7221f4019539" />
 
 - Leak được libc rồi thì mình chỉ cần nhảy vào 1 hàm tạo shell. Mình sẽ chọn dùng one_gadget (hoặc có thể lấy các gadget tham số trong libc rồi nhảy vào hàm system()).
-
+- Việc đưa rw_section vào saved-rbp cũng giúp mình thỏa điều kiện của one_gadget. Do RBP lúc này là giá trị rw_section mà nằm ở vùng trống rất nhiều, nên rbp hay con của nó cũng đều thỏa điều kiện = NULL. Dù cho chương trình thực thi các lệnh rbp-offset thì nó vẫn nằm đúng trong vùng `.bss`
 ### Final Script
 
 <img width="655" height="847" alt="Screenshot 2026-11-28 162907" src="https://github.com/user-attachments/assets/87bdab2c-a2fb-442a-95ee-0ad2fff2836b" />
